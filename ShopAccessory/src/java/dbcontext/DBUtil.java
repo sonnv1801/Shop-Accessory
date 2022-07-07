@@ -5,19 +5,15 @@
  */
 package dbcontext;
 
-import static dbcontext.DatabaseInfor.driverName;
-import static dbcontext.DatabaseInfor.pass;
-import static dbcontext.DatabaseInfor.url;
-import static dbcontext.DatabaseInfor.user;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
  *
- * @author PC
+ * @author Van Son
  */
-public class DBUtil extends DatabaseInfor {
+public class DBUtil implements DatabaseInfor {
 
     private static DBUtil instance;
 

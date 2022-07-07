@@ -1,4 +1,4 @@
-package org.apache.jsp.admin;
+package org.apache.jsp;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -48,7 +48,7 @@ public final class LoginAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <link href=\"../css/LoginAdmin.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("        <link href=\"./css/LoginAdmin.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
       out.write("        <title>Page Login Admin</title>\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n");
       out.write("        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor\" crossorigin=\"anonymous\">\n");
@@ -57,11 +57,13 @@ public final class LoginAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"container-fluid backgroud-all\">\n");
       out.write("            <div class=\"card\">\n");
       out.write("                <div class=\"card-body\">\n");
-      out.write("                    <img src=\"../images/iconUsers.png\" alt=\"imageUser\"/>\n");
+      out.write("                    <img src=\"./images/iconUsers.png\" alt=\"imageUser\"/>\n");
       out.write("                    <h3>Đăng Nhập</h3>\n");
-      out.write("                     <p id=\"error\">");
+      out.write("                    <p style=\"text-align: center; font-size: 15px; font-family: cursive; color: palevioletred\" role=\"alert\">\n");
+      out.write("                        ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${loginFail}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("</p>\n");
+      out.write("\n");
+      out.write("                    </p>\n");
       out.write("                    <form action=\"LoginAdminServlet\" method=\"post\">\n");
       out.write("                        <div class=\"input-group mb-3\">\n");
       out.write("                            <span class=\"input-group-text\" id=\"inputGroup-sizing-default\"><i class=\"fa fa-user\"></i></span>\n");
@@ -78,7 +80,7 @@ public final class LoginAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                Ghi Nhớ\n");
       out.write("                            </label>\n");
       out.write("                        </div>\n");
-      out.write("                      <button type=\"submit\" class=\"btn btn-secondary\">Đăng Nhập</button>\n");
+      out.write("                        <button type=\"submit\" class=\"btn btn-secondary\">Đăng Nhập</button>\n");
       out.write("                    </form>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");

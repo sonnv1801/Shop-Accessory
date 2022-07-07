@@ -42,3 +42,8 @@ and open the template in the editor.
     margin-bottom:  20px;
     background-image: linear-gradient(to right, #00b1ff57 , #008078a6);
 }
+
+#error {
+    text-align: center;
+    color: red;
+}

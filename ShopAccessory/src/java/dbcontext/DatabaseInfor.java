@@ -7,11 +7,11 @@ package dbcontext;
 
 /**
  *
- * @author PC
+ * @author Van Son
  */
-public class DatabaseInfor {
-     public static String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    public static String url="jdbc:sqlserver://127.0.0.1:1433;databaseName=LoginShoppingCart;";
+public interface DatabaseInfor {
+    public static String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    public static String url="jdbc:sqlserver://127.0.0.1:1433;databaseName=doanFPT;";
     public static String user="sa";
     public static String pass="vanson123";
 }
