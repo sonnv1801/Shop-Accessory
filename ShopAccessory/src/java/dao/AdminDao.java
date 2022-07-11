@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,34 +21,70 @@ import java.util.logging.Logger;
  * @author PC
  */
 public class AdminDao {
-     private Connection con;
-    private String query;
-    private PreparedStatement pst;
-    private ResultSet rs;
 
-    public AdminDao(Connection con) {
-        this.con = con;
+
+    public boolean login(Admin user) {
+        DBUtil db = DBUtil.getInstance();
+        String sql = "select * from Admin where username=? and password=?";
+
+        Connection con = null;
+        try {
+            con = db.getConnection();
+
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, user.getUsername().trim());
+            statement.setString(2, user.getPassword().trim());
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                System.out.println("Success");
+                return true;
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                DBUtil.closeConnection(con);
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
     }
 
-     public Admin userLogin(String username, String password) {
-        Admin user = null;
+    public boolean registerUser(Admin user) {
+        DBUtil db = DBUtil.getInstance();
+        String sql = "INSERT INTO Admin (avatar, name, username, password)\n"
+                + "VALUES (?,?,?,?);";
+
+        Connection con = null;
         try {
-            query = "select * from Admin where username=? and password=?";
-            pst = this.con.prepareStatement(query);
-            pst.setString(1, username);
-            pst.setString(2, password);
-            rs = pst.executeQuery();
-            
-            if(rs.next()) {
-                user = new Admin();
-                user.setId(rs.getInt("id"));
-                user.setName(rs.getString("name"));
+            con = db.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, user.getAvatar());
+            statement.setString(2, user.getName());
+            statement.setString(3, user.getUsername());
+            statement.setString(4, (String) user.getPassword());
+            int rs = statement.executeUpdate();
+            if (rs == 1) {
+                System.out.println("success");
+                return true;
             }
-        } catch (SQLException e) {
-            //TODO: handle exception
-            e.printStackTrace();
-            System.out.println(e.getMessage());
+
+        } catch (Exception ex) {
+            Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                DBUtil.closeConnection(con);
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        return user;
+        return false;
+    }
+
+    public String getAmin(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

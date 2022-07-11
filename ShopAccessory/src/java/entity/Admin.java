@@ -19,8 +19,6 @@ public class Admin {
 
     public Admin() {
     }
-    
-    
 
     public Admin(int id, String avatar, String name, String username, String password) {
         this.id = id;
@@ -33,6 +31,21 @@ public class Admin {
     public Admin(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public Admin(String avatar, String name, String username, String password) {
+
+        this.avatar = avatar;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+    }
+
+    public Admin(int id, String avatar, String name, String username) {
+        this.id = id;
+        this.avatar = avatar;
+        this.name = name;
+        this.username = username;
     }
 
     public int getId() {
@@ -79,7 +92,5 @@ public class Admin {
     public String toString() {
         return "Admin{" + "id=" + id + ", avatar=" + avatar + ", name=" + name + ", username=" + username + ", password=" + password + '}';
     }
-
-
 
 }

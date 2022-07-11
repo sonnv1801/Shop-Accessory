@@ -22,7 +22,6 @@ import javax.servlet.http.HttpSession;
  *
  * @author PC
  */
-
 @WebServlet(name = "LoginAdminServlet", urlPatterns = {"/LoginAdminServlet"})
 public class LoginAdminServlet extends HttpServlet {
 
@@ -34,9 +33,9 @@ public class LoginAdminServlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * 
+     *
      */
-    
+    private static AdminDao userDao = new AdminDao();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -46,7 +45,7 @@ public class LoginAdminServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginAdmin</title>");            
+            out.println("<title>Servlet LoginAdmin</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet LoginAdmin at " + request.getContextPath() + "</h1>");
@@ -67,7 +66,7 @@ public class LoginAdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       response.sendRedirect("LoginAdmin.jsp");
+        request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
     }
 
     /**
@@ -81,25 +80,39 @@ public class LoginAdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            String email = request.getParameter("username");
-            String password = request.getParameter("password");
-            
-            try {
-                AdminDao udao = new AdminDao(DbCon.getConnection());
-                Admin user = udao.userLogin(email, password);
-                
-                if(user != null) {
-                    request.getSession().setAttribute("auth", user);
-                    response.sendRedirect("./admin/HomePage.jsp");
-                } else {
-                     request.setAttribute("loginFail", "User name or password is incorrect");
-                     request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
-                }
-            } catch (ClassNotFoundException | SQLException e) {
-                e.printStackTrace();
-            }
+//       response.setContentType("text/html;charset=UTF-8");
+//        try ( PrintWriter out = response.getWriter()) {
+//            String email = request.getParameter("username");
+//            String password = request.getParameter("password");
+//            
+//            try {
+//                AdminDao udao = new AdminDao(DbCon.getConnection());
+//                Admin user = udao.userLogin(email, password);
+//                
+//                if(user != null) {
+//                    request.getSession().setAttribute("auth", user);
+//                    response.sendRedirect("./admin/HomePage.jsp");
+//                } else {
+//                     request.setAttribute("loginFail", "User name or password is incorrect");
+//                     request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
+//                }
+//            } catch (ClassNotFoundException | SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        Admin user = new Admin(username, password);
+        if (userDao.login(user)) {
+            HttpSession session = request.getSession();
+           
+           session.setAttribute("userLogin", user);            
+           response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+        } else {
+            request.setAttribute("LoginAdmin", user);
+            request.setAttribute("loginFail", "User name or password is incorrect");
+            request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
         }
     }
 

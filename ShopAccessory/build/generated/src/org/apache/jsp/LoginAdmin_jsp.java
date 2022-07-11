@@ -64,14 +64,20 @@ public final class LoginAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${loginFail}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\n");
       out.write("                    </p>\n");
-      out.write("                    <form action=\"LoginAdminServlet\" method=\"post\">\n");
+      out.write("                    <form action=\"");
+      out.print(request.getContextPath());
+      out.write("/LoginAdmin\" method=\"post\" name=\"frm-login\" onsubmit = \"return validateLogin()\">\n");
       out.write("                        <div class=\"input-group mb-3\">\n");
       out.write("                            <span class=\"input-group-text\" id=\"inputGroup-sizing-default\"><i class=\"fa fa-user\"></i></span>\n");
-      out.write("                            <input type=\"text\" name=\"username\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-default\" placeholder=\"Nhập tên đăng nhập\">\n");
+      out.write("                            <input type=\"text\" name=\"username\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-default\" placeholder=\"Nhập tên đăng nhập\" value = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userRegister.username}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\">\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"input-group mb-3\">\n");
       out.write("                            <span class=\"input-group-text\" id=\"inputGroup-sizing-default\"><i class=\"fa fa-key\"></i></span>\n");
-      out.write("                            <input type=\"password\" name=\"password\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-default\" placeholder=\"Nhập mật khẩu\">\n");
+      out.write("                            <input type=\"password\" name=\"password\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-default\" placeholder=\"Nhập mật khẩu\" value = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userRegister.password}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\">\n");
       out.write("                            <span class=\"input-group-text\" id=\"inputGroup-sizing-default\"><i class=\"fa fa-eye\"></i></span>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"form-check\">\n");
@@ -85,6 +91,9 @@ public final class LoginAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
+      out.write("        <script src=\"");
+      out.print(request.getContextPath());
+      out.write("/resources/js/LoginAdmin.js\"></script>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

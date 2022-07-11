@@ -23,14 +23,14 @@
                     <p style="text-align: center; font-size: 15px; font-family: cursive; color: palevioletred" role="alert">
                         ${loginFail}
                     </p>
-                    <form action="LoginAdminServlet" method="post">
+                    <form action="<%=request.getContextPath()%>/LoginAdmin" method="post" name="frm-login" onsubmit = "return validateLogin()">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa fa-user"></i></span>
-                            <input type="text" name="username" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nhập tên đăng nhập">
+                            <input type="text" name="username" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nhập tên đăng nhập" value = "${userRegister.username}">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa fa-key"></i></span>
-                            <input type="password" name="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nhập mật khẩu">
+                            <input type="password" name="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nhập mật khẩu" value = "${userRegister.password}">
                             <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa fa-eye"></i></span>
                         </div>
                         <div class="form-check">
@@ -44,5 +44,6 @@
                 </div>
             </div>
         </div>
+        <script src="<%=request.getContextPath()%>/resources/js/LoginAdmin.js"></script>
     </body>
 </html>

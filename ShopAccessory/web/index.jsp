@@ -15,5 +15,6 @@
         <%@include file="includes/navbar.jsp" %>
         <h1>Body</h1>
         <%@include file="includes/footer.jsp" %>
+        <a href="AdminControllerServlet">Go To</a>
     </body>
 </html>
