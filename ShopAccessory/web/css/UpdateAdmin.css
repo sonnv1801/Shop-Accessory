@@ -1,0 +1,46 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 11, 2022, 9:51:30 AM
+    Author     : PC
+*/
+
+
+.backgroud-all-update {
+    border-radius: 3px;
+    color: white;
+    margin: 100px 0px;
+    width: 100%;
+    overflow: hidden;
+    background-image: linear-gradient(to right, #00d7ff8c , #008055a3);
+}
+
+.backgroud-all-update h1 {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 2px 0px;
+    font-family: cursive;
+}
+
+.backgroud-all-update form {
+    padding: 2px 200px;
+    font-family: cursive;
+}
+
+.backgroud-all-update input {
+    border-color: #ccc;
+} 
+
+.backgroud-all-update form button {
+    float: left;
+    margin: 10px 0px;  
+}
+
+.backgroud-all-update form a {
+    float: right;
+    color: red;
+        
+} 
