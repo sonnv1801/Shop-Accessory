@@ -38,8 +38,8 @@ public class QlAdminDao {
                 String name = rs.getString(3);
                 String username = rs.getString(4);
                 String password = rs.getString(5);
-                Admin student = new Admin(id, avatar, name, username, password);
-                sl.add(student);
+                Admin admin = new Admin(id, avatar, name, username, password);
+                sl.add(admin);
             }
             rs.close();
             statement.close();

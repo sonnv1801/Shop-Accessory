@@ -28,32 +28,30 @@
                         <i class="fa fa-bars"></i>
                     </div>
                     <div class="container backgroud-all-update">
-                        <h1>UPDATE Admin</h1>
-                        <form action="AdminControllerServlet" method="GET">
+                        <h1>UPDATE Tin Tức</h1>
+                         <form action="NewsServlet" method="GET">
                             <input type="hidden" name="command" value="UPDATE">
-                            <input type="hidden" name="adminId"  required value="${THE_ADMIN.id}">
+                            <input type="hidden" name="newsId"  required value="${THE_NEWS.id}">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Tiêu Đề</label>
+                                <input type="text" name="title" required value="${THE_NEWS.title}" class="form-control" id="recipient-name" placeholder="Nhập tiêu đề">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Nội Dung</label>
+                                <input type="text" name="des" required value="${THE_NEWS.des}" class="form-control" id="recipient-name" placeholder="Nhập nội dung">
+                            </div>
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Hình Ảnh</label>
-                                <input type="file" name="avatar" required value="${THE_ADMIN.avatar}" class="form-control" id="recipient-name" placeholder="Nhập tên hình ảnh">
+                                <input type="file" name="image" required value="${THE_NEWS.image}" class="form-control" id="recipient-name" placeholder="Nhập hình ảnh">
                             </div>
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Tên Admin</label>
-                                <input type="text" name="name" required value="${THE_ADMIN.name}" class="form-control" id="recipient-name" placeholder="Nhập tên Admin">
-                            </div>
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Tên Đăng Nhập</label>
-                                <input type="text" name="username" required value="${THE_ADMIN.username}" class="form-control" id="recipient-name" placeholder="Nhập tên đăng nhập">
-                            </div>
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Mật Khẩu</label>
-                                <input type="password" name="password" required value="${THE_ADMIN.password}" class="form-control" id="recipient-name" placeholder="Nhập mật khẩu">
-                            </div>
+                          
                             <button type="submit" class="btn btn-success">Save</button>
-                            <a id="back" href="AdminControllerServlet"><i class="fa fa-arrow-circle-o-left" style="font-size:36px"></i></a>
+                            <a id="back" href="NewsServlet"><i class="fa fa-arrow-circle-o-left" style="font-size:36px"></i></a>
                         </form>
+                        
                     </div>
                 </div>
             </div>
-
+</div>
     </body>
 </html>

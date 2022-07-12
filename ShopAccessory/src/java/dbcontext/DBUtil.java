@@ -5,28 +5,15 @@
  */
 package dbcontext;
 
-<<<<<<< HEAD
-import static dbcontext.DatabaseInfor.driverName;
-import static dbcontext.DatabaseInfor.pass;
-import static dbcontext.DatabaseInfor.url;
-import static dbcontext.DatabaseInfor.user;
-=======
->>>>>>> Admin
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
  *
-<<<<<<< HEAD
- * @author PC
- */
-public class DBUtil extends DatabaseInfor {
-=======
  * @author Van Son
  */
 public class DBUtil implements DatabaseInfor {
->>>>>>> Admin
 
     private static DBUtil instance;
 

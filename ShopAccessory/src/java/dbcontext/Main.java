@@ -6,8 +6,10 @@
 package dbcontext;
 
 import dao.AdminDao;
+import dao.NewsDao;
 import dao.QlAdminDao;
 import entity.Admin;
+import entity.News;
 import java.util.List;
 
 /**
@@ -19,7 +21,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 //        AdminDao dao = new AdminDao();
 //        Boolean check = dao.login(new Admin("vson", "12345"));
 //        System.out.println(""+check);
@@ -29,17 +31,26 @@ public class Main {
 
 //        AdminDao dao = new AdminDao();
 //        System.out.println("" + dao.getAdmins());
-
-       QlAdminDao dao = new QlAdminDao();
-        System.out.println(""+ dao.getAdmins());
-        
-//        dao.addAdmin(new Admin("image5", "Son", "v2", "12345"));
-//        System.out.println("ok");
-        
-     dao.updateAdmin(new Admin(7, "image2", "Van Son 1", "son47788@donga.edu.vn", "12345"));
-      System.out.println(""+ dao.getAdmins());
-
+//       QlAdminDao dao = new QlAdminDao();
+//        System.out.println(""+ dao.getAdmins());
+//        
+////        dao.addAdmin(new Admin("image5", "Son", "v2", "12345"));
+////        System.out.println("ok");
+//        
+//     dao.updateAdmin(new Admin(7, "image2", "Van Son 1", "son47788@donga.edu.vn", "12345"));
+//      System.out.println(""+ dao.getAdmins());
 //      dao.deleteAdmin("12");
+        NewsDao dao = new NewsDao();
+//        dao.addNews(new News("admin", "Noi Dung Des", "7/11/2002", "Tieu De", "image1.png"));
+//        System.out.println("ok");
+
+//        System.out.println("" + dao.getNews());
+
+//        dao.updateNews(new News(1, "Noi Dung Des", "Noi Dung Title", "image1.png"));
+//      System.out.println(""+ dao.getNews());
+//        System.out.println("" + dao.getNews("2"));
+//        dao.deleteNews("1");
+        System.out.println("" + dao.getAllNews());
     }
 
 }

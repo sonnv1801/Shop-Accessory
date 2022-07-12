@@ -5,9 +5,8 @@
  */
 package controller;
 
-import dao.AdminDao;
-import dao.QlAdminDao;
-import entity.Admin;
+import dao.NewsDao;
+import entity.News;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -17,13 +16,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author PC
  */
-public class AdminControllerServlet extends HttpServlet {
+public class NewsServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +40,10 @@ public class AdminControllerServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AdminControllerServlet</title>");            
+            out.println("<title>Servlet NewsServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AdminControllerServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet NewsServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,32 +61,32 @@ public class AdminControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          try {
+        try {
             String theCommand = request.getParameter("command");
             if (theCommand == null) {
                 theCommand = "LIST";
             }
             switch (theCommand) {
                 case "LIST":
-                    listAdmins(request, response);
+                    listNews(request, response);
                     break;
-//                case "ADD":
-//                    addAdmin(request, response);
-//                    break;
+                case "ADD":
+                    addNews(request, response);
+                    break;
                 case "LOAD":
-                    loadAdmin(request, response);
+                    loadNews(request, response);
                     break;
                 case "UPDATE":
-                    updateAdmin(request, response);
+                    updateNews(request, response);
                     break;
                 case "DELETE":
-                    deleteAdmin(request, response);
+                    deleteNews(request, response);
                     break;
                 default:
-                    listAdmins(request, response);
+                    listNews(request, response);
             }
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewsDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -115,72 +113,56 @@ public class AdminControllerServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-    
-    private void listAdmins(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        QlAdminDao adminDao = new QlAdminDao();
-        List<Admin> list = adminDao.getAdmins();
-        request.setAttribute("adminlist", list);
-   
-        RequestDispatcher dispatcher = request.getRequestDispatcher("QlAdmin.jsp");
+
+    private void listNews(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        NewsDao newsDao = new NewsDao();
+        List<News> list = newsDao.getAllNews();
+        request.setAttribute("listNews", list);
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("News.jsp");
         dispatcher.forward(request, response);
     }
 
-//    private void addAdmin(HttpServletRequest request,
-//            HttpServletResponse response) throws Exception {
-//        
-//        String avatar = request.getParameter("avatar");
-//        String name = request.getParameter("name");
-//        String username = request.getParameter("username");
-//        String password = request.getParameter("password");
-//
-//        Admin admin = new Admin(avatar, name, username,password );
-//        QlAdminDao adminDAO = new QlAdminDao();
-//        adminDAO.addAdmin(admin);
-//        listAdmins(request, response);
-//    }
-
-    private void loadAdmin(HttpServletRequest request,
+    private void addNews(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
-        //read admin id from the form data
-        String theAdminId = request.getParameter("adminId");
 
-        //get admin from the database
-        Admin admin = new QlAdminDao().getAdmin(theAdminId);
-        //place admin in the request attribute
-        Admin s = (Admin) admin;
-        request.setAttribute("THE_ADMIN", admin);
-        //send to jsp page: update-admin-form.jsp
+        String idAdmin = request.getParameter("poster");
+        String title = request.getParameter("title");
+        String des = request.getParameter("des");
+        String daySubmit = request.getParameter("daySubmit");
+        String image = request.getParameter("image");
+
+        News news = new News(idAdmin, des,daySubmit, title, image);
+        NewsDao newsDao = new NewsDao();
+        newsDao.addNews(news);
+        listNews(request, response);
+    }
+    
+    private void loadNews(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+        String TheNewsId = request.getParameter("newsId");
+        News news = new NewsDao().getNews(TheNewsId);
+        News s = (News) news;
+        request.setAttribute("THE_NEWS", news);
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("UpdateAdmin.jsp");
+                = request.getRequestDispatcher("UpdateNews.jsp");
         dispatcher.forward(request, response);
     }
-
-    private void updateAdmin(HttpServletRequest request,
+     private void updateNews(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
-        // read admin info from the form data
-        int id = Integer.parseInt(request.getParameter("adminId"));
-        String avatar = request.getParameter("avatar");
-        String name = request.getParameter("name");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        //create a new admin object
-        Admin admin = new Admin(id, avatar, name, username,password);
-
-        //perform update on database
-        new QlAdminDao().updateAdmin(admin);
-        //send them back to the "list admin" page
-        listAdmins(request, response);
+        int id = Integer.parseInt(request.getParameter("newsId"));
+        String title = request.getParameter("title");
+        String des = request.getParameter("des");
+        String image = request.getParameter("image");
+        News news = new News(id, title, des, image);
+        new NewsDao().updateNews(news);
+        listNews(request, response);
     }
 
-    private void deleteAdmin(HttpServletRequest request,
+      private void deleteNews(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
-        String theAdminId = request.getParameter("adminId");
-
-        // delete admin from the database
-        new QlAdminDao().deleteAdmin(theAdminId);
-        // send them back to the "list admin" pages
-        listAdmins(request, response);
+        String TheNewsId = request.getParameter("newsId");
+        new NewsDao().deleteNews(TheNewsId);
+        listNews(request, response);
     }
-
 }

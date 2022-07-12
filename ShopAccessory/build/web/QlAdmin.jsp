@@ -54,7 +54,7 @@
                                               onsubmit="return validateRegister()" name="frm-register">
                                             <div class="mb-3">
                                                 <label for="recipient-name" class="col-form-label">Hình Ảnh</label>
-                                                <input type="text" required name="avatar" class="form-control" id="recipient-name" placeholder="Nhập tên hình ảnh">
+                                                <input type="file" required name="avatar" class="form-control" id="recipient-name" placeholder="Nhập tên hình ảnh">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="recipient-name" class="col-form-label">Tên Admin</label>

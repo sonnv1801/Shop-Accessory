@@ -80,27 +80,7 @@ public class LoginAdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//       response.setContentType("text/html;charset=UTF-8");
-//        try ( PrintWriter out = response.getWriter()) {
-//            String email = request.getParameter("username");
-//            String password = request.getParameter("password");
-//            
-//            try {
-//                AdminDao udao = new AdminDao(DbCon.getConnection());
-//                Admin user = udao.userLogin(email, password);
-//                
-//                if(user != null) {
-//                    request.getSession().setAttribute("auth", user);
-//                    response.sendRedirect("./admin/HomePage.jsp");
-//                } else {
-//                     request.setAttribute("loginFail", "User name or password is incorrect");
-//                     request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
-//                }
-//            } catch (ClassNotFoundException | SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-
+      
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         Admin user = new Admin(username, password);
