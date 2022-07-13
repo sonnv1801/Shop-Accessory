@@ -9,7 +9,11 @@ import dao.AdminDao;
 import dao.NewsDao;
 import dao.QlAdminDao;
 import entity.Admin;
+<<<<<<< HEAD
 import entity.News;
+=======
+import java.sql.Connection;
+>>>>>>> main
 import java.util.List;
 
 /**
@@ -21,6 +25,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
+<<<<<<< HEAD
     public static void main(String[] args) throws Exception {
 //        AdminDao dao = new AdminDao();
 //        Boolean check = dao.login(new Admin("vson", "12345"));
@@ -51,6 +56,16 @@ public class Main {
 //        System.out.println("" + dao.getNews("2"));
 //        dao.deleteNews("1");
         System.out.println("" + dao.getAllNews());
+=======
+    public static void main(String[] args) throws Exception{
+        DBUtil db =DBUtil.getInstance();
+        Connection con = db.getConnection();
+        if (con != null) {
+            System.out.println("ok");
+        }else{
+            System.out.println("fail");
+        }
+>>>>>>> main
     }
 
 }
