@@ -11,7 +11,8 @@ package dbcontext;
  */
 public interface DatabaseInfor {
     public static String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    public static String url="jdbc:sqlserver://127.0.0.1:1433;databaseName=doanFPT;";
+    public static String url="jdbc:sqlserver://127.0.0.1:1434;databaseName=doanFPT;";
+//    public static String url="jdbc:sqlserver://LAPTOP-CTQVN7ME\\SQLEPRESS;databaseName=doanFPT;integratedSecurity=true;";
     public static String user="sa";
-    public static String pass="vanson123";
+    public static String pass="abc123";
 }
