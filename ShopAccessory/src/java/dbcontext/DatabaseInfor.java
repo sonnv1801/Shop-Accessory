@@ -18,8 +18,13 @@ public class DatabaseInfor {
  */
 public interface DatabaseInfor {
     public static String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+<<<<<<< HEAD
     public static String url="jdbc:sqlserver://127.0.0.1:1433;databaseName=doanFPT;";
 >>>>>>> Admin
+=======
+    public static String url="jdbc:sqlserver://127.0.0.1:1434;databaseName=javaFPT;";
+//    public static String url="jdbc:sqlserver://LAPTOP-CTQVN7ME\\SQLEPRESS;databaseName=doanFPT;integratedSecurity=true;";
+>>>>>>> mthanh
     public static String user="sa";
-    public static String pass="vanson123";
+    public static String pass="abc123";
 }
