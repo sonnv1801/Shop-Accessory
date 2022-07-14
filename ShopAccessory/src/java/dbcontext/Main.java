@@ -7,13 +7,11 @@ package dbcontext;
 
 import dao.AdminDao;
 import dao.NewsDao;
+import dao.ProductTypeDao;
 import dao.QlAdminDao;
+import dao.UsersDao;
 import entity.Admin;
-<<<<<<< HEAD
 import entity.News;
-=======
-import java.sql.Connection;
->>>>>>> main
 import java.util.List;
 
 /**
@@ -25,10 +23,9 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-<<<<<<< HEAD
     public static void main(String[] args) throws Exception {
 //        AdminDao dao = new AdminDao();
-//        Boolean check = dao.login(new Admin("vson", "12345"));
+//        Boolean check = dao.login(new Admin("adim", "12345"));
 //        System.out.println(""+check);
 //        
 //        check = dao.registerUser(new Admin("image2","Nguyen Van Son","adim","12345"));
@@ -45,27 +42,31 @@ public class Main {
 //     dao.updateAdmin(new Admin(7, "image2", "Van Son 1", "son47788@donga.edu.vn", "12345"));
 //      System.out.println(""+ dao.getAdmins());
 //      dao.deleteAdmin("12");
-        NewsDao dao = new NewsDao();
-//        dao.addNews(new News("admin", "Noi Dung Des", "7/11/2002", "Tieu De", "image1.png"));
+//        NewsDao dao = new NewsDao();
+//        dao.addNews(new News("1", "Noi Dung Des", "7/11/2002", "Tieu De", "image1.png"));
 //        System.out.println("ok");
-
-//        System.out.println("" + dao.getNews());
+//
+//        System.out.println("" + dao.getAllNews());
 
 //        dao.updateNews(new News(1, "Noi Dung Des", "Noi Dung Title", "image1.png"));
 //      System.out.println(""+ dao.getNews());
 //        System.out.println("" + dao.getNews("2"));
 //        dao.deleteNews("1");
-        System.out.println("" + dao.getAllNews());
-=======
-    public static void main(String[] args) throws Exception{
-        DBUtil db =DBUtil.getInstance();
-        Connection con = db.getConnection();
-        if (con != null) {
-            System.out.println("ok");
-        }else{
-            System.out.println("fail");
-        }
->>>>>>> main
+//        System.out.println("" + dao.getAllNews());
+
+//        ProductTypeDao dao = new ProductTypeDao();
+//        System.out.println(""+ dao.getAllTypes());
+
+
+
+
+            UsersDao dao = new UsersDao();
+            
+            System.out.println(""+ dao.getAllUsers());
+            
+            dao.deleteUsers("3");
+            
+            System.out.println(""+ dao.getAllUsers());
     }
 
 }

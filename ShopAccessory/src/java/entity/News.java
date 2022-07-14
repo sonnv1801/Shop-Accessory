@@ -31,6 +31,7 @@ public class News {
     }
 
     public News(String idAdmin, String des, String dateSubmit, String title, String image) {
+
         this.idAdmin = idAdmin;
         this.des = des;
         this.dateSubmit = dateSubmit;
@@ -44,15 +45,6 @@ public class News {
         this.title = title;
         this.image = image;
     }
-    
-        public News(String des, String title, String image) {
-        this.des = des;
-        this.title = title;
-        this.image = image;
-    }
-
-
-
 
     public int getId() {
         return id;

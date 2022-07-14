@@ -38,48 +38,7 @@
                         </div>
                     </div>
                     <div style="margin: 55px 0px;">
-                        <button type="button" class="btn btn-secondary button-add-a dmin" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Thêm Tin Tức</button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Thêm Tin Tức</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        <p style="text-align: center; font-size: 15px; font-family: cursive; color: palevioletred" role="alert">
-                                            ${loginFail}
-                                        </p>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="NewsServlet" method="GET">
-                                            <input type="hidden" name="command" value="ADD" />
-                                            <div class="mb-3">
-                                                <label for="recipient-name" class="col-form-label">Người Đăng</label>
-                                                <input type="text" name="poster" class="form-control" id="recipient-name" value="${userLogin.username}" required disabled>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="recipient-name" class="col-form-label">Tiêu Đề</label>
-                                                <input type="text" name="title" class="form-control" id="recipient-name" placeholder="Nhập tiêu đề" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="message-text" class="col-form-label">Nội Dung</label>
-                                                <textarea class="form-control" name="des" id="message-text" required ></textarea>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="recipient-name" class="col-form-label">Ngày Tạo</label>
-                                                <input type="date" name="daySubmit" class="form-control" id="recipient-name" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="recipient-name" class="col-form-label">Link Hình Ảnh</label>
-                                                <input type="file" name="image" class="form-control" id="recipient-name" placeholder="Nhập link hình ảnh" required>
-                                            </div>
-                                            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save</button>
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                        <a href="PosterAdminServlet"><button type="button" class="btn btn-secondary button-add-a dmin">Thêm Tin Tức</button></a>
                         <div class="container table-all" style="overflow: auto; height: 500px;">
                             <div class="table-body">
                                 <h4>Danh Sách Tin Tức</h4>

@@ -25,7 +25,7 @@
                 <ul class="menu-body">
                     <li><a href="HomePage.jsp"><i class="fa fa-th-large"><span>Tổng Quan</span></i></a></li>
                     <li><a href="AdminControllerServlet"><i class="fa fa-user-plus"><span>Quản Lý Admin</span></i></a></li>
-                    <li><a href="QLUsers.jsp"><i class="fa fa-users"><span>Quản Lý Users</span></i></a></li>
+                    <li><a href="UsersServlet"><i class="fa fa-users"><span>Quản Lý Users</span></i></a></li>
                     <li><a href="DSProducts.jsp"><i class="fa fa-th-list"><span>Danh Sách Sản Phẩm</span></i></a></li>
                     <li><a href="Order.jsp"><i class="fa fa-shopping-cart"><span>Đơn Hàng</span></i></a></li>
                     <li><a href="NewsServlet"><i class="fa fa-newspaper-o"><span>Tin Tức</span></i></a></li>

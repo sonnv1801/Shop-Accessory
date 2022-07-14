@@ -52,7 +52,7 @@ public class NewsDao {
 
     public boolean addNews(News news) {
         DBUtil db = DBUtil.getInstance();
-        String sql = "INSERT INTO News (idAdmin, des, daySubmit, title,image)\n"
+        String sql = "INSERT INTO News (idadmin, description, daysubmit, title,image)\n"
                 + "VALUES (?,?,?,?,?);";
 
         Connection con = null;
@@ -85,7 +85,7 @@ public class NewsDao {
     public void updateNews(News news) throws Exception {
         DBUtil db = DBUtil.getInstance();
         String sql = "UPDATE News \n"
-                + "SET des=?, title=?, image=? \n"
+                + "SET description=?, title=?, image=? \n"
                 + "WHERE IDNews = ?;";
 
         Connection con = null;
@@ -118,7 +118,7 @@ public class NewsDao {
         DBUtil db = DBUtil.getInstance();
 
         News news = null;
-        String sql = "Select * from News where IDNews=?";
+        String sql = "Select * from News where idnews=?";
         Connection con = null;
         try {
             con = db.getConnection();
@@ -146,7 +146,7 @@ public class NewsDao {
     }
 
     public void deleteNews(String idd) throws Exception {
-        String sql = "DELETE FROM News WHERE IDNews =?";
+        String sql = "DELETE FROM News WHERE idnews =?";
         DBUtil db = DBUtil.getInstance();
         Connection con = null;
         PreparedStatement statement = null;
