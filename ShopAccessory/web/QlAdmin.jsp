@@ -33,9 +33,9 @@
                 <div class="col-xl-9">
                     <div class="navbar-admin">
                         <div class="navbar-admin">
-                        <i class="fa fa-bars"></i>
-                        <i class="fa fa-user-circle"><p style="color: #33ccff; display: inline-block; padding: 0px 13px; text-transform: uppercase;">Xin Chào: ${userLogin.username}</p></i>
-                    </div>
+                            <i class="fa fa-bars"></i>
+                            <i class="fa fa-user-circle"><p style="color: #33ccff; display: inline-block; padding: 0px 13px; text-transform: uppercase;">Xin Chào: ${userLogin.username}</p></i>
+                        </div>
                     </div>
                     <div style="margin: 55px 0px;">
                         <button type="button" class="btn btn-secondary button-add-a dmin" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Thêm Admin</button>
@@ -49,12 +49,14 @@
                                             ${loginFail}
                                         </p>
                                     </div>
+
                                     <div class="modal-body">
+
                                         <form action="<%=request.getContextPath()%>/AddAdmin" method="post"
                                               onsubmit="return validateRegister()" name="frm-register">
                                             <div class="mb-3">
                                                 <label for="recipient-name" class="col-form-label">Hình Ảnh</label>
-                                                <input type="text" required name="avatar" class="form-control" id="recipient-name" placeholder="Nhập tên hình ảnh">
+                                                <input type="file" required name="avatar" class="form-control" id="recipient-name" placeholder="Nhập tên hình ảnh">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="recipient-name" class="col-form-label">Tên Admin</label>
@@ -69,10 +71,9 @@
                                                 <input type="password" name="password" required class="form-control" id="recipient-name" placeholder="Nhập mật khẩu">
                                             </div>
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
                                         </form>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

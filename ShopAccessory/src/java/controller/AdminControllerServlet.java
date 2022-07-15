@@ -6,8 +6,10 @@
 package controller;
 
 import dao.AdminDao;
+import dao.ProductTypeDao;
 import dao.QlAdminDao;
 import entity.Admin;
+import entity.ProductType;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -17,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -41,7 +44,7 @@ public class AdminControllerServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AdminControllerServlet</title>");            
+            out.println("<title>Servlet AdminControllerServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AdminControllerServlet at " + request.getContextPath() + "</h1>");
@@ -62,7 +65,7 @@ public class AdminControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          try {
+        try {
             String theCommand = request.getParameter("command");
             if (theCommand == null) {
                 theCommand = "LIST";
@@ -71,9 +74,6 @@ public class AdminControllerServlet extends HttpServlet {
                 case "LIST":
                     listAdmins(request, response);
                     break;
-//                case "ADD":
-//                    addAdmin(request, response);
-//                    break;
                 case "LOAD":
                     loadAdmin(request, response);
                     break;
@@ -114,15 +114,14 @@ public class AdminControllerServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-    
+
     private void listAdmins(HttpServletRequest request, HttpServletResponse response) throws Exception {
         QlAdminDao adminDao = new QlAdminDao();
         List<Admin> list = adminDao.getAdmins();
         request.setAttribute("adminlist", list);
-   
         RequestDispatcher dispatcher = request.getRequestDispatcher("QlAdmin.jsp");
         dispatcher.forward(request, response);
+
     }
 
 //    private void addAdmin(HttpServletRequest request,
@@ -138,7 +137,6 @@ public class AdminControllerServlet extends HttpServlet {
 //        adminDAO.addAdmin(admin);
 //        listAdmins(request, response);
 //    }
-
     private void loadAdmin(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
         //read admin id from the form data
@@ -164,7 +162,7 @@ public class AdminControllerServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         //create a new admin object
-        Admin admin = new Admin(id, avatar, name, username,password);
+        Admin admin = new Admin(id, avatar, name, username, password);
 
         //perform update on database
         new QlAdminDao().updateAdmin(admin);

@@ -12,7 +12,7 @@ package entity;
 public class News {
 
     private int id;
-    private int idAdmin;
+    private String idAdmin;
     private String des;
     private String dateSubmit;
     private String title;
@@ -21,11 +21,27 @@ public class News {
     public News() {
     }
 
-    public News(int id, int idAdmin, String des, String dateSubmit, String title, String image) {
+    public News(int id, String idAdmin, String des, String dateSubmit, String title, String image) {
         this.id = id;
         this.idAdmin = idAdmin;
         this.des = des;
         this.dateSubmit = dateSubmit;
+        this.title = title;
+        this.image = image;
+    }
+
+    public News(String idAdmin, String des, String dateSubmit, String title, String image) {
+
+        this.idAdmin = idAdmin;
+        this.des = des;
+        this.dateSubmit = dateSubmit;
+        this.title = title;
+        this.image = image;
+    }
+
+    public News(int id, String des, String title, String image) {
+        this.id = id;
+        this.des = des;
         this.title = title;
         this.image = image;
     }
@@ -38,11 +54,11 @@ public class News {
         this.id = id;
     }
 
-    public int getIdAdmin() {
+    public String getIdAdmin() {
         return idAdmin;
     }
 
-    public void setIdAdmin(int idAdmin) {
+    public void setIdAdmin(String idAdmin) {
         this.idAdmin = idAdmin;
     }
 

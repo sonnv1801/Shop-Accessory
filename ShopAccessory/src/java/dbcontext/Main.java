@@ -5,10 +5,7 @@
  */
 package dbcontext;
 
-import dao.AdminDao;
-import dao.QlAdminDao;
-import entity.Admin;
-import java.sql.Connection;
+import dao.ProductDAO;
 import java.util.List;
 
 /**
@@ -20,14 +17,10 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception{
-        DBUtil db =DBUtil.getInstance();
-        Connection con = db.getConnection();
-        if (con != null) {
-            System.out.println("ok");
-        }else{
-            System.out.println("fail");
-        }
+    public static void main(String[] args) throws Exception {
+        ProductDAO productDAO = new ProductDAO();
+//        System.out.println(productDAO.getNewProducts());
+        productDAO.InsertProduct();
     }
 
 }
