@@ -5,7 +5,9 @@
  */
 package dbcontext;
 
+import dao.BannerDAO;
 import dao.ProductDAO;
+import entity.Banner;
 import java.util.List;
 
 /**
@@ -20,7 +22,9 @@ public class Main {
     public static void main(String[] args) throws Exception {
         ProductDAO productDAO = new ProductDAO();
 //        System.out.println(productDAO.getNewProducts());
-        productDAO.InsertProduct();
+//        productDAO.InsertProduct();
+        BannerDAO dao = new BannerDAO();
+        System.out.println(""+dao.getAllBanner());
     }
 
 }

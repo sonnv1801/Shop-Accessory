@@ -5,14 +5,19 @@ JSP
 *F
 + 0 index.jsp
 index.jsp
-+ 1 navbar.jsp
-includes/navbar.jsp
++ 1 header.jsp
+includes/header.jsp
 + 2 footer.jsp
 includes/footer.jsp
 *L
-5,11:50
-5#1,15:61
-15#0,3:75
-5#2,14:78
-17#0,5:91
+5,19:60
+1#1,85:79
+23#0,5:163
+27:633,11
+28,2:644
+30,2:646,3
+32,20:652
+51,352:170
+1#2,90:522
+402#0,4:612
 *E
