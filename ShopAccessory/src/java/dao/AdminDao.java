@@ -35,9 +35,9 @@ public class AdminDao {
             statement.setString(1, user.getUsername().trim());
             statement.setString(2, user.getPassword().trim());
             ResultSet rs = statement.executeQuery();
-
+            
             if (rs.next()) {
-                System.out.println("Success");
+                System.out.println("Success test đăng nhập thành công");
                 return true;
             }
 
