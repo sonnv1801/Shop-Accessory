@@ -5,7 +5,10 @@
         <data xmlns="http://www.netbeans.org/ns/web-project/3">
             <name>ShopAccessory</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
+<<<<<<< HEAD
             <explicit-platform explicit-source-supported="true"/>
+=======
+>>>>>>> main
             <web-module-libraries>
                 <library dirs="200">
                     <file>${file.reference.jstl-1.2.jar}</file>

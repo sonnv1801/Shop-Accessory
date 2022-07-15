@@ -3,10 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlet;
+package controller;
 
+import dao.NewsDao;
+import dao.UsersDao;
+import entity.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.logging.Level;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author PC
  */
-public class demo extends HttpServlet {
+public class UsersServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,10 +41,10 @@ public class demo extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet demo</title>");            
+            out.println("<title>Servlet UsersServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet demo at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UsersServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,7 +62,24 @@ public class demo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            String theCommand = request.getParameter("command");
+            if (theCommand == null) {
+                theCommand = "LIST";
+            }
+            switch (theCommand) {
+                case "LIST":
+                    listUsers(request, response);
+                    break;
+                case "DELETE":
+                    deleteUsers(request, response);
+                    break;
+                default:
+                    listUsers(request, response);
+            }
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(UsersDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -82,5 +105,20 @@ public class demo extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void listUsers(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        UsersDao newsDao = new UsersDao();
+        List<Users> list = newsDao.getAllUsers();
+        request.setAttribute("listUsers", list);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("QLUsers.jsp");
+        dispatcher.forward(request, response);
+    }
+    
+       private void deleteUsers(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        String TheUserId = request.getParameter("userId");
+        new UsersDao().deleteUsers(TheUserId);
+        listUsers(request, response);
+    }
 
 }

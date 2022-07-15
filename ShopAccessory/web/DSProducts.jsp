@@ -82,6 +82,33 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:forEach var="admin" items="${adminlist}">
+                                            <!-- set up a link for each admin -->
+                                            <c:url var="tempLink" value="ProductTypeServlet">
+                                                <c:param name="command" value="LOAD"
+                                                         ></c:param>
+                                                <c:param name="adminId" value="${admin.id}"
+                                                         ></c:param>
+
+                                            </c:url>
+                                            <!-- set up a link to delete a admin -->
+                                            <c:url var="deleteLink" value="ProductTypeServlet">
+                                                <c:param name="command" value="DELETE"
+                                                         ></c:param>
+                                                <c:param name="adminId" value="${admin.id}"
+                                                         ></c:param>
+
+                                            </c:url>
+                                            <tr>
+                                                <th scope="row">${admin.id}</th> </td>
+                                                <td>${admin.idconvat}</td>
+                                                <td>${admin.name}</td>
+                                                <td>
+                                                    <a href="${deleteLink}" onclick="if (!(confirm('Bạn có chắc chắn là xóa Admin này không?')))
+                                                                return false"><button style="background-color: red; color: white; border: none">Xóa <i class="fa fa-remove"></i></button></a>
+                                                    <a href="${tempLink}"><button style="background-color: green; color: white; border: none" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sửa <i class="fa fa-edit"></i></button></a>
+
+                                                </c:forEach>
                                         <tr>
                                             <th scope="row">1</th>
                                             <td>Thức Ăn Cho Mèo</td>
