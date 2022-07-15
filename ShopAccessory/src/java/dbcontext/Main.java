@@ -7,6 +7,7 @@ package dbcontext;
 
 import dao.AdminDao;
 import dao.NewsDao;
+import dao.OrderDao;
 import dao.ProductTypeDao;
 import dao.QlAdminDao;
 import dao.UsersDao;
@@ -60,13 +61,21 @@ public class Main {
 
 
 
-            UsersDao dao = new UsersDao();
-            
-            System.out.println(""+ dao.getAllUsers());
-            
-            dao.deleteUsers("3");
-            
-            System.out.println(""+ dao.getAllUsers());
+//            UsersDao dao = new UsersDao();
+//            
+//            System.out.println(""+ dao.getAllUsers());
+//            
+//            dao.deleteUsers("3");
+//            
+//            System.out.println(""+ dao.getAllUsers());
+
+               OrderDao dao =  new OrderDao();
+               System.out.println("" + dao.getAllOrder());
+               
+//               dao.updateOrder("1");
+                dao.deleteOrder("7");
+                
+                System.out.println("" + dao.getAllOrder());
     }
 
 }

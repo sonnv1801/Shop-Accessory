@@ -46,25 +46,25 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach var="user" items="${listUsers}">
-                                            <c:url var="deleteLink" value="UsersServlet">
-                                                <c:param name="command" value="DELETE"
-                                                         ></c:param>
-                                                <c:param name="userId" value="${user.iduser}"
-                                                         ></c:param>
+                                            <c:forEach var="user" items="${listUsers}">
+                                                <c:url var="deleteLink" value="UsersServlet">
+                                                    <c:param name="command" value="DELETE"
+                                                             ></c:param>
+                                                    <c:param name="userId" value="${user.iduser}"
+                                                             ></c:param>
 
-                                            </c:url>
-                                            <tr>
-                                                <th scope="row">${user.iduser}</th>
-                                                <td>${user.name}</td>
-                                                <td>${user.age}</td>
-                                                <td>${user.username}</td>
-                                                <td>${user.address}</td>
-                                                <td>${user.phone}</td>
-                                                <td>
-                                                   <a href="${deleteLink}" onclick="if (!(confirm('Bạn có chắc chắn là xóa Users với id ${user.iduser} này không?')))
-                                                                return false"><button style="background-color: red; color: white; border: none">Xóa <i class="fa fa-remove"></i></button></a>
-                                                   
+                                                </c:url>
+                                                <tr>
+                                                    <th scope="row">${user.iduser}</th>
+                                                    <td>${user.name}</td>
+                                                    <td>${user.age}</td>
+                                                    <td>${user.username}</td>
+                                                    <td>${user.address}</td>
+                                                    <td>${user.phone}</td>
+                                                    <td>
+                                                        <a href="${deleteLink}" onclick="if (!(confirm('Bạn có chắc chắn là xóa Users với id ${user.iduser} này không?')))
+                                                               return false"><button style="background-color: red; color: white; border: none">Xóa <i class="fa fa-remove"></i></button></a>
+
                                                     </c:forEach>
                                                 </td>
                                             </tr>

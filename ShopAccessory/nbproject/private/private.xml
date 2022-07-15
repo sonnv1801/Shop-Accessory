@@ -12,13 +12,15 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/News.java</file>
             <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/News.jsp</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dbcontext/Main.java</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/inclusesAdmin.jsp</file>
             <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/controller/NewsServlet.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/controller/PosterAdminServlet.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/controller/ProductTypeServlet.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/AddNews.jsp</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/Users.java</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/QLUsers.jsp</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/UsersDao.java</file>
             <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/NewsDao.java</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/controller/UsersServlet.java</file>
         </group>
     </open-files>
 </project-private>
