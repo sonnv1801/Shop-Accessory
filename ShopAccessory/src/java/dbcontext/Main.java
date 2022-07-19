@@ -9,10 +9,12 @@ import dao.AdminDao;
 import dao.NewsDao;
 import dao.OrderDao;
 import dao.ProductTypeDao;
+import dao.ProductsDAO;
 import dao.QlAdminDao;
 import dao.UsersDao;
 import entity.Admin;
 import entity.News;
+import entity.Product;
 import java.util.List;
 
 /**
@@ -69,13 +71,25 @@ public class Main {
 //            
 //            System.out.println(""+ dao.getAllUsers());
 
-               OrderDao dao =  new OrderDao();
-               System.out.println("" + dao.getAllOrder());
+//               OrderDao dao =  new OrderDao();
+//               System.out.println("" + dao.getAllOrder());
                
 //               dao.updateOrder("1");
-                dao.deleteOrder("7");
-                
-                System.out.println("" + dao.getAllOrder());
+//                dao.deleteOrder("7");
+//                
+//                System.out.println("" + dao.getAllOrder());
+
+
+                     ProductsDAO productDAO = new ProductsDAO();
+                      System.out.println("" + productDAO.getAllProducts());
+            productDAO.InsertProduct(new Product(1, 2, "1111", "1111", 1, 1, "1", "L"), "imag2");
+       
+
+//            ProductTypeDao dao = new ProductTypeDao();
+//            System.out.println("" + dao.getAllTypes());
+
+
+       
     }
 
 }

@@ -1,18 +1,11 @@
 <%-- 
-    Document   : QlAdmin
+    Document   : AddNews
     Created on : Jul 8, 2022, 2:20:53 PM
     Author     : PC
 --%>
 
-<%@page import="dao.QlAdminDao"%>
-<%@page import="entity.Admin"%>
-<%@page import="java.util.List"%>
-<%@page import="dbcontext.DbCon"%>
-<%@page import="dao.AdminDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -68,7 +61,7 @@
                                     <select class="form-select" name="poster" aria-label="Default select example" required>
                                         <option value="">Chọn Người Đăng</option>
                                         <c:forEach var="news" items="${list}">
-                                            <option value="${news.id}" >${news.name}</option>
+                                            <option value="${news.id}">${news.name}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
