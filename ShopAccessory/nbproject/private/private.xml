@@ -6,6 +6,7 @@
         <group/>
 =======
         <group>
+<<<<<<< HEAD
             <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/entity/Admin.java</file>
             <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/css/gioithieu.css</file>
             <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/css/trangchu.css</file>
@@ -24,6 +25,11 @@
             <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/includes/footer.jsp</file>
             <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/header.jsp</file>
             <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/slide.jsp</file>
+=======
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/productDetails.jsp</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/dao/ProductsDAO.java</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/entity/Product.java</file>
+>>>>>>> Tin
         </group>
 >>>>>>> main
     </open-files>

@@ -26,16 +26,25 @@ public class Main {
      * @param args the command line arguments
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static void main(String[] args) throws Exception {
 //        AdminDao dao = new AdminDao();
 //        Boolean check = dao.login(new Admin("vson", "12345"));
 //        System.out.println(""+check);
 //        
+=======
+    public static void main(String[] args) throws Exception{
+        AdminDao dao = new AdminDao();
+        Boolean check = dao.login(new Admin("adim", "12345"));
+        System.out.println(""+check);
+        
+>>>>>>> Tin
 //        check = dao.registerUser(new Admin("image2","Nguyen Van Son","adim","12345"));
 //       System.out.println("Insert: "+check);
 
 //        AdminDao dao = new AdminDao();
 //        System.out.println("" + dao.getAdmins());
+<<<<<<< HEAD
 //       QlAdminDao dao = new QlAdminDao();
 //        System.out.println(""+ dao.getAdmins());
 //        
@@ -44,6 +53,18 @@ public class Main {
 //        
 //     dao.updateAdmin(new Admin(7, "image2", "Van Son 1", "son47788@donga.edu.vn", "12345"));
 //      System.out.println(""+ dao.getAdmins());
+=======
+
+//       QlAdminDao dao = new QlAdminDao();
+//        System.out.println(""+ dao.getAdmins());
+        
+//        dao.addAdmin(new Admin("image5", "Son", "v2", "12345"));
+//        System.out.println("ok");
+        
+//     dao.updateAdmin(new Admin(1, "img2", "Van Son 1", "admin1", "12345"));
+//      System.out.println(""+ dao.getAdmins());
+
+>>>>>>> Tin
 //      dao.deleteAdmin("12");
         NewsDao dao = new NewsDao();
 //        dao.addNews(new News("admin", "Noi Dung Des", "7/11/2002", "Tieu De", "image1.png"));

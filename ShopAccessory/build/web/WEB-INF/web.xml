@@ -67,10 +67,13 @@
     <servlet-mapping>
         <servlet-name>AdminControllerServlet</servlet-name>
         <url-pattern>/AdminControllerServlet</url-pattern>
+<<<<<<< HEAD
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>NewsServlet</servlet-name>
         <url-pattern>/NewsServlet</url-pattern>
+=======
+>>>>>>> Tin
     </servlet-mapping>
     <session-config>
         <session-timeout>
