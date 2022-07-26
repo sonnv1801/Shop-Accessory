@@ -31,12 +31,7 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                    <div class="navbar-admin">
-                        <div class="navbar-admin">
-                            <i class="fa fa-bars"></i>
-                            <i class="fa fa-user-circle"><p style="color: #33ccff; display: inline-block; padding: 0px 13px; text-transform: uppercase;">Xin Chào: ${userLogin.username}</p></i>
-                        </div>
-                    </div>
+                    <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
                         <a href="PosterAdminServlet"><button type="button" class="btn btn-secondary button-add-a dmin">Thêm Tin Tức</button></a>
                         <div class="container table-all" style="overflow: auto; height: 500px;">
@@ -54,7 +49,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:set scope="request" var="sothutu" value="0"></c:set>
                                         <c:forEach var="news" items="${listNews}">
+                                            <c:set scope="request" var="sothutu" value="${sothutu + 1}"></c:set>
                                             <c:url var="tempLink" value="NewsServlet">
                                                 <c:param name="command" value="LOAD"
                                                          ></c:param>
@@ -70,7 +67,7 @@
 
                                             </c:url>
                                             <tr>
-                                                <th scope="row">${news.id}</th>
+                                                <th scope="row">${sothutu}</th>
                                                 <th >${news.title}</th>
                                                 <th >${news.des}</th>
                                                 <th >${news.dateSubmit}</th>

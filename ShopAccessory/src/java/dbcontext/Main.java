@@ -6,13 +6,18 @@
 package dbcontext;
 
 import dao.AdminDao;
+import dao.HomePageAdminDao;
 import dao.NewsDao;
 import dao.OrderDao;
+import dao.ProductAdminDao;
 import dao.ProductTypeDao;
+import dao.ProductsDAO;
 import dao.QlAdminDao;
 import dao.UsersDao;
 import entity.Admin;
+import entity.ImageProducts;
 import entity.News;
+import entity.Product;
 import java.util.List;
 
 /**
@@ -90,13 +95,36 @@ public class Main {
 //            
 //            System.out.println(""+ dao.getAllUsers());
 
-               OrderDao dao =  new OrderDao();
-               System.out.println("" + dao.getAllOrder());
+//               OrderDao dao =  new OrderDao();
+//               System.out.println("" + dao.getAllOrder());
                
 //               dao.updateOrder("1");
-                dao.deleteOrder("7");
+//                dao.deleteOrder("7");
+//                
+//                System.out.println("" + dao.getAllOrder());
+
+//
+                     ProductsDAO productDAO = new ProductsDAO();
+                      
+//            productDAO.InsertProduct(new Product(1, 2, "1111", "1111", 1, 1, "1", "L"), "imag2");
+//            productDAO.updateProduct(new Product(701,"ok1", "ok1", 32, 22424, "green", "L"));
+//            productDAO.updateImg(new ImageProducts(695,"img5.png"));
+//       System.out.println("" + productDAO.getAllProducts());
+
+//            ProductTypeDao dao = new ProductTypeDao();
+//            System.out.println("" + dao.getAllTypes());
                 
-                System.out.println("" + dao.getAllOrder());
+
+
+//            HomePageAdminDao homedao = new HomePageAdminDao();
+//            System.out.println("" + homedao.countAdmin());
+//        
+
+
+
+                ProductAdminDao dao = new ProductAdminDao();
+                dao.updateProduct(new Product(701,"ok", "ok", 1, 20000, "ok", "ok"));
+       
     }
 
 }

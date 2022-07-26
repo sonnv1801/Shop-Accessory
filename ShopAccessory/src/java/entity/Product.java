@@ -38,6 +38,11 @@ public class Product {
         this.color = color;
         this.size = size;
     }
+<<<<<<< HEAD
+=======
+    
+  
+>>>>>>> Admin
 
     // có ảnh và loại
     public Product(int idproduct, int idadmin, int idprt, String name, String description, int quantity, int price, String color, String size,String namecategory, String image) {
@@ -54,6 +59,33 @@ public class Product {
         this.image = image;
     }
 
+<<<<<<< HEAD
+=======
+       public Product(int idadmin, int idprt, String name, String description, int quantity, int price, String color, String size) {
+      
+        this.idadmin = idadmin;
+        this.idprt = idprt;
+        this.name = name;
+        this.description = description;
+        this.quantity = quantity;
+        this.price = price;
+        this.color = color;
+        this.size = size;
+    }
+
+       
+       public Product(int idprt, String name, String description, int quantity, int price, String color, String size) {
+        this.idprt = idprt;
+        this.name = name;
+        this.description = description;
+        this.quantity = quantity;
+        this.price = price;
+        this.color = color;
+        this.size = size;
+    }
+ 
+
+>>>>>>> Admin
     public int getIdproduct() {
         return idproduct;
     }

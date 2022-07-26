@@ -23,12 +23,8 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                    <div class="navbar-admin">
-                        <i class="fa fa-bars"></i>
-                    </div>
+                   <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
-
-
                         <div class="container table-all">
                             <div class="table-body">
                                 <div class="ex1">
@@ -46,7 +42,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <c:set scope="request" var="sothutu" value="0"></c:set>
                                             <c:forEach var="user" items="${listUsers}">
+                                                <c:set scope="request" var="sothutu" value="${sothutu + 1}"></c:set>
                                                 <c:url var="deleteLink" value="UsersServlet">
                                                     <c:param name="command" value="DELETE"
                                                              ></c:param>
@@ -55,7 +53,7 @@
 
                                                 </c:url>
                                                 <tr>
-                                                    <th scope="row">${user.iduser}</th>
+                                                    <th scope="row">${sothutu}</th>
                                                     <td>${user.name}</td>
                                                     <td>${user.age}</td>
                                                     <td>${user.username}</td>

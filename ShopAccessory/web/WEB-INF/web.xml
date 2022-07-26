@@ -41,10 +41,6 @@
         <servlet-class>controller.ProductTypeServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>test</servlet-name>
-        <servlet-class>controller.test</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>PosterAdminServlet</servlet-name>
         <servlet-class>controller.PosterAdminServlet</servlet-class>
     </servlet>
@@ -55,6 +51,14 @@
     <servlet>
         <servlet-name>OrderServlet</servlet-name>
         <servlet-class>controller.OrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddProductAdmin</servlet-name>
+        <servlet-class>controller.AddProductAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductsServlet</servlet-name>
+        <servlet-class>controller.ProductsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -99,10 +103,6 @@
         <url-pattern>/ProductTypeServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>test</servlet-name>
-        <url-pattern>/test</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>PosterAdminServlet</servlet-name>
         <url-pattern>/PosterAdminServlet</url-pattern>
     </servlet-mapping>
@@ -114,6 +114,14 @@
         <servlet-name>OrderServlet</servlet-name>
         <url-pattern>/OrderServlet</url-pattern>
 >>>>>>> main
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProductAdmin</servlet-name>
+        <url-pattern>/AddProductAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductsServlet</servlet-name>
+        <url-pattern>/ProductsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
