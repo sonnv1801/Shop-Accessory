@@ -101,13 +101,47 @@ public class LoginAdminServlet extends HttpServlet {
 //            }
 //        }
 
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//        Admin user = new Admin(username, password);
+//        if (userDao.login(user)) {
+//            HttpSession session = request.getSession();
+//           
+//           session.setAttribute("userLogin", user);            
+//           response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+//        } else {
+//            request.setAttribute("LoginAdmin", user);
+//            request.setAttribute("loginFail", "User name or password is incorrect");
+//            request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
+//        }
+
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//        Admin user = new Admin(username, password);
+//        if (userDao.login(user) != -1) {
+//            HttpSession session = request.getSession();
+//           int iduser = userDao.login(user);
+//           Admin user2 = new Admin(iduser, username, password);
+//           session.setAttribute("userLogin", user2);            
+//           response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+//        } else {
+//            request.setAttribute("LoginAdmin", user);
+//            request.setAttribute("loginFail", "User name or password is incorrect");
+//            request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
+//        }
+            
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         Admin user = new Admin(username, password);
-        if (userDao.login(user)) {
+        if (userDao.login(user) != "") {
             HttpSession session = request.getSession();
-           
-           session.setAttribute("userLogin", user);            
+           String fullUser = userDao.login(user);
+           String[] string = fullUser.split("--");
+           int iduser = Integer.parseInt(string[0]);
+           String image = string[1];
+            System.out.println("image là:" + image);
+           Admin user2 = new Admin(iduser, image, username, password);
+           session.setAttribute("userLogin", user2);            
            response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
         } else {
             request.setAttribute("LoginAdmin", user);
@@ -115,6 +149,23 @@ public class LoginAdminServlet extends HttpServlet {
             request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
         }
     }
+    
+    /**
+     * String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        Admin user = new Admin("admin", "12345");
+        if (userDao.login(user) != -1) {
+            HttpSession session = request.getSession();
+           int iduser = userDao.login(user);
+           Admin user2 = new Admin(iduser, username, password);
+           session.setAttribute("userLogin", user2);            
+           response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+        } else {
+            request.setAttribute("LoginAdmin", user);
+            request.setAttribute("loginFail", "User name or password is incorrect");
+            request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
+        }
+     */
 
     /**
      * Returns a short description of the servlet.

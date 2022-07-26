@@ -11,7 +11,9 @@ package dao;
  */
 import dbcontext.DBUtil;
 import entity.Color;
+import entity.Comments;
 import entity.ImageProducts;
+import entity.News;
 import java.util.List;
 import entity.Product;
 import entity.Size;
@@ -39,7 +41,6 @@ public class ProductsDAO {
            ResultSet rs = ps.executeQuery();
            int num = 0;
            while(rs.next() && num<limit){
-//               System.out.println("Kết quả"+rs.getString("name"));
                 listProducts.add(new Product(rs.getInt(1),
                                     rs.getInt(2),
                                     rs.getInt(3),
@@ -94,6 +95,8 @@ public class ProductsDAO {
         return list;
     }
     
+
+    
     
     public List<ImageProducts> getImageOfProduct(int idproduct) throws Exception{
         List<ImageProducts> images = new ArrayList<>();
@@ -130,7 +133,6 @@ public class ProductsDAO {
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 product = new Product(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),rs.getInt(6), rs.getInt(7),rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
-                System.out.println(rs.getString(10));
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -149,7 +151,6 @@ public class ProductsDAO {
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 colors.add(new Color(rs.getString(1)));
-                System.out.println(rs.getString(1));
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -168,7 +169,6 @@ public class ProductsDAO {
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 sizes.add(new Size(rs.getString(1)));
-                System.out.println(rs.getString(1));
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -176,8 +176,101 @@ public class ProductsDAO {
         return sizes;
     }
      
+     
+     public List<Comments> getCommentProduct(int idproduct){
+        List<Comments> cmt = new ArrayList<>();
+        DBUtil db = new DBUtil();
+        String sql = "SELECT Comments.*, Users.name FROM Comments \n" +
+                        "INNER JOIN Users ON Comments.iduser = Users.iduser\n" +
+                        "WHERE Comments.idproduct = ?";
+         try {
+             Connection conn =db.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ps.setInt(1, idproduct);
+             ResultSet rs = ps.executeQuery();
+             while(rs.next()){
+                cmt.add(new Comments(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5),rs.getString(6)));
+             }
+         } catch (Exception e) {
+         }
+        
+        return cmt;
+     }
+     
+     
+     public List<News> getLimiNew(int limit){
+         List<News> news = new ArrayList<>();
+         DBUtil db = new DBUtil();
+         String query = "SELECT TOP (?) * FROM News";
+         try{
+             Connection conn = db.getConnection();
+             PreparedStatement ps = conn.prepareStatement(query);
+             ps.setInt(1, limit);
+             ResultSet rs = ps.executeQuery();
+             while(rs.next()){
+                 news.add(new News(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+             }
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+         return news;
+     }
+     
+    
+    public boolean addCommentsProduct(Comments cmt){
+        DBUtil db = new DBUtil();
+        String query = "INSERT INTO Comments(iduser,comment, idproduct, star) VALUES (?, ?, ?, ?)";
+        try {
+            Connection conn = db.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, cmt.getIduser());
+            ps.setString(2, cmt.getComment());
+            ps.setInt(3, cmt.getIdproduct());
+            ps.setInt(4, cmt.getStar());
+            
+            int check = ps.executeUpdate();
+            if(check == 1){
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("dao.ProductsDAO.addCommentsProduct()");
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    
+    public List<Product> getSimilarProduct(int idproduct){
+        DBUtil db = new DBUtil();
+        List<Product> products = new ArrayList<>();
+       //String query = "SELECT TOP(3) * FROM Products WHERE idprt=?";
+//        String query = "SELECT TOP(3) * FROM Products "
+//                + "WHERE idprt=(SELECT idprt FROM Products where idproduct =?) and idproduct NOT LIKE ?";
+        String query = "SELECT Products.*, ProductType.name,ProductImage.image FROM ((Products\n" +
+"                    LEFT JOIN ProductType ON Products.idprt = ProductType.idprt)\n" +
+"                    LEFT JOIN ProductImage ON Products.idproduct = ProductImage.idproduct)\n" +
+"                    WHERE Products.idprt=(SELECT idprt FROM Products where idproduct =?) and Products.idproduct NOT LIKE ?";
+        try {
+            Connection conn = db.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, idproduct);
+            ps.setInt(2, idproduct);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                products.add(new Product(rs.getInt(1), rs.getInt(2), 
+                        rs.getInt(3), rs.getString(4), rs.getString(5),
+                        rs.getInt(6), rs.getInt(7), rs.getString(8), 
+                        rs.getString(9), rs.getString(10), rs.getString(11)));
+                System.out.println("test"+rs.getString(4));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return products;
+    }
     
 //    public static void main(String[] args){
-//        selectLimitProduct(5);
+//        ProductsDAO p = new ProductsDAO();
+//        p.getSimilarProduct(7);
 //    }
 }

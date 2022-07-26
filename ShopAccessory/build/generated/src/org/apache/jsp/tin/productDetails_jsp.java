@@ -3,6 +3,10 @@ package org.apache.jsp.tin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import entity.Color;
+import entity.Product;
+import java.sql.Connection;
+import dbcontext.DBUtil;
 import dao.ProductsDAO;
 
 public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
@@ -13,6 +17,9 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
   private static java.util.List<String> _jspx_dependants;
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_scope_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_varStatus_end_begin;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -22,10 +29,16 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
 
   public void _jspInit() {
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_set_var_value_scope_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_forEach_varStatus_end_begin = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_c_forEach_var_items.release();
+    _jspx_tagPool_c_set_var_value_scope_nobody.release();
+    _jspx_tagPool_c_if_test.release();
+    _jspx_tagPool_c_forEach_varStatus_end_begin.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -41,7 +54,7 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html; charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -57,7 +70,21 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
+      out.write("\r\n");
+
+    DBUtil db = new DBUtil();
+    ProductsDAO productDao = new ProductsDAO();
+    int idproduct = Integer.parseInt(request.getParameter("idproduct"));
+    Product product = productDao.GetProductDetails(idproduct);
+
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
@@ -67,8 +94,6 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("        <link rel=\"stylesheet\" href=\"./css/bootstrap-5/js/bootstrap.min.js\">\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css\">\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"./css/productDetails.css\">\r\n");
-      out.write("        <!-- \"./css/tin/css/productDetails.css\" -->\r\n");
-      out.write("    </head>\r\n");
       out.write("    <body>\r\n");
       out.write("        <div class=\"main\">\r\n");
       out.write("            <div class=\"wrap\">\r\n");
@@ -85,9 +110,55 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                    <ul class=\"subnav__item\">\r\n");
       out.write("                                        <!-- Item java-->\r\n");
       out.write("                                        ");
-      if (_jspx_meth_c_forEach_0(_jspx_page_context))
-        return;
+      //  c:forEach
+      org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+      _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+      _jspx_th_c_forEach_0.setParent(null);
+      _jspx_th_c_forEach_0.setVar("pro");
+      _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ProductsLimit}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+      int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+      try {
+        int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+        if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+          do {
+            out.write("\r\n");
+            out.write("                                            <li class=\"subnav__item__li subnav__item__li--le\">\r\n");
+            out.write("                                                <img src=\"./images/products/");
+            out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pro.image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+            out.write("\" alt=\"\">\r\n");
+            out.write("                                                <div class=\"sbnav__item__descripts\">\r\n");
+            out.write("                                                    <a href=\"");
+            out.print(request.getContextPath());
+            out.write("/ProductsControl?idproduct=");
+            out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pro.idproduct}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+            out.write('"');
+            out.write('>');
+            out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pro.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+            out.write("</a>\r\n");
+            out.write("                                                    <p>");
+            out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pro.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+            out.write(".000₫</p>\r\n");
+            out.write("                                                </div>\r\n");
+            out.write("                                            </li>\r\n");
+            out.write("                                        ");
+            int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+            if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+              break;
+          } while (true);
+        }
+        if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+          return;
+        }
+      } catch (Throwable _jspx_exception) {
+        while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+          out = _jspx_page_context.popBody();
+        _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+      } finally {
+        _jspx_th_c_forEach_0.doFinally();
+        _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+      }
       out.write(" \r\n");
+      out.write("                                            \r\n");
       out.write("                                    </ul>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
@@ -101,18 +172,11 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                </div>\r\n");
       out.write("                                <div class=\"subnav__item__wrap\">\r\n");
       out.write("                                    <ul class=\"subnav__item\">\r\n");
-      out.write("                                        <li class=\"subnav__item__li subnav__item__li--le\">\r\n");
-      out.write("                                            <img class=\"subnav__item__img--new\" src=\"data:image/jpeg;base64,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\" alt=\"\">\r\n");
-      out.write("                                            <div class=\"sbnav__item__descripts sbnav__item__descripts--new\">\r\n");
-      out.write("                                                <a href=\"#\">Lịch tiêm phòng cho chó</a>\r\n");
-      out.write("                                            </div>\r\n");
-      out.write("                                        </li>\r\n");
-      out.write("                                        <li class=\"subnav__item__li subnav__item__li--chan\">\r\n");
-      out.write("                                            <img class=\"subnav__item__img--new\" src=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHoApAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAQIDBAYABwj/xAA/EAACAQMDAQUFBQcDAgcAAAABAgMABBEFEiExBhNBUWEicYGRoRQyscHwBxUjUtHh8TNCgiRyFjRTYnOSk//EABoBAAMBAQEBAAAAAAAAAAAAAAABAgMEBQb/xAAiEQACAgICAgMBAQAAAAAAAAAAAQIREiEDQQRRExQxMyL/2gAMAwEAAhEDEQA/AN0EldTulRDnGdhqy8MhQhblUbjDBM/SnAxHq4+FPXuf5xQ22Vo62kkt1xL3MwznKAgn4HNTXYs7uzlhnjDRyIVdCOoI6VE3dKOXGPPNZntjew/ZooIJwSWy+xug+FLEbpng2pxGC5uITEVMcjLg9Rg1WZ8klXJ2rhjit7daFYXMjvJApZjktkgn61QPZuwUOoidQT0Ep/rU/GYYGMEjqoxOw8D6VA3Lc85PWtkezOn5HdxyZz17w0+TsxaHACuR/wB9PEqqMiCIRt6hh09aiLjZtcMcHz6Cte3ZW0PQSA//ACf2po7MW23DLLg8kb/7UYgomW3QglUUlPvcnmlecONijHPs+taROzNqWAXvstxjcKIz9hVijWQXBnwMkwsDsOeh4ow7Bq2YyFo1gLyx7mzgGo++jWbcQGHpWvuezcMFu95LHcusWGZF53e/j61ZuOyOm3drHqVjb3NpA57uS3aTf3UmOoYjlTz7sGkoqrBQfZiLVe/nUEjBcZHiBnmp9VuGmvJTgiAMAB6CtNb9l7a3lyJZN2COo8aaex1qetxP8xVaKUTMuY9yMpUqBhsfQ1GWymMcHOePCtanZW2VdvezYBz4c/So37I23OJpzn3f0qKJ+NmUEp2qgfAHpTXK90GBJfoTmtSOyMJGWlnHpxTV7L27PtDT4HjkVVIeBm0ifYpWVcEZ+9XVoZezW19sYmZQOpIrqVMWMj2MWN8R/qygeshpjWF4BzO//wChqympNNbzSNNEhJ/hojAuFB6nPn+dXklWULF3qd8RkIG5I8+lC8iJVoAvZT+Mjn/kagk06Rh7SyN6daKQavawhxNNKHDlfay3jjy91PttWEgJuZI4iXwigZJHhx1yfKlHyYPsWSAp0dv5D8qaez+8cw5+FHbfUkuZzHvkj6+04A6deOv0pWu7UsymSXcDghlxj5++q+xD2Fr2Z8dnAg4iC/Kkk0ER43xlc9Mr1ojr8N2+iz/Y2MdzOu1MyYMYPUjHjjmh47UWVlosgkAYRHZHG/BLVpGSasZEdHhGcik/c0ZHCtVCKXtPeut1bD+DINyiPG0D3Ub7ITa1qK3EioZbaDCyGb7wbqQOlOn2h69kFjokKXSM42hTuJbnpzQBu1EUN7NZRER24YjvFPJbGM1oO2GsiLs5IbFx9pnOwEjkDPOKwXZHQLfWLuW0v5ZobgpmN4yPjScb0EZ4uw1f3txZG3eO7lbvVLISeQM4IYdP6g1o9G1C1vtLm0jU7buJ5cSwSqCFyAcZ8vL3VkdL0BtD/aNp2l6lcC5tZOUYn/ac8H1r1rV9GS+1u0+zRx7EiKBkxhTnOD8KSjRUp5GMbRk3kbGDCnroTMOI3PuBrddoNLmtLaO5jckgBZMDr4ZoAZbjxlfHvNUQBf8Aw7N/6UnypD2flHVHHvowzuGAeVsnpluv6xSd2x6g+fNJNMLQGOhP5H5ik/cJ/lx/zFGAnpnPSuC5zjnFPQwP+5G8x/8AcV1Ge7b+U/KlotBZihrVqgRoxtkA4YqC4I8Pdzjmmw9poAe9kGxwTuJPU58CPyrG29tqc/cuLeWVRkBcEccf1+lcbW/3Ir27g5wodTj3DwFeP9XjXZx1TNHcaxNfRtKsBaMMOY0zgjr7uKqw6q08bG4nW3lhA2gMSx9PKgO/ULNyndvtdj9+Mn9dagDCQ5ZdxySecAVsvHiVRvYBe3UgMTKs2zf3pzyMDg54z6An3Vr9JSLRbQS3ha5vCMhnYnZ6gcYJrB9i7gXVzuk3PHa8oGchVY46LnGeOpozreoPiVlYnn51r4/jJPJovjj2wladqYLrtJHaPnDxsSfDPlQa57LXGt6vK0GQmc58BQbsjEzdo5ZZGYlYjk+8ivYbJY7SzUIuMjLetd0YqtmsmZzRZtT0u5g0OzsGmdeGnnDqg4znIUjaPmeaKS3Np2ft7zTNR7Q6Tb3d+7Sd27MoIbjO7OU6dT61W1HtnpOlzm3uLgR3HXu9pYn5CvJ+2GuQ61rqXiQzgRFFMn3WIB49RTc0/wAFGLPW9E0eCG3NpdIkn2YmLLkEk55PzzVbtBoMl6TDpbyWLMo/jw4GMHkHoenrVTTNVYa7dxSHHfsJBuOTkjpRq9vZbOM3BiMiIcuq/e2+YHiRUSnT2FAKX9n17JqekXjXU968TILpy+0hRgda9J0Tslp2g3V3d6eZQ10++TvHL8+hPPP5CvFf2jaz+9TY3Gjas2xIyTFDKUyCeG+mK2uk/tItLfRNN0+eS5vbwIFuJj1J+XPhz6Up8sUb8Pj8vLqCs9Luws1lKrMACMZ8q8dlvpLSWUTs38GVxcuGwVA8APD869RneGawCtcNE4IOVfk+hFeW/tSsprKSHWbVcxTnbdR8gbv9rHHnjHyrm8nilNKUejnmhsWu2ovHnWNVmZQpQycBscN5Z5/Kp0vpjHIFkjmdBiX/AHjnOPcOgrzSK+MVwkp7wMJMsobaSR4cev4UQsNdeMSR7d7SKFJjJBbxO4ny+tcU+Lla0zK30bpdZeEkM6J3eMsRjdx06U1tQc3DqkwDKBuCfdyeTt6dfzrHw3sGBI5uY7tQcqNrj5np4+FUJdcvJDKbZ5EXbneiscEf2H0qVx8z1ZWVGzOu28fE77nJJyiMRjJpKx8WpB0DfaFiJ5KMvj8q6h8UvbFkeujTMKVUqCTzk9PlVaXRTInO489cc/5oyXQSABWx09RSmaMHODgjy6VxKMXsr4ogRNEzIVmllKdPaCnIqrN2M0Zz3gt41fGM4JB+ArUB1PK79ufEVwjByUEgJGPaY/TmtIyxWi1BejETWFtptz9ntlEeVLkKu0saz0p+0Fl565rRdqmMWvxFeBsCdc1ln3QvcqV9pSQK9/g/lEaVaE0SZYNRuZMghsD5GvRP3klzbgRnOBzivL2KxxnwVs5FW9D1KW12oSSmenjVt9A0F+0/ZxNVmS7hCC8QYMbnAlHv8CPA1mLe0NxsDrsQMFlYkblIOOfXitwl7FdwkjB44obq1tZDF/JbxPdRgESsOQfX+9Y54ujaE6T0U+0Vy9hrq3MSbnZVwfDNazSNai1C3USHa6jk+dZu+IuJoJO7DllG0Y4zVr91NcbUMckDE5LR8Ct5RtGPYK1vs/HHre6Du1gkQyIM4Oc+0o8wDz6bq1HZ3QtC06ytr+SJJrlwxDs7MoKtjgHjOQfTOaH3mi3gto4IpVa36usqBiT8c1Y03SL27u92pzuxRQE8Og8vLgVlibfNLHFGn0ad9VvftE9u8Yjfh06MOnwo/qlha6xYXOn3af8ATTqYyccjyI9c/hQrTEkSJbVF3I3s5zgj41o47KO0gTb94DBJ6mtVsxPnrVewuu6dcNFEi3BVyhdMZ6nHzGPnQi40jWYI1E9hNECQCQmQOQOcV9FaxbxLdd5jl1DEZ+FU1gUliik569a8qfkOE3FojE8DYXotXt4TMGQLJNB/Ngey233H4VXZ9TtyAYpVkkwoLDAyR0wfHw+Br6D7i34I2mUjk4GT6UrWy7vbwwHXIzS+3H8xDFI+drmKUSf9Uj97j2twOaSvon7DbSe1sT4KD+VdT+4vQYP2SqFLlVQAY9o+/wAKUPHnCgBgPIVTE8brtiyeQTs68dB8cVKJlOSpUbuhHU++uBSRpkiyrYBOXPmcdKbLvIJ71gApO3img+xkqcr4joa5QpXBUg9TnjPqKdoLZiO2drNb3yXXLQuR7Q8G9fKgWrKTJFOFIDJz5E16dqcENzaSQXKBVJI3OcAGsXrGlN9hdACDCMrz5V63h8mUcfQn7Mn+7ZrhftC5KE0RGmobbCn28Vc7PX0MkBtn6rznzoi8MeSYyBXTN6EmBLZZbUlMHaMYNXJ7Z7u3k3DEZUmrwhBboPKicVqvdKCRnyPSuZPZoZTSZFEFtMzbu6baeT4GvRbIwXEYZcEHnIrzzUdPbTb+exlJ7qbE0RA4x5Z860/Y0u6bDxEOB1zXfH/SMpaZphaROMH5Uosow4cdRV82HexFUkKsapXLyWSn7SNuMAHzqZKhpk8SrEwYGiNvdid0gzyeKCwGSfLc7SflR/RbQxZmkOdoJAPhSXsYO1eRXunG5VVDhuOuKHhiFwjkHbgYGMD9YqzNKhnkO773tZ88niomMcgGHGSMdcY/p4189zPKbYEWSnIyCoxlV6jx/ClY7ssBjxOR4DHBp5bkEnaRwec1wmyCisGGDg4yOPD4cVmKjh0Hs44rqjac7j7SgeHHWupWhaFKRKEZUUbWG07ff9aeyHK92BjjBJ/pQ438ca+0Q5J5OMfCpor6LYpJTHBznwzgfjV/pSaLSBWKmKQDHBBqSWVRtBkULx94/KqkV0hddrodyDJzx1HPypWn7klNqsqkEnGfHGKK1Q7Ql3ZWt3NE9yBIUc92ykgqcZ5x+uKr30SlnUkkkZO7rn1q0JwEIGDt4OTgE1U1FXmj327hZQcZPA69SP11rq8LmXHO5fgp7Wjzm+06Wzu3a3bCbiRiiWnd9NIkbHDOwGTVzVYHtXEk0ySK7YYIOE8j+P0qvbXMFxOttanvJT4Lzj1r0OSUZRuLEmFtU0+fTbZZpc5LbSPKu0jvLtlDngmiOtulxpnUNjaxIbI5PBqpprLCBtPNc3jrNZMuy9+0ywEHZ7S9UR8G1kCuPEq39Kpdl5YPsoMZByck++h2pWmq6yXhuJJBahXO1wcP/Lj0xQjspeSW00tjOMMjY48Medd3Fyp3QpRPVrS5PsnPQ0TvLC21jTzC2FkB3I3kw8/Ssfa3jqASjEeBFG7LUljdTvAJGetbWpIglhheymEFwm0jx8D6g0bkmW302STIAIwCfOq1zNBqVg2JYw6EAMfOq2tzd1aR2SsC5Xc3PSubn5Pj42UCPYBQbcZ5VgOeOajf2SdgjbJy2fZyf8U3LhR7OWOf17qVo3wVOxgfAt4g/Xr9K8NsYkfehsxtw+3AYZGf1+VOyPZC8P4eBP6zTgGbkAHaM568Y4PzqDuWO4JKGAGN/iD/AIpNti2Tq8UeVcO5znIC/nXVEsZXO18knLZbHNdStjpmHmkkZ27xiWyOQfClMlyIiUZRzjAHkc4rStoSDcGyWGN2T7JHjmoW0iLlxNtTcRtxnB8BxW6x7EoAF768RcCbwCdByM+NLJf6izCN5AxdBnHr4Z8xR59HtkcKZWYbujKOmP8AHyqjdWlpCjgF2kUcBD49fzp3EHGgJFfX4BUzNgOxBxnOaQXWoOjR/aXRSAAo4z0Pz4FXxErrlAwIzuBHyp6RyRurBEJOfvDpxjFUq6QUgRcaTc3QUgzSMxy75P661ZstAvbQOYGMZKkNtHOMiijS3ytx7IA6YwR0/Xxqs76lM7Mbhl+OMEVWUikok0el3xh2PeYyBgE5BAxgfjVu2so0cZmGRzhj18COvnnmhTWl+VyXdweByTk00afqTgMFY88e0R4ZoTklSY9GtiuBG6751yRyVHsj0x0/zWMg014e0kzwBXhmy5KsePSry6TqLOF7rkghtzYAOM1ZsLFrKcyCBd3QZbA45/tVePJcU7fYPZorSPu7RzIPuqWxQ6NrW71BxGS0WQAQcEZHT8akkurq4tykyIsHKnbk5GP6kU+xtQHKJsXncSvH1rXl8lXcUCXs1cFpp1pYsbWXYyADG7Iz548eaDkB5OrnPOOpwR5+8GmqYwd7SHDdMLwo9f140qBxbuyc7vawoxjjH5GuTm5XyP0UkiRo0LFSAmAA3gOaVIwZDhySo4BHmB4+NKUkXartyAM4XrjnNcXILAMuR/KOR19Kxqwo5QjbFOVQcEDg8Hj6U/MQ7xsFSTyufpShmMRfAY4wD58VFNLFHJh4ZtxIO9QSp9/4U0mgoVyjHIkx7xmupZI3LZCsM84yOKSjZWxssbskjYTbnJG7BzUZhfA2rHg8cdRx1/XpVqM7rfJ5O5eT8ajj4WPHGXHT3mqtWCiVn01p1eR8bmwMDqB5++qbaMkecFyuOMrndz6fH5UXkPsR+hGPTmrDey2BwNvh7qq9ixQDTTV73a6vsycEgEDgY+X508aS+5EypByCCpzt5x8c0aX7yfCoW/0ifER5z8qdg4qymtipIDIDgdR8s/QCpo7Wz7tt0EZzkhSP186dagG2Rjydh5/409yWhjyc/wAROvvNZubWwxX6MSJFdGjVPZBIKt4dP6UjxodpyPYXO4DAwDSt9xfTOPTg0l0AOg6Zx6cCjY6Qp2bdp2+0RjJ8M4z+FRCGFFKKhZXbB5zg55J9+a7AZRuGeH60iEmAknkyJ+K03dhjsmWGJVEacFeetOQbi/IyehQfe5PSmwKoZMADp0FchPcR8/7z+BqQcR7pGsewlQdm3PQgc4ppuJF7xZAF2nIyeoI/zTpf/LP/AN4/OqUxIvjgn7mfpUPkZDlRbjZSMM2cSN7R5BHp8aevd8bMKyklsc9OtVoyTFEScncnPvK5q0APsjtgbsHnxrWOyrJMIEV2k6rx5AVDIHyoUgkZJLE8j9fjXEZhGeeVHwzUQ/1SP/ePzpZWUhUhuAX3MH9rqGxXVbwMnjxrqlsZ/9k=\" alt=\"\">\r\n");
-      out.write("                                            <div class=\"sbnav__item__descripts sbnav__item__descripts--new\">\r\n");
-      out.write("                                                <a href=\"#\">Một khoảng khắc tạm thời</a>\r\n");
-      out.write("                                            </div>\r\n");
-      out.write("                                        </li>\r\n");
+      out.write("                                        ");
+      if (_jspx_meth_c_forEach_1(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                                                \r\n");
       out.write("                                    </ul>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
@@ -144,15 +208,15 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\r\n");
       out.write("                                            ");
       //  c:forEach
-      org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-      _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
-      _jspx_th_c_forEach_1.setParent(null);
-      _jspx_th_c_forEach_1.setVar("imgs");
-      _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ProductImages}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-      int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
+      org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_2 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+      _jspx_th_c_forEach_2.setPageContext(_jspx_page_context);
+      _jspx_th_c_forEach_2.setParent(null);
+      _jspx_th_c_forEach_2.setVar("imgs");
+      _jspx_th_c_forEach_2.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ProductImages}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+      int[] _jspx_push_body_count_c_forEach_2 = new int[] { 0 };
       try {
-        int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
-        if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        int _jspx_eval_c_forEach_2 = _jspx_th_c_forEach_2.doStartTag();
+        if (_jspx_eval_c_forEach_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
           do {
             out.write("\r\n");
             out.write("                                                ");
@@ -177,25 +241,25 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
             out.write("                                                ");
  check++;
             out.write("\r\n");
-            out.write("                                               \r\n");
             out.write("                                            ");
-            int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
+            int evalDoAfterBody = _jspx_th_c_forEach_2.doAfterBody();
             if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
               break;
           } while (true);
         }
-        if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        if (_jspx_th_c_forEach_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
           return;
         }
       } catch (Throwable _jspx_exception) {
-        while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
+        while (_jspx_push_body_count_c_forEach_2[0]-- > 0)
           out = _jspx_page_context.popBody();
-        _jspx_th_c_forEach_1.doCatch(_jspx_exception);
+        _jspx_th_c_forEach_2.doCatch(_jspx_exception);
       } finally {
-        _jspx_th_c_forEach_1.doFinally();
-        _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_1);
+        _jspx_th_c_forEach_2.doFinally();
+        _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_2);
       }
       out.write(" \r\n");
+      out.write("                                                    \r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
@@ -208,7 +272,9 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                                <a href=\"#\">Demo</a>\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                            <div class=\"header--title\">\r\n");
-      out.write("                                                <h1>Áo Khoác Mùa Đông</h1>\r\n");
+      out.write("                                                <h1>");
+      out.print(product.getName() );
+      out.write("</h1>\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                        </div>\r\n");
       out.write("        \r\n");
@@ -216,74 +282,131 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("        \r\n");
       out.write("                                        <div class=\"body__content\">\r\n");
       out.write("                                            <div class=\"body__content__price\">\r\n");
-      out.write("                                                74,000 ₫ – 740,000 ₫\r\n");
+      out.write("                                                ");
+      out.print(product.getPrice()+".000₫" );
+      out.write("\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                            <div class=\"body__content__descriptions\">\r\n");
-      out.write("                                                Đây là một sản phẩm Cửa hàng trực tuyến Demo. Nếu bạn cần một trang web bán hàng, bạn có thể dễ dàng biến chủ đề của chúng tôi thành một cửa hàng trực tuyến do tích hợp các plugin Thương mại điện tử phổ biến nhất. Với WooCoomerce, việc theo dõi doanh thu và thu nhập của bạn trở nên dễ dàng. Bất kể bạn muốn bán gì (dù là quần áo hay các sản phẩm có thể tải xuống), điều này cực kỳ dễ thực hiện nếu bạn làm điều đó với WooC Commerce.\r\n");
+      out.write("                                                 ");
+      out.print(product.getDescription() );
+      out.write("\r\n");
       out.write("                                            </div>\r\n");
       out.write("\r\n");
       out.write("                                            <div id=\"form__select\">\r\n");
-      out.write("                                                <form action=\"#\" method=\"\">\r\n");
+      out.write("                                                <form action=\"");
+      out.print(request.getContextPath());
+      out.write("/Cart\" method=\"post\">\r\n");
       out.write("                                                    <table>\r\n");
-      out.write("                                                        <tr>\r\n");
+      out.write("                                                    ");
+ if(product.getColor()!=null || product.getSize()!=null){ 
+      out.write("\r\n");
+      out.write("                                                        <!-- tr màu -->\r\n");
+      out.write("                                                        <tr>   \r\n");
       out.write("                                                            <td class=\"label\">\r\n");
       out.write("                                                                Màu sắc\r\n");
       out.write("                                                            </td>\r\n");
       out.write("                                                            <td>\r\n");
-      out.write("                                                                <div class=\"box-select--wrap box-select--wrap--color\">\r\n");
-      out.write("                                                                    <div class=\"box-select\">\r\n");
+      out.write("<!--                                                                    <div class=\"box-select\">\r\n");
       out.write("                                                                        <span>Chọn một tùy chọn</span> \r\n");
       out.write("                                                                    </div>\r\n");
       out.write("                                                                    <i class=\"fa-solid fa-angle-down\"></i>\r\n");
       out.write("                                                                    <div class=\"box-select--option-show box-select--option-color\">\r\n");
       out.write("                                                                        <ul>\r\n");
       out.write("                                                                            <li> Chọn một màu tùy chọn </li>\r\n");
-      out.write("                                                                            <li> Đa màu </li>\r\n");
-      out.write("                                                                            <li> Đen </li>\r\n");
+      out.write("                                                                           \r\n");
       out.write("                                                                        </ul>\r\n");
-      out.write("                                                                    </div>\r\n");
-      out.write("                                                                </div>\r\n");
+      out.write("                                                                    </div>-->\r\n");
+      out.write("                                                                    <select name=\"color\" class=\"box-select--wrap box-select--wrap--color\">\r\n");
+      out.write("                                                                        <option value=\"\" disabled selected>None</option>\r\n");
+      out.write("                                                                        ");
+      if (_jspx_meth_c_forEach_3(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                                                                    </select>\r\n");
+      out.write("                                                                      \r\n");
       out.write("                                                                \r\n");
       out.write("                                                            </td>\r\n");
       out.write("                                                        </tr>\r\n");
+      out.write("                                                        <!-- tr size -->\r\n");
       out.write("                                                        <tr>\r\n");
       out.write("                                                            <td class=\"label\">\r\n");
       out.write("                                                                Size\r\n");
       out.write("                                                            </td>\r\n");
       out.write("                                                            <td>\r\n");
-      out.write("                                                                <div class=\"box-select--wrap box-select--wrap--size\">\r\n");
-      out.write("                                                                    <div class=\"box-select\">\r\n");
+      out.write("<!--                                                                    <div class=\"box-select\">\r\n");
       out.write("                                                                        <span>Chọn một tùy chọn</span> \r\n");
       out.write("                                                                    </div>\r\n");
       out.write("                                                                    <i class=\"fa-solid fa-angle-down\"></i>\r\n");
       out.write("                                                                    <div class=\"box-select--option-show box-select--option-size\">\r\n");
       out.write("                                                                        <ul>\r\n");
-      out.write("                                                                            <li> Chọn một màu tùy chọn </li>\r\n");
-      out.write("                                                                            <li> Đa màu </li>\r\n");
-      out.write("                                                                            <li> Đen </li>\r\n");
+      out.write("                                                                            <li> Chọn một size tùy chọn </li>\r\n");
       out.write("                                                                        </ul>\r\n");
-      out.write("                                                                    </div>\r\n");
-      out.write("                                                                </div>\r\n");
+      out.write("                                                                    </div>-->\r\n");
+      out.write("                                                                    <select name=\"size\" class=\"box-select--wrap box-select--wrap--color\">\r\n");
+      out.write("                                                                        <option value=\"\" disabled selected>None</option>\r\n");
+      out.write("                                                                        ");
+      if (_jspx_meth_c_forEach_4(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                                                                    </select>\r\n");
       out.write("                                                            </td>\r\n");
       out.write("                                                        </tr>\r\n");
+      out.write("                                                    <a class=\"delete_form\" href=\"#\">Xóa</a>\r\n");
+      out.write("                                                    ");
+ } 
+      out.write("\r\n");
+      out.write("                                                        <!-- End color, size -->\r\n");
       out.write("                                                        <tr>\r\n");
       out.write("                                                            <td>\r\n");
       out.write("                                                                <div class=\"buttonTru\">\r\n");
       out.write("                                                                    -\r\n");
       out.write("                                                                </div>\r\n");
-      out.write("                                                                <input type=\"text\" class=\"number\" value=\"1\">\r\n");
+      out.write("                                                                <input type=\"text\" name=\"quantityPurchased\" class=\"number\" value=\"1\">\r\n");
       out.write("                                                                <div class=\"buttonCong\">\r\n");
       out.write("                                                                    +\r\n");
       out.write("                                                                </div>\r\n");
       out.write("                                                            </td>\r\n");
       out.write("                                                            <td>\r\n");
       out.write("                                                                <div class=\"btnBuy\">\r\n");
-      out.write("                                                                    <a href=\"\">MUA HÀNG</a>\r\n");
+      out.write("<!--                                                                <a href=\"\">MUA HÀNG</a>-->\r\n");
+      out.write("                                                                    <input type=\"hidden\" name=\"idproduct\" value=\"");
+      out.print(product.getIdproduct());
+      out.write("\" />\r\n");
+      out.write("                                                                    <input type=\"hidden\" name=\"idamin\" value=\"");
+      out.print(product.getIdadmin());
+      out.write("\">\r\n");
+      out.write("                                                                    <input type=\"hidden\" name=\"idprt\" value=\"");
+      out.print(product.getIdprt());
+      out.write("\">\r\n");
+      out.write("                                                                    <input type=\"hidden\" name=\"name\" value=\"");
+      out.print(product.getName());
+      out.write("\">\r\n");
+      out.write("                                                                    <input type=\"hidden\" name=\"desc\" value=\"");
+      out.print(product.getDescription());
+      out.write(" \">\r\n");
+      out.write("                                                                    <input type=\"hidden\" name=\"quantity\" value=\"");
+      out.print(product.getQuantity());
+      out.write("\">\r\n");
+      out.write("                                                                    <input type=\"hidden\" name=\"price\" value=\"");
+      out.print(product.getPrice());
+      out.write("\">\r\n");
+      out.write("<!--                                                                    <input type=\"hidden\" name=\"color\" value=\"");
+      out.print(product.getColor());
+      out.write("\">\r\n");
+      out.write("                                                                    <input type=\"hidden\" name=\"size\" value=\"");
+      out.print(product.getSize());
+      out.write("\">-->\r\n");
+      out.write("                                                                    <input type=\"hidden\" name=\"nameprt\" value=\"");
+      out.print(product.getNamecategory());
+      out.write("\">\r\n");
+      out.write("                                                                    <input type=\"hidden\" name=\"image\" value=\"");
+      out.print(product.getImage());
+      out.write("\">\r\n");
+      out.write("                                                                    <input type=\"submit\" value=\"Mua Hàng\"/>\r\n");
       out.write("                                                                </div>\r\n");
       out.write("                                                            </td>\r\n");
       out.write("                                                        </tr>\r\n");
       out.write("                                                    </table>\r\n");
-      out.write("                                                    <a class=\"delete_form\" href=\"#\">Xóa</a>\r\n");
       out.write("                                                </form>\r\n");
       out.write("                                            </div>\r\n");
       out.write("\r\n");
@@ -291,6 +414,7 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                            <div class=\"payments\">\r\n");
       out.write("\r\n");
       out.write("                                                <div class=\"row\">\r\n");
+      out.write("                                                    <!--\r\n");
       out.write("                                                    <div class=\"col-6\">\r\n");
       out.write("                                                        <h6>Tính phí ship tự động</h6>\r\n");
       out.write("                                                        <img src=\"./images/ship/logo-ghn.jpg\" alt=\"\">\r\n");
@@ -313,14 +437,18 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                                    <div class=\"button-regist-aff\">\r\n");
       out.write("                                                        <a href=\"#\">Đăng ký Affilicate</a> \r\n");
       out.write("                                                    </div>\r\n");
-      out.write("\r\n");
+      out.write("                                                    -->\r\n");
       out.write("                                                    <hr class=\"hr--First\"/>\r\n");
       out.write("                                                    <div class=\"maSP\">\r\n");
-      out.write("                                                        Mã: ao-mua-dong\r\n");
+      out.write("                                                        Mã: ");
+      out.print(product.getIdproduct() );
+      out.write("\r\n");
       out.write("                                                    </div>\r\n");
       out.write("                                                    <hr/>\r\n");
       out.write("                                                    <div class=\"category\">\r\n");
-      out.write("                                                        Danh mục: <a href=\"#\">Demo</a>\r\n");
+      out.write("                                                        Danh mục: <a href=\"#\">");
+      out.print(product.getNamecategory() );
+      out.write("</a>\r\n");
       out.write("                                                    </div>\r\n");
       out.write("                                                </div>\r\n");
       out.write("\r\n");
@@ -342,48 +470,79 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                    Thông Tin Bổ Sung\r\n");
       out.write("                                </div>\r\n");
       out.write("                                <div class=\"btn__footer btn__Danhgia btn__footer--hidden\">\r\n");
-      out.write("                                    Đánh Giá (0)\r\n");
+      out.write("                                    ");
+ int num = 0; 
+      out.write("\r\n");
+      out.write("                                    ");
+      //  c:forEach
+      org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_5 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+      _jspx_th_c_forEach_5.setPageContext(_jspx_page_context);
+      _jspx_th_c_forEach_5.setParent(null);
+      _jspx_th_c_forEach_5.setVar("cmts");
+      _jspx_th_c_forEach_5.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${AllComments}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+      int[] _jspx_push_body_count_c_forEach_5 = new int[] { 0 };
+      try {
+        int _jspx_eval_c_forEach_5 = _jspx_th_c_forEach_5.doStartTag();
+        if (_jspx_eval_c_forEach_5 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+          do {
+            out.write("\r\n");
+            out.write("                                       ");
+ num+=1; 
+            out.write("\r\n");
+            out.write("                                    ");
+            int evalDoAfterBody = _jspx_th_c_forEach_5.doAfterBody();
+            if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+              break;
+          } while (true);
+        }
+        if (_jspx_th_c_forEach_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+          return;
+        }
+      } catch (Throwable _jspx_exception) {
+        while (_jspx_push_body_count_c_forEach_5[0]-- > 0)
+          out = _jspx_page_context.popBody();
+        _jspx_th_c_forEach_5.doCatch(_jspx_exception);
+      } finally {
+        _jspx_th_c_forEach_5.doFinally();
+        _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_5);
+      }
+      out.write("\r\n");
+      out.write("                                    Đánh Giá (");
+      out.print(num);
+      out.write(")\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
       out.write("\r\n");
       out.write("                            <!-- Nội dung cho từng nút bấm -->\r\n");
       out.write("                            <div class=\"content_mota\">\r\n");
       out.write("                                <p class=\"text__footer\">\r\n");
-      out.write("                                    Trong trường hợp bạn tìm cách tạo một cửa hàng trực tuyến, Thú cưng tích hợp WooC Commerce là giải pháp. Hãy tự bảo vệ mình với giải pháp WordPress mạnh mẽ này.\r\n");
-      out.write("                                    <br/>\r\n");
-      out.write("                                    Tất cả các chủ đề của chúng tôi đều đi kèm với Tài liệu HTML mở rộng hướng dẫn bạn cách cài đặt và đặt chủ đề đúng cách. Cũng như Nhóm Hỗ trợ thân thiện của chúng tôi sẽ trở thành người trợ giúp đáng tin cậy với tất cả các vấn đề bạn có thể gặp phải.\r\n");
+      out.write("                                    ");
+      out.print(product.getDescription() );
+      out.write("\r\n");
       out.write("                                </p>\r\n");
-      out.write("                                <ul class=\"text__footer--list\">\r\n");
-      out.write("                                    <li>\r\n");
-      out.write("                                        thẻ tín dụng / thẻ ghi nợ hoặc qua PayPal\r\n");
-      out.write("                                    </li>\r\n");
-      out.write("                                    <li>\r\n");
-      out.write("                                        miễn thuế\r\n");
-      out.write("                                    </li>\r\n");
-      out.write("                                    <li>\r\n");
-      out.write("                                        24 giờ một ngày, 7 ngày một tuần\r\n");
-      out.write("                                    </li>\r\n");
-      out.write("                                    <li>\r\n");
-      out.write("                                        hỗ trợ khách hàng tuyệt vời\r\n");
-      out.write("                                    </li>\r\n");
-      out.write("                                    <li>\r\n");
-      out.write("                                        kiểm tra nhanh chóng và dễ dàng\r\n");
-      out.write("                                    </li>\r\n");
-      out.write("                                    <li>\r\n");
-      out.write("                                        theo dõi và dấu vết\r\n");
-      out.write("                                    </li>\r\n");
-      out.write("                                </ul>\r\n");
+      out.write("\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <!--  -->\r\n");
       out.write("                            <div class=\"content_thongtinbosung btn__hidden\">\r\n");
       out.write("                                <div class=\"row color\">\r\n");
       out.write("                                    <div class=\"col-6 color_title\">MÀU SẮC</div>\r\n");
-      out.write("                                    <div class=\"col-6 color_content\">Đa màu, đen</div>\r\n");
+      out.write("                                    <div class=\"col-6 color_content\">\r\n");
+      out.write("                                    ");
+      if (_jspx_meth_c_forEach_6(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                    \r\n");
       out.write("                                </div>\r\n");
       out.write("                                <hr/>\r\n");
       out.write("                                <div class=\"row size-wrap\">\r\n");
       out.write("                                    <div class=\"col-6 size_title\">SIZE</div>\r\n");
-      out.write("                                    <div class=\"col-6 size_content\">Nhỏ, trung</div>\r\n");
+      out.write("                                    <div class=\"col-6 size_content\">\r\n");
+      out.write("                                        ");
+      if (_jspx_meth_c_forEach_7(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <!--  -->\r\n");
@@ -392,48 +551,67 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                    <h1>Đánh giá</h1>\r\n");
       out.write("                                </div>\r\n");
       out.write("                                <div class=\"content_evaluate__content\">\r\n");
-      out.write("                                    Chưa có đánh giá nào\r\n");
+      out.write("                                    ");
+      if (_jspx_meth_c_if_0(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                                    ");
+      if (_jspx_meth_c_if_1(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                                    \r\n");
       out.write("                                </div>\r\n");
       out.write("                                <div class=\"content_evaluate__add-evaluate\">\r\n");
       out.write("                                    <div class=\"evaluate_header\">\r\n");
-      out.write("                                        <h1>Hãy là người đầu tiên nhận xét <br/> “Áo khoác mùa đông”</h1> \r\n");
+      out.write("                                        <h1>Hãy là người đầu tiên nhận xét <br/> “");
+      out.print(product.getName() );
+      out.write("”</h1> \r\n");
       out.write("                                    </div>\r\n");
-      out.write("                                    <form action=\"#\" method=\"\" class=\"form-add-evaluate\">\r\n");
+      out.write("                                    <form action=\"AddComment\" method=\"post\" class=\"form-add-evaluate\" accept-charset=\"UTF-8\">\r\n");
       out.write("                                        <div class=\"evaluate_start\">\r\n");
       out.write("                                            <h6>Đánh giá của bạn</h6>\r\n");
-      out.write("                                            <div class=\"evaluate_start--action one-start\">\r\n");
+      out.write("                                            <div class=\"evaluate_start--action one-start\" onclick=\"selectedOneStar()\">\r\n");
       out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
       out.write("                                            </div>\r\n");
-      out.write("                                            <div class=\"evaluate_start--action two-start\">\r\n");
-      out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
-      out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
-      out.write("                                            </div>\r\n");
-      out.write("                                            <div class=\"evaluate_start--action three-start\">\r\n");
-      out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
+      out.write("                                            <div class=\"evaluate_start--action two-start\" onclick=\"selectedTwoStar()\">\r\n");
       out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
       out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
       out.write("                                            </div>\r\n");
-      out.write("                                            <div class=\"evaluate_start--action four-start\">\r\n");
-      out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
+      out.write("                                            <div class=\"evaluate_start--action three-start\" onclick=\"selectedThreeStar()\">\r\n");
       out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
       out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
       out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
       out.write("                                            </div>\r\n");
-      out.write("                                            <div class=\"evaluate_start--action five-start\">\r\n");
-      out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
+      out.write("                                            <div class=\"evaluate_start--action four-start\" onclick=\"selectedFourStar()\">\r\n");
       out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
       out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
       out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
       out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
       out.write("                                            </div>\r\n");
+      out.write("                                            <div class=\"evaluate_start--action five-start\" onclick=\"selectedFiveStar()\">\r\n");
+      out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
+      out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
+      out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
+      out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
+      out.write("                                                <i class=\"fa-solid fa-star\"></i>\r\n");
+      out.write("                                            </div>\r\n");
+      out.write("                                            <!-- phần dữ liệu thêm -->\r\n");
+      out.write("                                            <input type=\"hidden\" class=\"StarSelected\" name=\"star\" value=\"0\">\r\n");
+      out.write("                                            <input type=\"hidden\" class=\"\" name=\"idproduct\" value=\"");
+      out.print(idproduct);
+      out.write("\">\r\n");
+      out.write("                                            <input type=\"hidden\" class=\"\" name=\"iduser\" value=\"3\">\r\n");
+      out.write("                                            <!-- Hết phần dữ liệu thêm -->\r\n");
       out.write("                                        </div>\r\n");
+      out.write("                                        <br/>\r\n");
       out.write("                                        <br/>\r\n");
       out.write("                                        <div class=\"evaluate_text\">\r\n");
       out.write("                                            <h6>\r\n");
       out.write("                                                Nhận xét của bạn *\r\n");
       out.write("                                            </h6>\r\n");
-      out.write("                                            <textarea id=\"w3review\" name=\"w3review\" rows=\"4\" cols=\"50\"></textarea>\r\n");
+      out.write("                                            <textarea id=\"\" name=\"comments\" rows=\"4\" cols=\"50\"></textarea>\r\n");
       out.write("                                        </div>\r\n");
+      out.write("                                        <!--\r\n");
       out.write("                                        <div class=\"evaluate__info\">\r\n");
       out.write("                                            <div class=\"row\">\r\n");
       out.write("                                                <div class=\"col-6\">\r\n");
@@ -446,8 +624,9 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                                </div>\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                        </div>\r\n");
+      out.write("                                        -->\r\n");
       out.write("                                        <div class=\"evaluate__button\">\r\n");
-      out.write("                                            <a href=\"#\">Gửi đi</a>\r\n");
+      out.write("                                            <input type=\"submit\" value=\"Gửi đi\"/>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </form>\r\n");
       out.write("                                </div>\r\n");
@@ -463,44 +642,110 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                </div>\r\n");
       out.write("                                <div class=\"similar-products__body\">\r\n");
       out.write("                                    <div class=\"row\">\r\n");
-      out.write("                                        <div class=\"col-4\">\r\n");
-      out.write("                                            <div class=\"similar-products__item\">\r\n");
-      out.write("                                                <div class=\"similar-products__item__img\">\r\n");
-      out.write("                                                    <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/Original-Leather-Collar-1-100x100.jpg\" alt=\"\">\r\n");
-      out.write("                                                </div>\r\n");
-      out.write("                                                <div class=\"similar-products__item__content\">\r\n");
-      out.write("                                                    <a class=\"similar-products__item__content--name\" href=\"#\">Cổ áo da nguyên bản</a>\r\n");
-      out.write("                                                    <p class=\"similar-products__item__content--price\">130,000,000 ₫</p>\r\n");
-      out.write("                                                    <a class=\"similar-products__item__content--button\" href=\"#\">Mua Hàng</a>\r\n");
-      out.write("                                                </div>\r\n");
-      out.write("                                            </div>\r\n");
-      out.write("                                        </div>\r\n");
+      out.write("                                        <!-- Item sản phẩm tương tự -->\r\n");
+      out.write("                                        ");
+ int a = 0;
       out.write("\r\n");
-      out.write("                                        <div class=\"col-4\">\r\n");
-      out.write("                                            <div class=\"similar-products__item\">\r\n");
-      out.write("                                                <div class=\"similar-products__item__img\">\r\n");
-      out.write("                                                    <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/Original-Leather-Collar-1-100x100.jpg\" alt=\"\">\r\n");
-      out.write("                                                </div>\r\n");
-      out.write("                                                <div class=\"similar-products__item__content\">\r\n");
-      out.write("                                                    <a class=\"similar-products__item__content--name\" href=\"#\">Bình giữ nhiệt Norm mới</a>\r\n");
-      out.write("                                                    <p class=\"similar-products__item__content--price\">75.000 ₫ <span>-</span> 110.000 ₫</p>\r\n");
-      out.write("                                                    <a class=\"similar-products__item__content--button\" href=\"#\">Lựa Chọn</a>\r\n");
-      out.write("                                                </div>\r\n");
-      out.write("                                            </div>\r\n");
-      out.write("                                        </div>\r\n");
+      out.write("                                        ");
+      //  c:forEach
+      org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_10 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+      _jspx_th_c_forEach_10.setPageContext(_jspx_page_context);
+      _jspx_th_c_forEach_10.setParent(null);
+      _jspx_th_c_forEach_10.setVar("p");
+      _jspx_th_c_forEach_10.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${SimilarProducts}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+      int[] _jspx_push_body_count_c_forEach_10 = new int[] { 0 };
+      try {
+        int _jspx_eval_c_forEach_10 = _jspx_th_c_forEach_10.doStartTag();
+        if (_jspx_eval_c_forEach_10 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+          do {
+            out.write("\r\n");
+            out.write("                                            ");
+            if (_jspx_meth_c_set_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_10, _jspx_page_context, _jspx_push_body_count_c_forEach_10))
+              return;
+            out.write("\r\n");
+            out.write("                                            ");
+            if (_jspx_meth_c_set_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_10, _jspx_page_context, _jspx_push_body_count_c_forEach_10))
+              return;
+            out.write("\r\n");
+            out.write("                                            \r\n");
+            out.write("                                            <!-- check_num là lấy id trước, check_id là lấy id hiện tại\r\n");
+            out.write("                                                nếu 2 cái bằng nhau là trùng sản phẩm nên không hiển thị -->\r\n");
+            out.write("                                            ");
+ if(a<3){ 
+            out.write("\r\n");
+            out.write("                                                ");
+            //  c:if
+            org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_2 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+            _jspx_th_c_if_2.setPageContext(_jspx_page_context);
+            _jspx_th_c_if_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_10);
+            _jspx_th_c_if_2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${check_id != check_num}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+            int _jspx_eval_c_if_2 = _jspx_th_c_if_2.doStartTag();
+            if (_jspx_eval_c_if_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+              do {
+                out.write("\r\n");
+                out.write("                                                    <div class=\"col-4\">\r\n");
+                out.write("                                                        ");
+ a+=1; 
+                out.write("\r\n");
+                out.write("                                                        <div class=\"similar-products__item\">\r\n");
+                out.write("                                                            <div class=\"similar-products__item__img\">\r\n");
+                out.write("                                                                <img src=\"./images/products/");
+                out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+                out.write("\" alt=\"\">\r\n");
+                out.write("                                                            </div>\r\n");
+                out.write("                                                            <div class=\"similar-products__item__content\">\r\n");
+                out.write("                                                                <a class=\"similar-products__item__content--name\" href=\"#\">");
+                out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+                out.write("</a>\r\n");
+                out.write("                                                                <p class=\"similar-products__item__content--price\">");
+                out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+                out.write(".000₫</p>\r\n");
+                out.write("                                                                <a class=\"similar-products__item__content--button\" \r\n");
+                out.write("                                                                   href=\"");
+                out.print(request.getContextPath());
+                out.write("/ProductsControl?idproduct=");
+                out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.idproduct}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+                out.write("\">\r\n");
+                out.write("                                                                    Mua Hàng\r\n");
+                out.write("                                                                </a>\r\n");
+                out.write("                                                            </div>\r\n");
+                out.write("                                                        </div>\r\n");
+                out.write("                                                    </div>\r\n");
+                out.write("                                                ");
+                int evalDoAfterBody = _jspx_th_c_if_2.doAfterBody();
+                if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+                  break;
+              } while (true);
+            }
+            if (_jspx_th_c_if_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+              _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
+              return;
+            }
+            _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
+            out.write("\r\n");
+            out.write("                                            ");
+ } 
+            out.write("\r\n");
+            out.write("                                            \r\n");
+            out.write("                                        ");
+            int evalDoAfterBody = _jspx_th_c_forEach_10.doAfterBody();
+            if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+              break;
+          } while (true);
+        }
+        if (_jspx_th_c_forEach_10.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+          return;
+        }
+      } catch (Throwable _jspx_exception) {
+        while (_jspx_push_body_count_c_forEach_10[0]-- > 0)
+          out = _jspx_page_context.popBody();
+        _jspx_th_c_forEach_10.doCatch(_jspx_exception);
+      } finally {
+        _jspx_th_c_forEach_10.doFinally();
+        _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_10);
+      }
       out.write("\r\n");
-      out.write("                                        <div class=\"col-4\">\r\n");
-      out.write("                                            <div class=\"similar-products__item\">\r\n");
-      out.write("                                                <div class=\"similar-products__item__img\">\r\n");
-      out.write("                                                    <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/Original-Leather-Collar-1-100x100.jpg\" alt=\"\">\r\n");
-      out.write("                                                </div>\r\n");
-      out.write("                                                <div class=\"similar-products__item__content\">\r\n");
-      out.write("                                                    <a class=\"similar-products__item__content--name\" href=\"#\">Cổ áo da nguyên bản</a>\r\n");
-      out.write("                                                    <p class=\"similar-products__item__content--price\">130,000,000 ₫</p>\r\n");
-      out.write("                                                    <a class=\"similar-products__item__content--button\" href=\"#\">Mua Hàng</a>\r\n");
-      out.write("                                                </div>\r\n");
-      out.write("                                            </div>\r\n");
-      out.write("                                        </div>\r\n");
+      out.write("                                        <!-- item sản phẩm tương tự -->\r\n");
       out.write("\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
@@ -513,116 +758,26 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("        </div>\r\n");
       out.write("\r\n");
       out.write("        <script>\r\n");
-      out.write("        //  Xử lý với đánh giá sao \r\n");
-      out.write("            const oneStar = document.querySelector('.one-start')\r\n");
-      out.write("            const twoStar = document.querySelector('.two-start')\r\n");
-      out.write("            const threeStar = document.querySelector('.three-start')\r\n");
-      out.write("            const fourStar = document.querySelector('.four-start')\r\n");
-      out.write("            const fiveStar = document.querySelector('.five-start')\r\n");
-      out.write("            const allStar = document.querySelectorAll('.evaluate_start--action ')\r\n");
-      out.write("\r\n");
-      out.write("            function removeAll(){\r\n");
-      out.write("                oneStar.classList.remove('evaluate_start--action--selected')\r\n");
-      out.write("                twoStar.classList.remove('evaluate_start--action--selected')\r\n");
-      out.write("                threeStar.classList.remove('evaluate_start--action--selected')\r\n");
-      out.write("                fourStar.classList.remove('evaluate_start--action--selected')\r\n");
-      out.write("                fiveStar.classList.remove('evaluate_start--action--selected')\r\n");
+      out.write("            // xử lý nhận dữ liệu (số sao) comments\r\n");
+      out.write("            var StarSelected = document.querySelector('.StarSelected')\r\n");
+      out.write("            function selectedOneStar(){\r\n");
+      out.write("                StarSelected.setAttribute(\"value\", 1)\r\n");
       out.write("            }\r\n");
-      out.write("\r\n");
-      out.write("            function selectedStar_one() {\r\n");
-      out.write("                removeAll()\r\n");
-      out.write("                oneStar.classList.toggle('evaluate_start--action--selected')\r\n");
+      out.write("            function selectedTwoStar(){\r\n");
+      out.write("                StarSelected.setAttribute(\"value\", 2)\r\n");
       out.write("            }\r\n");
-      out.write("            function selectedStar_two() {\r\n");
-      out.write("                removeAll()\r\n");
-      out.write("                twoStar.classList.toggle('evaluate_start--action--selected')\r\n");
+      out.write("            function selectedThreeStar(){\r\n");
+      out.write("                StarSelected.setAttribute(\"value\", 3)\r\n");
       out.write("            }\r\n");
-      out.write("            function selectedStar_three() {\r\n");
-      out.write("                removeAll()\r\n");
-      out.write("                threeStar.classList.toggle('evaluate_start--action--selected')\r\n");
+      out.write("            function selectedFourStar(){\r\n");
+      out.write("                StarSelected.setAttribute(\"value\", 4)\r\n");
       out.write("            }\r\n");
-      out.write("            function selectedStar_four() {\r\n");
-      out.write("                removeAll()\r\n");
-      out.write("                fourStar.classList.toggle('evaluate_start--action--selected')\r\n");
-      out.write("            }\r\n");
-      out.write("            function selectedStar_five() {\r\n");
-      out.write("                removeAll()\r\n");
-      out.write("                fiveStar.classList.toggle('evaluate_start--action--selected')\r\n");
-      out.write("            }\r\n");
-      out.write("\r\n");
-      out.write("            oneStar.addEventListener('click', selectedStar_one)\r\n");
-      out.write("            twoStar.addEventListener('click', selectedStar_two)\r\n");
-      out.write("            threeStar.addEventListener('click', selectedStar_three)\r\n");
-      out.write("            fourStar.addEventListener('click', selectedStar_four)\r\n");
-      out.write("            fiveStar.addEventListener('click', selectedStar_five)\r\n");
-      out.write("\r\n");
-      out.write("        // xử lý với ảnh\r\n");
-      out.write("            const imgs = document.querySelectorAll('.body_img_multi-img--js')\r\n");
-      out.write("            function addAllClassDisable(){\r\n");
-      out.write("                for (const img of imgs) {\r\n");
-      out.write("                    img.classList.add('body_img_multi-img--disable')\r\n");
-      out.write("                }\r\n");
-      out.write("            }    \r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("            const img1 = document.querySelector('.image-1')\r\n");
-      out.write("            const img2 = document.querySelector('.image-2')\r\n");
-      out.write("            const img3 = document.querySelector('.image-3')\r\n");
-      out.write("            const img4 = document.querySelector('.image-4')\r\n");
-      out.write("\r\n");
-      out.write("            const imgshow = document.querySelector('.image-show')\r\n");
-      out.write("            var pathImg1 = img1.getAttribute('src')\r\n");
-      out.write("            imgshow.setAttribute('src', pathImg1);\r\n");
-      out.write("                \r\n");
-      out.write("            function showImg4(){\r\n");
-      out.write("                addAllClassDisable()\r\n");
-      out.write("                img4.classList.remove('body_img_multi-img--disable')\r\n");
-      out.write("                var pathImg4 = img4.getAttribute('src')\r\n");
-      out.write("                imgshow.setAttribute('src', pathImg4);\r\n");
-      out.write("            }\r\n");
-      out.write("            function showImg3(){\r\n");
-      out.write("                addAllClassDisable()\r\n");
-      out.write("                img3.classList.remove('body_img_multi-img--disable')\r\n");
-      out.write("                var pathImg3 = img3.getAttribute('src')\r\n");
-      out.write("                imgshow.setAttribute('src', pathImg3);\r\n");
-      out.write("            }\r\n");
-      out.write("            function showImg2(){\r\n");
-      out.write("                addAllClassDisable()\r\n");
-      out.write("                img2.classList.remove('body_img_multi-img--disable')\r\n");
-      out.write("                var pathImg2= img2.getAttribute('src')\r\n");
-      out.write("                imgshow.setAttribute('src', pathImg2);\r\n");
-      out.write("            }\r\n");
-      out.write("            function showImg1(){\r\n");
-      out.write("                addAllClassDisable()\r\n");
-      out.write("                img1.classList.remove('body_img_multi-img--disable')\r\n");
-      out.write("                var pathImg1 = img1.getAttribute('src')\r\n");
-      out.write("                imgshow.setAttribute('src', pathImg1);\r\n");
+      out.write("            function selectedFiveStar(){\r\n");
+      out.write("                StarSelected.setAttribute(\"value\", 5)\r\n");
       out.write("            }\r\n");
       out.write("            \r\n");
-      out.write("            img1.addEventListener('click', showImg1)\r\n");
-      out.write("            img2.addEventListener('click', showImg2)\r\n");
-      out.write("            img3.addEventListener('click', showImg3)\r\n");
-      out.write("            img4.addEventListener('click', showImg4)\r\n");
-      out.write("\r\n");
-      out.write("            // cộng trừ khi click\r\n");
       out.write("            \r\n");
-      out.write("            const btnTru = document.querySelector('.buttonTru')\r\n");
-      out.write("            const btnCong = document.querySelector('.buttonCong')\r\n");
-      out.write("            const inputNumber = document.querySelector('input.number')\r\n");
-      out.write("            var number = inputNumber.getAttribute(\"value\")\r\n");
-      out.write("            console.log(number)\r\n");
-      out.write("            btnCong.addEventListener('click', function(){\r\n");
-      out.write("                number++;\r\n");
-      out.write("                inputNumber.setAttribute(\"value\", number)\r\n");
-      out.write("            })\r\n");
-      out.write("\r\n");
-      out.write("            btnTru.addEventListener('click', function(){\r\n");
-      out.write("                number--;\r\n");
-      out.write("                if(number<=0) number = 0;\r\n");
-      out.write("                inputNumber.setAttribute(\"value\", number)\r\n");
-      out.write("            })\r\n");
       out.write("            \r\n");
-      out.write("\r\n");
       out.write("            // Xử lý khi nhấn vào mô tả, thông tin bổ sung, đánh giá\r\n");
       out.write("\r\n");
       out.write("            const btnMota = document.querySelector('.btn__mota')\r\n");
@@ -667,6 +822,120 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                btnDanhgia.classList.remove('btn__footer--hidden')\r\n");
       out.write("            })\r\n");
       out.write("\r\n");
+      out.write("              //  Xử lý với đánh giá sao \r\n");
+      out.write("            const oneStar = document.querySelector('.one-start')\r\n");
+      out.write("            const twoStar = document.querySelector('.two-start')\r\n");
+      out.write("            const threeStar = document.querySelector('.three-start')\r\n");
+      out.write("            const fourStar = document.querySelector('.four-start')\r\n");
+      out.write("            const fiveStar = document.querySelector('.five-start')\r\n");
+      out.write("            const allStar = document.querySelectorAll('.evaluate_start--action ')\r\n");
+      out.write("\r\n");
+      out.write("            function removeAll(){\r\n");
+      out.write("                oneStar.classList.remove('evaluate_start--action--selected')\r\n");
+      out.write("                twoStar.classList.remove('evaluate_start--action--selected')\r\n");
+      out.write("                threeStar.classList.remove('evaluate_start--action--selected')\r\n");
+      out.write("                fourStar.classList.remove('evaluate_start--action--selected')\r\n");
+      out.write("                fiveStar.classList.remove('evaluate_start--action--selected')\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            function selectedStar_one() {\r\n");
+      out.write("                removeAll()\r\n");
+      out.write("                oneStar.classList.toggle('evaluate_start--action--selected')\r\n");
+      out.write("            }\r\n");
+      out.write("            function selectedStar_two() {\r\n");
+      out.write("                removeAll()\r\n");
+      out.write("                twoStar.classList.toggle('evaluate_start--action--selected')\r\n");
+      out.write("            }\r\n");
+      out.write("            function selectedStar_three() {\r\n");
+      out.write("                removeAll()\r\n");
+      out.write("                threeStar.classList.toggle('evaluate_start--action--selected')\r\n");
+      out.write("            }\r\n");
+      out.write("            function selectedStar_four() {\r\n");
+      out.write("                removeAll()\r\n");
+      out.write("                fourStar.classList.toggle('evaluate_start--action--selected')\r\n");
+      out.write("            }\r\n");
+      out.write("            function selectedStar_five() {\r\n");
+      out.write("                removeAll()\r\n");
+      out.write("                fiveStar.classList.toggle('evaluate_start--action--selected')\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            oneStar.addEventListener('click', selectedStar_one)\r\n");
+      out.write("            twoStar.addEventListener('click', selectedStar_two)\r\n");
+      out.write("            threeStar.addEventListener('click', selectedStar_three)\r\n");
+      out.write("            fourStar.addEventListener('click', selectedStar_four)\r\n");
+      out.write("            fiveStar.addEventListener('click', selectedStar_five)\r\n");
+      out.write("\r\n");
+      out.write("            \r\n");
+      out.write("            // cộng trừ khi click   \r\n");
+      out.write("            const btnTru = document.querySelector('.buttonTru')\r\n");
+      out.write("            const btnCong = document.querySelector('.buttonCong')\r\n");
+      out.write("            const inputNumber = document.querySelector('input.number')\r\n");
+      out.write("            var number = inputNumber.getAttribute(\"value\")\r\n");
+      out.write("            console.log(number)\r\n");
+      out.write("            btnCong.addEventListener('click', function(){\r\n");
+      out.write("                number++;\r\n");
+      out.write("                if(number > ");
+      out.print(product.getQuantity());
+      out.write(") number = ");
+      out.print(product.getQuantity());
+      out.write(";\r\n");
+      out.write("                inputNumber.setAttribute(\"value\", number)\r\n");
+      out.write("            })\r\n");
+      out.write("\r\n");
+      out.write("            btnTru.addEventListener('click', function(){\r\n");
+      out.write("                number--;\r\n");
+      out.write("                if(number<=0) number = 0;\r\n");
+      out.write("                inputNumber.setAttribute(\"value\", number)\r\n");
+      out.write("            })\r\n");
+      out.write("            \r\n");
+      out.write("            \r\n");
+      out.write("      \r\n");
+      out.write("        // xử lý với ảnh\r\n");
+      out.write("            const imgs = document.querySelectorAll('.body_img_multi-img--js')\r\n");
+      out.write("            function addAllClassDisable(){\r\n");
+      out.write("                for (const img of imgs) {\r\n");
+      out.write("                    img.classList.add('body_img_multi-img--disable')\r\n");
+      out.write("                }\r\n");
+      out.write("            }    \r\n");
+      out.write("            const img1 = document.querySelector('.image-1')\r\n");
+      out.write("            const img2 = document.querySelector('.image-2')\r\n");
+      out.write("            const img3 = document.querySelector('.image-3')\r\n");
+      out.write("            const img4 = document.querySelector('.image-4')\r\n");
+      out.write("\r\n");
+      out.write("            const imgshow = document.querySelector('.image-show')\r\n");
+      out.write("            var pathImg1 = img1.getAttribute('src')\r\n");
+      out.write("            imgshow.setAttribute('src', pathImg1);\r\n");
+      out.write("                \r\n");
+      out.write("            function showImg4(){\r\n");
+      out.write("                addAllClassDisable()\r\n");
+      out.write("                img4.classList.remove('body_img_multi-img--disable')\r\n");
+      out.write("                var pathImg4 = img4.getAttribute('src')\r\n");
+      out.write("                imgshow.setAttribute('src', pathImg4);\r\n");
+      out.write("            }\r\n");
+      out.write("            function showImg3(){\r\n");
+      out.write("                addAllClassDisable()\r\n");
+      out.write("                img3.classList.remove('body_img_multi-img--disable')\r\n");
+      out.write("                var pathImg3 = img3.getAttribute('src')\r\n");
+      out.write("                imgshow.setAttribute('src', pathImg3);\r\n");
+      out.write("            }\r\n");
+      out.write("            function showImg2(){\r\n");
+      out.write("                addAllClassDisable()\r\n");
+      out.write("                img2.classList.remove('body_img_multi-img--disable')\r\n");
+      out.write("                var pathImg2= img2.getAttribute('src')\r\n");
+      out.write("                imgshow.setAttribute('src', pathImg2);\r\n");
+      out.write("            }\r\n");
+      out.write("            function showImg1(){\r\n");
+      out.write("                addAllClassDisable()\r\n");
+      out.write("                img1.classList.remove('body_img_multi-img--disable')\r\n");
+      out.write("                var pathImg1 = img1.getAttribute('src')\r\n");
+      out.write("                imgshow.setAttribute('src', pathImg1);\r\n");
+      out.write("            }\r\n");
+      out.write("            \r\n");
+      out.write("            img1.addEventListener('click', showImg1)\r\n");
+      out.write("            img2.addEventListener('click', showImg2)\r\n");
+      out.write("            img3.addEventListener('click', showImg3)\r\n");
+      out.write("            img4.addEventListener('click', showImg4)\r\n");
+      out.write("            \r\n");
       out.write("        </script>\r\n");
       out.write("    </body>\r\n");
       out.write("\r\n");
@@ -684,52 +953,400 @@ public final class productDetails_jsp extends org.apache.jasper.runtime.HttpJspB
     }
   }
 
-  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_forEach_1(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_0.setParent(null);
-    _jspx_th_c_forEach_0.setVar("pro");
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ProductsLimit}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_1.setParent(null);
+    _jspx_th_c_forEach_1.setVar("news");
+    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${NewsLimit}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
     try {
-      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
-      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
+      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("                                            <li class=\"subnav__item__li subnav__item__li--le\">\r\n");
-          out.write("                                                <img src=\"./images/products/");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pro.image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("                                            <li class=\"subnav__item__li subnav__item__li--chan\">\r\n");
+          out.write("                                                <img class=\"subnav__item__img--new\" src=\"./images/news/");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${news.image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" alt=\"\">\r\n");
-          out.write("                                                <div class=\"sbnav__item__descripts\">\r\n");
+          out.write("                                                <div class=\"sbnav__item__descripts sbnav__item__descripts--new\">\r\n");
           out.write("                                                    <a href=\"#\">");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pro.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${news.title}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</a>\r\n");
-          out.write("                                                    <p>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pro.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write(".000₫</p>\r\n");
           out.write("                                                </div>\r\n");
           out.write("                                            </li>\r\n");
           out.write("                                        ");
-          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
         } while (true);
       }
-      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
         return true;
       }
     } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
         out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
     } finally {
-      _jspx_th_c_forEach_0.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+      _jspx_th_c_forEach_1.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_1);
     }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_3(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_3 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_3.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_3.setParent(null);
+    _jspx_th_c_forEach_3.setVar("c");
+    _jspx_th_c_forEach_3.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${AllColor}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_3 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_3 = _jspx_th_c_forEach_3.doStartTag();
+      if (_jspx_eval_c_forEach_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                                                            <option value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.color}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write('"');
+          out.write('>');
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.color}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</option>\r\n");
+          out.write("                                                                        ");
+          int evalDoAfterBody = _jspx_th_c_forEach_3.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_3[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_3.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_3.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_3);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_4(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_4 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_4.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_4.setParent(null);
+    _jspx_th_c_forEach_4.setVar("s");
+    _jspx_th_c_forEach_4.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${AllSize}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_4 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_4 = _jspx_th_c_forEach_4.doStartTag();
+      if (_jspx_eval_c_forEach_4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                                                            <option value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${s.size}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write('"');
+          out.write('>');
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${s.size}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</option>\r\n");
+          out.write("                                                                        ");
+          int evalDoAfterBody = _jspx_th_c_forEach_4.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_4[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_4.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_4.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_4);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_6(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_6 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_6.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_6.setParent(null);
+    _jspx_th_c_forEach_6.setVar("c");
+    _jspx_th_c_forEach_6.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${AllColor}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_6 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_6 = _jspx_th_c_forEach_6.doStartTag();
+      if (_jspx_eval_c_forEach_6 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                        ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.color}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\r\n");
+          out.write("                                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_6.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_6[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_6.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_6.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_6);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_7(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_7 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_7.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_7.setParent(null);
+    _jspx_th_c_forEach_7.setVar("s");
+    _jspx_th_c_forEach_7.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${AllSize}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_7 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_7 = _jspx_th_c_forEach_7.doStartTag();
+      if (_jspx_eval_c_forEach_7 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                            ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${s.size}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\r\n");
+          out.write("                                        ");
+          int evalDoAfterBody = _jspx_th_c_forEach_7.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_7[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_7.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_7.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_7);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_0.setParent(null);
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${AllComments!=null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+    if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                                        ");
+        if (_jspx_meth_c_forEach_8((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_0, _jspx_page_context))
+          return true;
+        out.write("\r\n");
+        out.write("                                    ");
+        int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_8(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_8 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_8.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_0);
+    _jspx_th_c_forEach_8.setVar("cmts");
+    _jspx_th_c_forEach_8.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${AllComments}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_8 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_8 = _jspx_th_c_forEach_8.doStartTag();
+      if (_jspx_eval_c_forEach_8 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                            <div class=\"row show_name-cmt\">\r\n");
+          out.write("                                                ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${cmts.namUser}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\r\n");
+          out.write("                                            </div>\r\n");
+          out.write("                                            <div class=\"show_star-cmt\">\r\n");
+          out.write("                                                ");
+          if (_jspx_meth_c_forEach_9((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_8, _jspx_page_context, _jspx_push_body_count_c_forEach_8))
+            return true;
+          out.write("\r\n");
+          out.write("                                            </div>\r\n");
+          out.write("                                            <div class=\"row show__cmt\">\r\n");
+          out.write("                                                ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${cmts.comment}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\r\n");
+          out.write("                                            </div>\r\n");
+          out.write("                                        ");
+          int evalDoAfterBody = _jspx_th_c_forEach_8.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_8[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_8.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_8.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_8);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_9(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_8, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_8)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_9 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_varStatus_end_begin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_9.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_8);
+    _jspx_th_c_forEach_9.setBegin(1);
+    _jspx_th_c_forEach_9.setEnd(((java.lang.Integer) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${cmts.star}", java.lang.Integer.class, (PageContext)_jspx_page_context, null)).intValue());
+    _jspx_th_c_forEach_9.setVarStatus("no");
+    int[] _jspx_push_body_count_c_forEach_9 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_9 = _jspx_th_c_forEach_9.doStartTag();
+      if (_jspx_eval_c_forEach_9 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                                    <i class=\"fa-solid fa-star\"></i>\r\n");
+          out.write("                                                ");
+          int evalDoAfterBody = _jspx_th_c_forEach_9.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_9[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_9.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_9.doFinally();
+      _jspx_tagPool_c_forEach_varStatus_end_begin.reuse(_jspx_th_c_forEach_9);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_1 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_1.setParent(null);
+    _jspx_th_c_if_1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${AllComments == null || AllComments=='' || AllComments.isEmpty()}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_1 = _jspx_th_c_if_1.doStartTag();
+    if (_jspx_eval_c_if_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                                        <span>Chưa có đánh giá nào</span>\r\n");
+        out.write("                                    ");
+        int evalDoAfterBody = _jspx_th_c_if_1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_1);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_10, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_10)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_scope_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_10);
+    _jspx_th_c_set_0.setScope("request");
+    _jspx_th_c_set_0.setVar("check_num");
+    _jspx_th_c_set_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${check_id}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_set_0 = _jspx_th_c_set_0.doStartTag();
+    if (_jspx_th_c_set_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_scope_nobody.reuse(_jspx_th_c_set_0);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_scope_nobody.reuse(_jspx_th_c_set_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_10, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_10)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_1 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_scope_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_10);
+    _jspx_th_c_set_1.setScope("request");
+    _jspx_th_c_set_1.setVar("check_id");
+    _jspx_th_c_set_1.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.idproduct}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_set_1 = _jspx_th_c_set_1.doStartTag();
+    if (_jspx_th_c_set_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_scope_nobody.reuse(_jspx_th_c_set_1);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_scope_nobody.reuse(_jspx_th_c_set_1);
     return false;
   }
 }

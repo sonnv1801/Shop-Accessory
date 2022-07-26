@@ -84,7 +84,7 @@ public class AddAdmin extends HttpServlet {
             request.setAttribute("userRegister", user);
             request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
         } else {
-           request.setAttribute("/admin/HomePage", user);
+            request.setAttribute("/admin/HomePage", user);
             request.setAttribute("loginFail", "User name or password is incorrect");
             request.getRequestDispatcher("/admin/HomePage.jsp").forward(request, response);
         }

@@ -20,9 +20,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception{
-        AdminDao dao = new AdminDao();
-        Boolean check = dao.login(new Admin("adim", "12345"));
-        System.out.println(""+check);
+//        AdminDao dao = new AdminDao();
+//        Boolean check = dao.login(new Admin("adim", "12345"));
+//        System.out.println(""+check);
         
 //        check = dao.registerUser(new Admin("image2","Nguyen Van Son","adim","12345"));
 //       System.out.println("Insert: "+check);

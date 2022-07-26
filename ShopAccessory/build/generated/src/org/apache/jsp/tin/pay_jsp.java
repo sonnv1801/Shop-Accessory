@@ -48,11 +48,11 @@ public final class pay_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html lang=\"en\">\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Sản phẩm chi tiết</title>\n");
+      out.write("        <title>Trang thanh toán</title>\n");
       out.write("        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor\" crossorigin=\"anonymous\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"./css/bootstrap-5/js/bootstrap.min.js\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"./css/pay.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"./css/themify-icons/themify-icons.css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css\">\n");
       out.write("    </head>\n");
       out.write("<body>\n");
       out.write("\n");
@@ -137,7 +137,7 @@ public final class pay_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </tr>\n");
       out.write("                                <tr class=\"table_body\">\n");
       out.write("                                    <td class=\"column_left\">\n");
-      out.write("                                        Giao hàng  \n");
+      out.write("                                        Giao hàng\n");
       out.write("                                    </td>\n");
       out.write("                                    <td class=\"column_right\">\n");
       out.write("                                        <span> giao hàng miễn phí</span>\n");

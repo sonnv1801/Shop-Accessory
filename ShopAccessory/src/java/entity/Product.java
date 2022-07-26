@@ -22,6 +22,7 @@ public class Product {
     private String size;
     private String namecategory;
     private String image;
+    private int quantityPurchased;
 
     public Product() {
     }
@@ -39,7 +40,7 @@ public class Product {
         this.size = size;
     }
 
-    // có ảnh và loại
+    // có ảnh và tên loại sản phẩm
     public Product(int idproduct, int idadmin, int idprt, String name, String description, int quantity, int price, String color, String size,String namecategory, String image) {
         this.idproduct = idproduct;
         this.idadmin = idadmin;
@@ -52,6 +53,30 @@ public class Product {
         this.size = size;
         this.namecategory = namecategory; 
         this.image = image;
+    }
+    
+    // Dùng cho cart
+    public Product(int idproduct, int idadmin, int idprt, String name, String description, int quantity, int price, String color, String size,String namecategory, String image, int quantityPurchased) {
+        this.idproduct = idproduct;
+        this.idadmin = idadmin;
+        this.idprt = idprt;
+        this.name = name;
+        this.description = description;
+        this.quantity = quantity;
+        this.price = price;
+        this.color = color;
+        this.size = size;
+        this.namecategory = namecategory; 
+        this.image = image;
+        this.quantityPurchased = quantityPurchased;
+    }
+
+    public int getQuantityPurchased() {
+        return quantityPurchased;
+    }
+
+    public void setQuantityPurchased(int quantityPurchased) {
+        this.quantityPurchased = quantityPurchased;
     }
 
     public int getIdproduct() {

@@ -51,8 +51,8 @@ public final class cart_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>Giỏ hàng</title>\n");
       out.write("        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor\" crossorigin=\"anonymous\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"./css/bootstrap-5/js/bootstrap.min.js\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"./css/cart.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"./css/themify-icons/themify-icons.css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/cart.css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/themify-icons/themify-icons.css\">\n");
       out.write("    </head>\n");
       out.write("<body>\n");
       out.write("    <div id=\"cart\">\n");
