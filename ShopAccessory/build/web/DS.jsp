@@ -23,12 +23,7 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                    <div class="navbar-admin">
-                        <div class="navbar-admin">
-                            <i class="fa fa-bars"></i>
-                            <i class="fa fa-user-circle"><p style="color: #33ccff; display: inline-block; padding: 0px 13px; text-transform: uppercase;">Xin Chào: ${userLogin.username}</p></i>
-                        </div>
-                    </div>
+                   <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
                         <a href="AddProductAdmin"><button type="button" class="btn btn-secondary button-add-a dmin" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Thêm Sản Phẩm</button></a>
                        
@@ -50,10 +45,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:set scope="request" var="sothutu" value="0"></c:set>
                                         <c:forEach var="product" items="${listProducts}">
-
+                                            <c:set scope="request" var="sothutu" value="${sothutu + 1}"></c:set>
                                             <tr>
-                                                <th scope="row">${product.idproduct}</th>
+                                                <th scope="row">${sothutu}</th>
                                                 <th>${product.name}</th>
                                                 <th>${product.description}</th>
                                                 <th>${product.quantity}</th>

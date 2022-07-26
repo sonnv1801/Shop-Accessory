@@ -7,6 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+
+<% long millis = System.currentTimeMillis();
+    java.sql.Date date = new java.sql.Date(millis);
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,12 +29,13 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                    <div class="navbar-admin">
-                        <div class="navbar-admin">
-                            <i class="fa fa-bars"></i>
-                            <i class="fa fa-user-circle"><p style="color: #33ccff; display: inline-block; padding: 0px 13px; text-transform: uppercase;">Xin Chào: ${userLogin.username}</p></i>
-                        </div>
-                    </div>
+                     <div class="navbar-admin">
+            <div class="navbar-admin">
+                <i class="fa fa-bars"></i>
+                <i class="fa fa-user-circle"><p style="color: #ffcf00; display: inline-block; padding: 0px 13px; text-transform: uppercase">Xin Chào: ${userLogin.name}</p></i>
+                <i class="fa fa-calendar" style=" font-size: 20px;"><p style="color: #ffcf00; display: inline-block; padding: 0px 13px; text-transform: uppercase;"><%= date%></p></i>
+            </div>
+        </div>
                     <div style="margin: 55px 0px;">
                         <div class="container backgroud-all-update">
                             <h1>Add News</h1>
@@ -40,6 +45,8 @@
                                     font-size: 23px;
                                     font-family: cursive;
                                     color: #83ea87;">${trueAdd}</h1>
+
+
                                 <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Tiêu Đề</label>
                                     <input type="text" name="title" class="form-control" id="recipient-name" placeholder="Nhập tiêu đề" required>
@@ -50,7 +57,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Ngày Tạo</label>
-                                    <input type="date" name="daySubmit" class="form-control" id="recipient-name" required>
+                                    <input type="date" name="daySubmit" value="<%= date%>" class="form-control" id="recipient-name" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Link Hình Ảnh</label>
@@ -60,9 +67,7 @@
                                     <label for="recipient-name" class="col-form-label">Người Đăng</label>
                                     <select class="form-select" name="poster" aria-label="Default select example" required>
                                         <option value="">Chọn Người Đăng</option>
-                                        <c:forEach var="news" items="${list}">
-                                            <option value="${news.id}">${news.name}</option>
-                                        </c:forEach>
+                                        <option value="${userLogin.id}">${userLogin.name}</option>
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-success">Save</button>

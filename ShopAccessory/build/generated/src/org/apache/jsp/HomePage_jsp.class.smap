@@ -1,0 +1,19 @@
+SMAP
+HomePage_jsp.java
+JSP
+*S JSP
+*F
++ 0 HomePage.jsp
+HomePage.jsp
++ 1 inclusesAdmin.jsp
+./inclusesAdmin.jsp
+*L
+5,16:52
+20,58:68
+5#1,27:126
+32:153,3
+33,9:156
+77#0,5:164
+82,2:169,3
+84,60:175
+*E

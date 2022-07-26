@@ -4,10 +4,40 @@
     Author     : PC
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="entity.HomePageAdmin"%>
+<%@page import="dao.HomePageAdminDao"%>
+<%@page import="dbcontext.DBUtil"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.sql.Date"%>
+<%@page import="java.util.Calendar"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
 <!DOCTYPE html>
+
+<%
+    
+
+    DBUtil db = new DBUtil();
+    HomePageAdminDao count = new HomePageAdminDao();
+    int dataAdmin = count.countAdmin();
+    
+    int dataProducts = count.countProducts();
+    
+    int dataTotal = count.sumTotal();
+    
+     DecimalFormat formatter = new DecimalFormat("###,###,###");
+     String sum = formatter.format(dataTotal);
+     
+     int dataUsers = count.countUsers();
+     
+
+     int dataNews = count.countNews();
+     
+     int dataOrders = count.countOrders();
+    
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,8 +55,8 @@
 
                 var data = google.visualization.arrayToDataTable([
                     ['Task', 'Hours per Day'],
-                    ['Admin', 11],
-                    ['Users', 5],
+                    ['Admin', <%= dataAdmin%>],
+                    ['Users', <%= dataUsers%>],
                 ]);
 
                 var options = {
@@ -45,9 +75,9 @@
             function drawChart() {
                 var data = google.visualization.arrayToDataTable([
                     ['Task', 'Hours per Day'],
-                    ['Sản Phẩm', 4],
-                    ['Đơn Hàng', 2],
-                    ['Tin Tức', 7]
+                    ['Sản Phẩm', <%= dataProducts %>],
+                    ['Đơn Hàng', <%= dataOrders %>],
+                    ['Tin Tức', <%= dataNews %>]
                 ]);
 
                 var options = {
@@ -67,10 +97,7 @@
                     <%@include file="./inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                    <div class="navbar-admin">
-                        <i class="fa fa-bars"></i>
-                        <i class="fa fa-user-circle" ><p style="color: #ffcf00; display: inline-block; padding: 0px 13px; text-transform: uppercase">${userLogin.username}</p></i>
-                    </div>
+                     <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
                         <div class="row card-top">
                             <div class="col-xl-3">
@@ -79,14 +106,14 @@
                                         <h5 class="card-title">Giỏ Hàng</h5>
                                         <i class="fa fa-shopping-cart"></i>
                                         <hr/>
-                                        <p class="card-text">Tổng Sản Phẩm: 7</p>
+                                        <p class="card-text">Tổng Sản Phẩm: <%= dataProducts %></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3">
                                 <div class="card text-bg-light mb-3" style="max-width: 18rem;">
                                     <div class="card-body">
-                                        <h5 class="card-title">700.0000</h5>
+                                        <h5 class="card-title"><%= sum + "" %> VNĐ</h5>
                                         <i class="fa fa-money"></i>
                                         <hr/>
                                         <p class="card-text">Lợi Nhuận Tháng Này <i class="fa fa-arrow-up"></i> </p>
@@ -96,20 +123,20 @@
                             <div class="col-xl-3">
                                 <div class="card text-bg-light mb-3" style="max-width: 18rem;">
                                     <div class="card-body">
-                                        <h5 class="card-title">256</h5>
+                                        <h5 class="card-title"><%= dataUsers%></h5>
                                         <i class="fa fa-eye"></i>
                                         <hr/>
-                                        <p class="card-text">Lượt Xem <i class="fa fa-arrow-up"></i> </p>
+                                        <p class="card-text">Người Đăng Ký <i class="fa fa-arrow-up"></i> </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3">
                                 <div class="card text-bg-light mb-3" style="max-width: 18rem;">
                                     <div class="card-body">
-                                        <h5 class="card-title">100</h5>
+                                        <h5 class="card-title"><%= dataNews %></h5>
                                         <i class="fa fa-envira"></i>
                                         <hr/>
-                                        <p class="card-text">Sản Phẩm Bán Ra <i class="fa fa-arrow-up"></i> </p>
+                                        <p class="card-text">Tổng Bài Viết <i class="fa fa-arrow-up"></i> </p>
                                     </div>
                                 </div>
                             </div>

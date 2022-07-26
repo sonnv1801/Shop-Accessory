@@ -12,6 +12,7 @@ import entity.Admin;
 import entity.News;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -100,11 +101,12 @@ public class PosterAdminServlet extends HttpServlet {
         String des = request.getParameter("des");
         String daySubmit = request.getParameter("daySubmit");
         String image = request.getParameter("image");
-
+        
         News news = new News(idAdmin,des, daySubmit, title, image);
-
+        
         if (newsDao.addNews(news)) {
             request.setAttribute("trueAdd", "Thêm Thành Công");
+            
             try {
                 listAdmins(request, response);
             } catch (Exception ex) {

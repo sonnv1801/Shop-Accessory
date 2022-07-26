@@ -4,15 +4,16 @@
     Author     : PC
 --%>
 
+<%@page import="dao.OrderDao"%>
+<%@page import="dbcontext.DBUtil"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% 
-  DecimalFormat dcf = new DecimalFormat("#.##");
-	request.setAttribute("dcf", dcf);  
-%>
+
 
 <!DOCTYPE html>
+
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,12 +30,8 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                    <div class="navbar-admin">
-                        <i class="fa fa-bars"></i>
-                    </div>
+                     <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
-
-
                         <div class="container table-all">
                             <div class="table-body">
                                 <div class="ex1">
@@ -52,7 +49,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <c:set scope="request" var="sothutu" value="0"></c:set>
                                             <c:forEach var="order" items="${listOrders}">
+                                                <c:set scope="request" var="sothutu" value="${sothutu + 1}"></c:set>
                                                 <c:url var="update" value="OrderServlet">
                                                     <c:param name="command" value="UPDATE"
                                                              ></c:param>
@@ -78,10 +77,12 @@
                                                 </c:url>
 
                                                 <tr>
-                                                    <th scope="row">${order.idorder}</th>
+                                                    <th scope="row">${sothutu}</th>
                                                     <td>${order.idproduct}</td>
                                                     <td>${order.idorder}</td>
-                                                    <td>${dcf.format(order.total)}$</td>
+                                                    <td>
+                                                        ${ order.total } VNĐ
+                                                    </td>
                                                     <td>${order.datecreate}</td>
                                                     <td>
                                                         <c:if test="${order.condition == 0}">
@@ -106,7 +107,7 @@
                                                             <a href="${delete}" onclick="if (!(confirm('Bạn có chắc chắn là xóa Đơn Hàng với id ${order.idorder} này không?')))
                                                                         return false"><button style="background-color: red; color: white; border: none">Xóa <i class="fa fa-remove"></i></button></a>
                                                                 </c:if> 
-                                                    </c:forEach>
+                                                            </c:forEach>
                                                 </td>
                                             </tr>
 

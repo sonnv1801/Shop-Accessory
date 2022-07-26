@@ -247,8 +247,44 @@ public class ProductsDAO {
             System.out.println("" + e);
         }
     }
+    
+    
+   
+
+    
+
+    public void updateImg(ImageProducts img) throws Exception {
+        DBUtil db = DBUtil.getInstance();
+        String sql = "UPDATE ProductImage \n"
+                + "SET image=? \n"
+                + "WHERE idimgproduct = ?;";
+
+        Connection con = null;
+        PreparedStatement statement = null;
+
+        try {
+            con = db.getConnection();
+            statement = con.prepareStatement(sql);
+            statement.setString(1, img.getImage());
+            statement.setInt(2, img.getIdimgproduct());
+            statement.execute();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProductsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                statement.close();
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(ProductsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 
 //    public static void main(String[] args){
 //        selectLimitProduct(5);
 //    }
+
+
 }

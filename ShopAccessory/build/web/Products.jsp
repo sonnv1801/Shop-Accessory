@@ -24,12 +24,7 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                    <div class="navbar-admin">
-                        <div class="navbar-admin">
-                            <i class="fa fa-bars"></i>
-                            <i class="fa fa-user-circle"><p style="color: #33ccff; display: inline-block; padding: 0px 13px; text-transform: uppercase;">Xin Chào: ${userLogin.username}</p></i>
-                        </div>
-                    </div>
+                     <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
                         <div class="container backgroud-all-update">
                             <h1>Add Products</h1>
@@ -44,7 +39,7 @@
                                     <label for="recipient-name" class="col-form-label">Người Đăng</label>
                                     <select class="form-select" name="poster" aria-label="Default select example" required>
                                         <option value="">Chọn Người Đăng</option>
-                                            <option value="1">${userLogin.username}</option>
+                                            <option value="1">${userLogin.name}</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">

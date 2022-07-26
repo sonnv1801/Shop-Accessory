@@ -77,6 +77,8 @@ public class AddProductAdmin extends HttpServlet {
                 case "LIST":
                     GetAllType(request, response);
                     break;
+                case "LOAD":
+                    loadProducts(request, response);
                 default:
                     GetAllType(request, response);
             }
@@ -139,6 +141,16 @@ public class AddProductAdmin extends HttpServlet {
         List<ProductType> list = adminDao.getAllTypes();
         request.setAttribute("listType", list);
         RequestDispatcher dispatcher = request.getRequestDispatcher("Products.jsp");
+        dispatcher.forward(request, response);
+    }
+    
+    
+    private void loadProducts(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        int theProductId = Integer.parseInt(request.getParameter("productId"));
+        Product product = new ProductsDAO().GetProductDetails(theProductId);
+        Product s = (Product) product;
+        request.setAttribute("THE_PRODUCT", product);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("UpadateProductAdmin.jsp");
         dispatcher.forward(request, response);
     }
 

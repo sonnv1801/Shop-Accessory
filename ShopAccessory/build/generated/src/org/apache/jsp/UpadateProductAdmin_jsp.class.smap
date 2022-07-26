@@ -1,0 +1,18 @@
+SMAP
+UpadateProductAdmin_jsp.java
+JSP
+*S JSP
+*F
++ 0 UpadateProductAdmin.jsp
+UpadateProductAdmin.jsp
++ 1 inclusesAdmin.jsp
+inclusesAdmin.jsp
+*L
+5,20:49
+5#1,27:69
+32:96,3
+33,9:99
+24#0,10:107
+34:117,3
+35,40:120
+*E

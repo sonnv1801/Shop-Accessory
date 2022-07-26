@@ -12,19 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/controller/AddAdmin.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/controller/AddProductAdmin.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/AddNews.jsp</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/ProductType.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/QlAdmin.jsp</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/Admin.java</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dbcontext/Main.java</file>
             <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/ProductsDAO.java</file>
             <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/Product.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/DS.jsp</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/ProductTypeDao.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/UsersDao.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/QlAdminDao.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/AdminDao.java</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/ImageProducts.java</file>
         </group>
     </open-files>
 </project-private>

@@ -31,12 +31,7 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                    <div class="navbar-admin">
-                        <div class="navbar-admin">
-                            <i class="fa fa-bars"></i>
-                            <i class="fa fa-user-circle"><p style="color: #33ccff; display: inline-block; padding: 0px 13px; text-transform: uppercase;">Xin Chào: ${userLogin.username}</p></i>
-                        </div>
-                    </div>
+                     <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
                         <button type="button" class="btn btn-secondary button-add-a dmin" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Thêm Admin</button>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -91,7 +86,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:set scope="request" var="sothutu" value="0"></c:set>
                                         <c:forEach var="admin" items="${adminlist}">
+                                            <c:set scope="request" var="sothutu" value="${sothutu + 1}"></c:set>
                                             <!-- set up a link for each admin -->
                                             <c:url var="tempLink" value="AdminControllerServlet">
                                                 <c:param name="command" value="LOAD"
@@ -109,7 +106,7 @@
 
                                             </c:url>
                                             <tr>
-                                                <th scope="row">${admin.id}</th>
+                                                <th scope="row">${sothutu}</th>
                                                 <td><img src="./images/${admin.avatar}" alt="image" style="width: 44px;"/> </td>
                                                 <td>${admin.username}</td>
                                                 <td>${admin.name}</td>

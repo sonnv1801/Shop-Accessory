@@ -68,6 +68,17 @@ public class Product {
         this.size = size;
     }
 
+       
+       public Product(int idprt, String name, String description, int quantity, int price, String color, String size) {
+        this.idprt = idprt;
+        this.name = name;
+        this.description = description;
+        this.quantity = quantity;
+        this.price = price;
+        this.color = color;
+        this.size = size;
+    }
+ 
 
     public int getIdproduct() {
         return idproduct;
