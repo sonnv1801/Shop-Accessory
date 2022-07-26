@@ -4,13 +4,14 @@
     Author     : Tin_Ngo
 --%>
 
+
 <%@page import="entity.Color"%>
 <%@page import="entity.Product"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="dbcontext.DBUtil"%>
 <%@page import="dao.ProductsDAO"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <%
@@ -18,7 +19,6 @@
     ProductsDAO productDao = new ProductsDAO();
     int idproduct = Integer.parseInt(request.getParameter("idproduct"));
     Product product = productDao.GetProductDetails(idproduct);
-    
 %>
 
 
@@ -30,8 +30,6 @@
         <link rel="stylesheet" href="./css/bootstrap-5/js/bootstrap.min.js">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
         <link rel="stylesheet" href="./css/productDetails.css">
-        <!-- "./css/tin/css/productDetails.css" -->
-    </head>
     <body>
         <div class="main">
             <div class="wrap">
@@ -51,7 +49,7 @@
                                             <li class="subnav__item__li subnav__item__li--le">
                                                 <img src="./images/products/${pro.image}" alt="">
                                                 <div class="sbnav__item__descripts">
-                                                    <a href="#">${pro.name}</a>
+                                                    <a href="<%=request.getContextPath()%>/ProductsControl?idproduct=${pro.idproduct}">${pro.name}</a>
                                                     <p>${pro.price}.000₫</p>
                                                 </div>
                                             </li>
@@ -70,18 +68,15 @@
                                 </div>
                                 <div class="subnav__item__wrap">
                                     <ul class="subnav__item">
-                                        <li class="subnav__item__li subnav__item__li--le">
-                                            <img class="subnav__item__img--new" src="data:image/jpeg;base64,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" alt="">
-                                            <div class="sbnav__item__descripts sbnav__item__descripts--new">
-                                                <a href="#">Lịch tiêm phòng cho chó</a>
-                                            </div>
-                                        </li>
-                                        <li class="subnav__item__li subnav__item__li--chan">
-                                            <img class="subnav__item__img--new" src="data:image/jpeg;base64,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" alt="">
-                                            <div class="sbnav__item__descripts sbnav__item__descripts--new">
-                                                <a href="#">Một khoảng khắc tạm thời</a>
-                                            </div>
-                                        </li>
+                                        <c:forEach var="news" items="${NewsLimit}">
+                                            <li class="subnav__item__li subnav__item__li--chan">
+                                                <img class="subnav__item__img--new" src="./images/news/${news.image}" alt="">
+                                                <div class="sbnav__item__descripts sbnav__item__descripts--new">
+                                                    <a href="#">${news.title}</a>
+                                                </div>
+                                            </li>
+                                        </c:forEach>
+                                                
                                     </ul>
                                 </div>
                             </div>
@@ -145,7 +140,7 @@
                                             </div>
 
                                             <div id="form__select">
-                                                <form action="#" method="">
+                                                <form action="<%=request.getContextPath()%>/Cart" method="post">
                                                     <table>
                                                     <% if(product.getColor()!=null || product.getSize()!=null){ %>
                                                         <!-- tr màu -->
@@ -164,7 +159,7 @@
                                                                            
                                                                         </ul>
                                                                     </div>-->
-                                                                    <select class="box-select--wrap box-select--wrap--color">
+                                                                    <select name="color" class="box-select--wrap box-select--wrap--color">
                                                                         <option value="" disabled selected>None</option>
                                                                         <c:forEach var="c" items="${AllColor}">
                                                                             <option value="${c.color}">${c.color}</option>
@@ -189,7 +184,7 @@
                                                                             <li> Chọn một size tùy chọn </li>
                                                                         </ul>
                                                                     </div>-->
-                                                                    <select class="box-select--wrap box-select--wrap--color">
+                                                                    <select name="size" class="box-select--wrap box-select--wrap--color">
                                                                         <option value="" disabled selected>None</option>
                                                                         <c:forEach var="s" items="${AllSize}">
                                                                             <option value="${s.size}">${s.size}</option>
@@ -205,14 +200,26 @@
                                                                 <div class="buttonTru">
                                                                     -
                                                                 </div>
-                                                                <input type="text" class="number" value="1">
+                                                                <input type="text" name="quantityPurchased" class="number" value="1">
                                                                 <div class="buttonCong">
                                                                     +
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="btnBuy">
-                                                                    <a href="">MUA HÀNG</a>
+<!--                                                                <a href="">MUA HÀNG</a>-->
+                                                                    <input type="hidden" name="idproduct" value="<%=product.getIdproduct()%>" />
+                                                                    <input type="hidden" name="idamin" value="<%=product.getIdadmin()%>">
+                                                                    <input type="hidden" name="idprt" value="<%=product.getIdprt()%>">
+                                                                    <input type="hidden" name="name" value="<%=product.getName()%>">
+                                                                    <input type="hidden" name="desc" value="<%=product.getDescription()%> ">
+                                                                    <input type="hidden" name="quantity" value="<%=product.getQuantity()%>">
+                                                                    <input type="hidden" name="price" value="<%=product.getPrice()%>">
+<!--                                                                    <input type="hidden" name="color" value="<%=product.getColor()%>">
+                                                                    <input type="hidden" name="size" value="<%=product.getSize()%>">-->
+                                                                    <input type="hidden" name="nameprt" value="<%=product.getNamecategory()%>">
+                                                                    <input type="hidden" name="image" value="<%=product.getImage()%>">
+                                                                    <input class="btn_buy_input" type="submit" value="Mua Hàng"/>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -276,7 +283,11 @@
                                     Thông Tin Bổ Sung
                                 </div>
                                 <div class="btn__footer btn__Danhgia btn__footer--hidden">
-                                    Đánh Giá (0)
+                                    <% int num = 0; %>
+                                    <c:forEach var="cmts" items="${AllComments}">
+                                       <% num+=1; %>
+                                    </c:forEach>
+                                    Đánh Giá (<%=num%>)
                                 </div>
                             </div>
 
@@ -291,12 +302,21 @@
                             <div class="content_thongtinbosung btn__hidden">
                                 <div class="row color">
                                     <div class="col-6 color_title">MÀU SẮC</div>
-                                    <div class="col-6 color_content">Đa màu, đen</div>
+                                    <div class="col-6 color_content">
+                                    <c:forEach var="c" items="${AllColor}">
+                                        ${c.color}
+                                    </c:forEach>
+                                    </div>
+                                    
                                 </div>
                                 <hr/>
                                 <div class="row size-wrap">
                                     <div class="col-6 size_title">SIZE</div>
-                                    <div class="col-6 size_content">Nhỏ, trung</div>
+                                    <div class="col-6 size_content">
+                                        <c:forEach var="s" items="${AllSize}">
+                                            ${s.size}
+                                        </c:forEach>
+                                    </div>
                                 </div>
                             </div>
                             <!--  -->
@@ -305,48 +325,73 @@
                                     <h1>Đánh giá</h1>
                                 </div>
                                 <div class="content_evaluate__content">
-                                    Chưa có đánh giá nào
+                                    <c:if test="${AllComments!=null}">
+                                        <c:forEach var="cmts" items="${AllComments}">
+                                            <div class="row show_name-cmt">
+                                                ${cmts.namUser}
+                                            </div>
+                                            <div class="show_star-cmt">
+                                                <c:forEach begin="1" end="${cmts.star}" varStatus="no">
+                                                    <i class="fa-solid fa-star"></i>
+                                                </c:forEach>
+                                            </div>
+                                            <div class="row show__cmt">
+                                                ${cmts.comment}
+                                            </div>
+                                        </c:forEach>
+                                    </c:if>
+                                    <c:if test="${AllComments == null || AllComments=='' || AllComments.isEmpty()}">
+                                        <span>Chưa có đánh giá nào</span>
+                                    </c:if>
+                                    
                                 </div>
                                 <div class="content_evaluate__add-evaluate">
                                     <div class="evaluate_header">
-                                        <h1>Hãy là người đầu tiên nhận xét <br/> “Áo khoác mùa đông”</h1> 
+                                        <h1>Hãy là người đầu tiên nhận xét <br/> “<%=product.getName() %>”</h1> 
                                     </div>
-                                    <form action="#" method="" class="form-add-evaluate">
+                                    <form action="AddComment" method="post" class="form-add-evaluate" accept-charset="UTF-8">
                                         <div class="evaluate_start">
                                             <h6>Đánh giá của bạn</h6>
-                                            <div class="evaluate_start--action one-start">
+                                            <div class="evaluate_start--action one-start" onclick="selectedOneStar()">
                                                 <i class="fa-solid fa-star"></i>
                                             </div>
-                                            <div class="evaluate_start--action two-start">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </div>
-                                            <div class="evaluate_start--action three-start">
-                                                <i class="fa-solid fa-star"></i>
+                                            <div class="evaluate_start--action two-start" onclick="selectedTwoStar()">
                                                 <i class="fa-solid fa-star"></i>
                                                 <i class="fa-solid fa-star"></i>
                                             </div>
-                                            <div class="evaluate_start--action four-start">
-                                                <i class="fa-solid fa-star"></i>
+                                            <div class="evaluate_start--action three-start" onclick="selectedThreeStar()">
                                                 <i class="fa-solid fa-star"></i>
                                                 <i class="fa-solid fa-star"></i>
                                                 <i class="fa-solid fa-star"></i>
                                             </div>
-                                            <div class="evaluate_start--action five-start">
-                                                <i class="fa-solid fa-star"></i>
+                                            <div class="evaluate_start--action four-start" onclick="selectedFourStar()">
                                                 <i class="fa-solid fa-star"></i>
                                                 <i class="fa-solid fa-star"></i>
                                                 <i class="fa-solid fa-star"></i>
                                                 <i class="fa-solid fa-star"></i>
                                             </div>
+                                            <div class="evaluate_start--action five-start" onclick="selectedFiveStar()">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <!-- phần dữ liệu thêm -->
+                                            <input type="hidden" class="StarSelected" name="star" value="0">
+                                            <input type="hidden" class="" name="idproduct" value="<%=idproduct%>">
+                                            <input type="hidden" class="" name="iduser" value="3">
+                                            <!-- Hết phần dữ liệu thêm -->
                                         </div>
+                                        <br/>
                                         <br/>
                                         <div class="evaluate_text">
                                             <h6>
                                                 Nhận xét của bạn *
                                             </h6>
-                                            <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
+                                            <textarea id="" name="comments" rows="4" cols="50"></textarea>
                                         </div>
+                                        <!--
                                         <div class="evaluate__info">
                                             <div class="row">
                                                 <div class="col-6">
@@ -359,8 +404,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        -->
                                         <div class="evaluate__button">
-                                            <a href="#">Gửi đi</a>
+                                            <input type="submit" value="Gửi đi"/>
                                         </div>
                                     </form>
                                 </div>
@@ -376,44 +422,37 @@
                                 </div>
                                 <div class="similar-products__body">
                                     <div class="row">
-                                        <div class="col-4">
-                                            <div class="similar-products__item">
-                                                <div class="similar-products__item__img">
-                                                    <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/Original-Leather-Collar-1-100x100.jpg" alt="">
-                                                </div>
-                                                <div class="similar-products__item__content">
-                                                    <a class="similar-products__item__content--name" href="#">Cổ áo da nguyên bản</a>
-                                                    <p class="similar-products__item__content--price">130,000,000 ₫</p>
-                                                    <a class="similar-products__item__content--button" href="#">Mua Hàng</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-4">
-                                            <div class="similar-products__item">
-                                                <div class="similar-products__item__img">
-                                                    <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/Original-Leather-Collar-1-100x100.jpg" alt="">
-                                                </div>
-                                                <div class="similar-products__item__content">
-                                                    <a class="similar-products__item__content--name" href="#">Bình giữ nhiệt Norm mới</a>
-                                                    <p class="similar-products__item__content--price">75.000 ₫ <span>-</span> 110.000 ₫</p>
-                                                    <a class="similar-products__item__content--button" href="#">Lựa Chọn</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-4">
-                                            <div class="similar-products__item">
-                                                <div class="similar-products__item__img">
-                                                    <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/Original-Leather-Collar-1-100x100.jpg" alt="">
-                                                </div>
-                                                <div class="similar-products__item__content">
-                                                    <a class="similar-products__item__content--name" href="#">Cổ áo da nguyên bản</a>
-                                                    <p class="similar-products__item__content--price">130,000,000 ₫</p>
-                                                    <a class="similar-products__item__content--button" href="#">Mua Hàng</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <!-- Item sản phẩm tương tự -->
+                                        <% int a = 0;%>
+                                        <c:forEach var="p" items="${SimilarProducts}">
+                                            <c:set scope="request" var="check_num" value="${check_id}" />
+                                            <c:set scope="request" var="check_id" value="${p.idproduct}" />
+                                            
+                                            <!-- check_num là lấy id trước, check_id là lấy id hiện tại
+                                                nếu 2 cái bằng nhau là trùng sản phẩm nên không hiển thị -->
+                                            <% if(a<3){ %>
+                                                <c:if test="${check_id != check_num}">
+                                                    <div class="col-4">
+                                                        <% a+=1; %>
+                                                        <div class="similar-products__item">
+                                                            <div class="similar-products__item__img">
+                                                                <img src="./images/products/${p.image}" alt="">
+                                                            </div>
+                                                            <div class="similar-products__item__content">
+                                                                <a class="similar-products__item__content--name" href="#">${p.name}</a>
+                                                                <p class="similar-products__item__content--price">${p.price}.000₫</p>
+                                                                <a class="similar-products__item__content--button" 
+                                                                   href="<%=request.getContextPath()%>/ProductsControl?idproduct=${p.idproduct}">
+                                                                    Mua Hàng
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </c:if>
+                                            <% } %>
+                                            
+                                        </c:forEach>
+                                        <!-- item sản phẩm tương tự -->
 
                                     </div>
                                 </div>
@@ -425,7 +464,27 @@
             </div>
         </div>
 
-        <script>       
+        <script>
+            // xử lý nhận dữ liệu (số sao) comments
+            var StarSelected = document.querySelector('.StarSelected')
+            function selectedOneStar(){
+                StarSelected.setAttribute("value", 1)
+            }
+            function selectedTwoStar(){
+                StarSelected.setAttribute("value", 2)
+            }
+            function selectedThreeStar(){
+                StarSelected.setAttribute("value", 3)
+            }
+            function selectedFourStar(){
+                StarSelected.setAttribute("value", 4)
+            }
+            function selectedFiveStar(){
+                StarSelected.setAttribute("value", 5)
+            }
+            
+            
+            
             // Xử lý khi nhấn vào mô tả, thông tin bổ sung, đánh giá
 
             const btnMota = document.querySelector('.btn__mota')

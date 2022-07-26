@@ -22,7 +22,11 @@ import java.util.logging.Logger;
  */
 public class AdminDao {
 
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
     public String login(Admin user) {
         DBUtil db = DBUtil.getInstance();
         String sql = "select * from Admin where username=? and password=?";
@@ -38,6 +42,7 @@ public class AdminDao {
             
             if (rs.next()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 System.out.println("Success test đăng nhập thành công");
                 return true;
 =======
@@ -46,6 +51,12 @@ public class AdminDao {
                 System.out.println("" + result);
                 return result;
 >>>>>>> Admin
+=======
+                System.out.println(rs.getInt(1));
+                result = result+rs.getInt(1)+"--"+rs.getString(2);
+                System.out.println("test----------"+result);
+                return result;
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
             }
 
         } catch (Exception ex) {
@@ -59,6 +70,36 @@ public class AdminDao {
         }
         return result;
     }
+
+//    public boolean login(Admin user) {
+//        DBUtil db = DBUtil.getInstance();
+//        String sql = "select * from Admin where username=? and password=?";
+//
+//        Connection con = null;
+//        try {
+//            con = db.getConnection();
+//
+//            PreparedStatement statement = con.prepareStatement(sql);
+//            statement.setString(1, user.getUsername().trim());
+//            statement.setString(2, user.getPassword().trim());
+//            ResultSet rs = statement.executeQuery();
+//            
+//            if (rs.next()) {
+//                System.out.println("Success test đăng nhập thành công");
+//                return true;
+//            }
+//
+//        } catch (Exception ex) {
+//            Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            try {
+//                DBUtil.closeConnection(con);
+//            } catch (SQLException ex) {
+//                Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        return false;
+//    }
 
     public boolean registerUser(Admin user) {
         DBUtil db = DBUtil.getInstance();

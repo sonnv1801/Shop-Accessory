@@ -4,7 +4,8 @@
     Author     : Tin_Ngo
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +14,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <link rel="stylesheet" href="./css/bootstrap-5/js/bootstrap.min.js">
         <link rel="stylesheet" href="./css/cart.css">
-        <link rel="stylesheet" href="./css/themify-icons/themify-icons.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     </head>
 <body>
     <div id="cart">
@@ -38,42 +39,67 @@
                             </tr>
                         </thead>
                         <tbody class="table__cart__body">
+                            <c:set var="AllNameProductCart" value=""></c:set>
+                            <c:set var="AllNameProductCart__Main" value=""></c:set>
                             <!-- item 1 - Cop thẻ tr để có các mục tiếp theo-->
-                            <tr>
-                                <td>
-                                    <div class="cart-product">
-                                        <div class="title_product">
-                                            <i class="ti-close"></i>
+                            <c:set var="total" value="0"></c:set>
+                            <c:forEach var="item" items="${sessionScope.cart}">
+                                <tr>
+                                    <td>
+                                        <div class="cart-product">
+                                            <div class="title_product">
+                                                <a href="<%=request.getContextPath()%>/Cart?action=remove&idproduct=${item.idproduct}">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </a>
+                                            </div>
+                                            <div class="image_product">
+                                                <img src="./images/products/${item.image}" alt="">
+                                            </div>
+                                            <div class="content-product">
+                                                <c:set var="AllNameProductCart" value="${AllNameProductCart}${item.name}--${item.quantityPurchased}---"></c:set>
+                                                <c:set var="AllNameProductCart__Main" value="${AllNameProductCart__Main}${item.name}--${item.idproduct}--${item.quantityPurchased}--${item.price}---"></c:set>
+                                                <h6 class="name-product">${item.name}</h6>
+                                                <h6 class="description-product">Màu Sắc: ${item.color} Size: ${item.size}</h6>
+                                            </div>
                                         </div>
-                                        <div class="image_product">
-                                            <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/sec3-4.jpg" alt="">
+                                    </td>
+                                    <td>
+                                        <div class="cart_price">
+                                            ${item.price}.000đ
                                         </div>
-                                        <div class="content-product">
-                                            <h6 class="name-product">Áo Khoác mùa đông</h6>
-                                            <h6 class="description-product">Màu Sắc: Đa Màu Size: Nhỏ</h6>
+                                    </td>
+                                    <td>
+                                        <!--item.quantityPurchased-->
+                                        <div class="buttonTru">
+                                            <a href="<%=request.getContextPath()%>/Cart?action=updateCart&quantity=${item.quantityPurchased-1}&idproduct=${item.idproduct}">
+                                                -
+                                            </a>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="cart_price">
-                                        74,000 đ
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="buttonTru">
-                                        -
-                                    </div>
-                                    <input type="text" class="number" value="1">
-                                    <div class="buttonCong">
-                                        +
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="cart_price">
-                                        74,000 đ
-                                    </div>
-                                </td>
-                            </tr>
+                                        <c:if test="${item.quantityPurchased > 0}">
+                                            <input type="text" class="number" value="${item.quantityPurchased}">
+                                        </c:if>
+                                            
+                                        <div class="buttonCong">
+                                            <a href="<%=request.getContextPath()%>/Cart?action=updateCart&quantity=${item.quantityPurchased+1}&idproduct=${item.idproduct}">
+                                                +
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="cart_price">
+                                           ${item.quantityPurchased * item.price}.000đ
+                                            <c:set var="total" value="${total + item.quantityPurchased * item.price }"></c:set>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            <c:if test="${total==0}">
+                                <tr>
+                                    <td style="margin: 0; padding: 0; height: 60px;">
+                                        <i><h5>Hiện giỏ hàng chưa có sản phẩm nào</h5></i>
+                                    </td>
+                                </tr>
+                            </c:if>
                             <!--  -->
                         </tbody>
                         <tfoot>
@@ -87,11 +113,11 @@
                             TIẾP TỤC XEM SẢN PHẨM
                         </a>
                     </div>
-                    <div class="button_cart button_cart_updateCart">
+<!--                    <div class="button_cart button_cart_updateCart">
                         <a href="#">
                             CẬP NHẬT GIỎ HÀNG
                         </a>
-                    </div>
+                    </div>-->
                 </div>
 
                 <!-- Col - 5 -->
@@ -111,7 +137,7 @@
                                     Tạm tính
                                 </td>
                                 <td class="tamtinh__price">
-                                    310,000 đ 
+                                    ${total}.000 đ 
                                 </td>
                             </tr>
                             <tr class="sum-cart__ship giaohang">
@@ -128,19 +154,37 @@
                                     Tổng
                                 </td>
                                 <td class="sum__price">
-                                    310,000 đ 
+                                    ${total}.000 đ 
                                 </td>
                             </tr>
                             <tr class="sum-cart__button">
                                 <td colspan="2">
                                     <div class="sum-cart__button__wrap">
+                                        <form class="formToPay" action="<%=request.getContextPath()%>/Pay" method="post">
+                                            <input style="color: #000;" type="hidden" name="AllNameProduct" value="${AllNameProductCart}"/>
+                                            <input style="color: #000;" type="hidden" name="AllNameProduct__Main" value="${AllNameProductCart__Main}"/>
+                                            <input style="color: #000;" type="hidden" name="TotalPrice" value="${total}" />
+                                            <c:if test="${total > 0}">
+                                                <input class="sum-cart__button__btn" type="submit" value="Tiến Hành Thanh Toán"/>
+                                            </c:if>
+                                            <c:if test="${total <= 0}">
+                                                <input onclick="return false" class="sum-cart__button__btn sum-cart__button__btn--disable" type="submit" value="Tiến Hành Thanh Toán"/>
+                                            </c:if>
+                                        </form>
+<!--                                         test 
                                         <div class="sum-cart__button__btn">
-                                            <a href="#">TIẾN HÀNH THANH TOÁN</a>
+                                            <a href="equest.getContextPath()/Pay">TIẾN HÀNH THANH TOÁN</a>
                                         </div>
-                                        <p> <i class="ti-tag"></i> Phiếu ưu đãi</p>
+                                        AllNameProductCart
+                                        total
+                                    <p> <i class="ti-tag"></i> Phiếu ưu đãi</p>
+
+                                         test -->
                                     </div>
                                 </td>
                             </tr>
+                            <!-- Khuyến  mãi -->
+                            <!--
                             <tr class="sum-cart__uudai">
                                 <td colspan="2">
                                     <input class="uudai__text" type="text" placeholder="Mã ưu đãi">

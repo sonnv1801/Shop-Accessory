@@ -91,6 +91,9 @@
         </script>
     </head>
     <body>
+        ss
+                    <h1>${userLogin.id}</h1>
+                    <h1>${userLogin.avatar}</h1>
         <div class="container-fluid backgroud-all">
             <div class="row">
                 <div class="col-xl-3">

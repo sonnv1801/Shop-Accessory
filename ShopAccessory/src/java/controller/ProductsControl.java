@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dao.ProductsDAO;
 import entity.Color;
+import entity.Comments;
 import entity.ImageProducts;
+import entity.News;
 import entity.Product;
 import entity.Size;
 import java.util.ArrayList;
@@ -27,7 +29,6 @@ import javax.swing.text.html.HTML;
  */
 @WebServlet(name = "ProductsControl", urlPatterns = {"/ProductsControl"})
 public class ProductsControl extends HttpServlet {
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -57,17 +58,16 @@ public class ProductsControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getServletPath();
-        
+        String action = request.getContextPath();
         try {
             switch(action){
-                case "/productdetails":
-                    ShowLimitProduct(request, response);
-                    break;
                 default:
+                    ShowSimilarProduct(request, response);
                     AllColor(request, response);
                     AllSize(request, response);
+                    AllComments(request, response);
                     AllImageProduct(request, response);
+                    ShowLimitNews(request, response);
                     ShowLimitProduct(request, response);
                     break;
             }
@@ -107,7 +107,6 @@ public class ProductsControl extends HttpServlet {
         request.setAttribute("AllColor", color);
     }
     
-    
         // lấy tất cả size của products
     public void AllSize(HttpServletRequest request, HttpServletResponse response) 
             throws SecurityException,IOException, Exception{
@@ -117,7 +116,35 @@ public class ProductsControl extends HttpServlet {
     }
     
     
-    // đã bao gồm ảnh - xem hàm constructor trong entity
+    // lấy tất cả comments của product theo id  
+    public void AllComments(HttpServletRequest request, HttpServletResponse response) 
+            throws SecurityException,IOException, Exception{
+        ProductsDAO productDao = new ProductsDAO();
+        int idproduct = Integer.parseInt(request.getParameter("idproduct"));
+        List<Comments> comment = productDao.getCommentProduct(idproduct);
+        request.setAttribute("AllComments", comment);
+        System.out.println("Đa chay xong cmt");
+    }
+    
+    // lấy tất cả news - hiển thị ở sub navbar
+    public void ShowLimitNews(HttpServletRequest request, HttpServletResponse response) 
+            throws SecurityException,IOException, Exception{
+        ProductsDAO productDao = new ProductsDAO();
+        List<News> news = productDao.getLimiNew(5);
+        request.setAttribute("NewsLimit", news);
+    }
+    
+    public void ShowSimilarProduct(HttpServletRequest request, HttpServletResponse response)
+            throws Exception, IOException, SecurityException{
+        ProductsDAO productDao = new ProductsDAO();
+        int idproduct = Integer.parseInt(request.getParameter("idproduct"));
+        List<Product> similarProduct = productDao.getSimilarProduct(idproduct);
+        request.setAttribute("SimilarProducts", similarProduct);
+        
+    }
+    
+    
+    // đã bao gồm ảnh - xem hàm constructor trong entity - để hiển thị ở sub navbar
     public void ShowLimitProduct(HttpServletRequest request, HttpServletResponse response)
         throws SecurityException, IOException, Exception{
         ProductsDAO proDao = new ProductsDAO();
@@ -127,5 +154,6 @@ public class ProductsControl extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("tin/productDetails.jsp"); //tin/productDetails.jsp
         dispatcher.forward(request, response);
     }
+
    
 }

@@ -14,6 +14,7 @@
         <group>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/productDetails.jsp</file>
             <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/dao/ProductsDAO.java</file>
             <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/entity/Product.java</file>
@@ -27,6 +28,41 @@
             <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/UsersDao.java</file>
             <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/NewsDao.java</file>
             <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/controller/UsersServlet.java</file>
+=======
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/dao/OrderDAO.java</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/entity/Order.java</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/cart.jsp</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/controller/Cart.java</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/controller/Pay.java</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/pay.jsp</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/entity/Admin.java</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/css/gioithieu.css</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/css/trangchu.css</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/gioithieu.jsp</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/css/slideshow.css</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/js/scrollnavba.js</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/js/backtoptop.js</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/controller/LoginAdminServlet.java</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/dao/AdminDao.java</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/js/slideshow.js</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/footer.jsp</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/body.jsp</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/controller/AdminControllerServlet.java</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/index.jsp</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/index.jsp</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/includes/footer.jsp</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/header.jsp</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/slide.jsp</file>
+=======
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/productDetails.jsp</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/dao/ProductsDAO.java</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/entity/Product.java</file>
+>>>>>>> Tin
+>>>>>>> main
+        </group>
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
 >>>>>>> main
 =======
             <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dbcontext/Main.java</file>

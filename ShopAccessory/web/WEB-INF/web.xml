@@ -92,11 +92,15 @@
         <servlet-name>AdminControllerServlet</servlet-name>
         <url-pattern>/AdminControllerServlet</url-pattern>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>NewsServlet</servlet-name>
         <url-pattern>/NewsServlet</url-pattern>
+<<<<<<< HEAD
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProductTypeServlet</servlet-name>
@@ -122,6 +126,10 @@
     <servlet-mapping>
         <servlet-name>ProductsServlet</servlet-name>
         <url-pattern>/ProductsServlet</url-pattern>
+=======
+=======
+>>>>>>> Tin
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
     </servlet-mapping>
     <session-config>
         <session-timeout>

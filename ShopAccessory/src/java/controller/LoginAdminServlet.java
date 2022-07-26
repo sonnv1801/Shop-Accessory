@@ -80,12 +80,70 @@ public class LoginAdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+//       response.setContentType("text/html;charset=UTF-8");
+//        try ( PrintWriter out = response.getWriter()) {
+//            String email = request.getParameter("username");
+//            String password = request.getParameter("password");
+//            
+//            try {
+//                AdminDao udao = new AdminDao(DbCon.getConnection());
+//                Admin user = udao.userLogin(email, password);
+//                
+//                if(user != null) {
+//                    request.getSession().setAttribute("auth", user);
+//                    response.sendRedirect("./admin/HomePage.jsp");
+//                } else {
+//                     request.setAttribute("loginFail", "User name or password is incorrect");
+//                     request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
+//                }
+//            } catch (ClassNotFoundException | SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//        Admin user = new Admin(username, password);
+//        if (userDao.login(user)) {
+//            HttpSession session = request.getSession();
+//           
+//           session.setAttribute("userLogin", user);            
+//           response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+//        } else {
+//            request.setAttribute("LoginAdmin", user);
+//            request.setAttribute("loginFail", "User name or password is incorrect");
+//            request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
+//        }
+
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//        Admin user = new Admin(username, password);
+//        if (userDao.login(user) != -1) {
+//            HttpSession session = request.getSession();
+//           int iduser = userDao.login(user);
+//           Admin user2 = new Admin(iduser, username, password);
+//           session.setAttribute("userLogin", user2);            
+//           response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+//        } else {
+//            request.setAttribute("LoginAdmin", user);
+//            request.setAttribute("loginFail", "User name or password is incorrect");
+//            request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
+//        }
+            
+=======
+      
+>>>>>>> main
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         Admin user = new Admin(username, password);
         if (userDao.login(user) != "") {
             HttpSession session = request.getSession();
+<<<<<<< HEAD
             String fullUser = userDao.login(user);
             String[] string = fullUser.split("--");
             int iduser = Integer.parseInt(string[0]);
@@ -95,12 +153,39 @@ public class LoginAdminServlet extends HttpServlet {
             Admin user2 = new Admin(iduser, image,name, username, password);
             session.setAttribute("userLogin", user2);
             response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+=======
+           String fullUser = userDao.login(user);
+           String[] string = fullUser.split("--");
+           int iduser = Integer.parseInt(string[0]);
+           String image = string[1];
+            System.out.println("image là:" + image);
+           Admin user2 = new Admin(iduser, image, username, password);
+           session.setAttribute("userLogin", user2);            
+           response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
         } else {
             request.setAttribute("LoginAdmin", user);
             request.setAttribute("loginFail", "User name or password is incorrect");
             request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
         }
     }
+    
+    /**
+     * String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        Admin user = new Admin("admin", "12345");
+        if (userDao.login(user) != -1) {
+            HttpSession session = request.getSession();
+           int iduser = userDao.login(user);
+           Admin user2 = new Admin(iduser, username, password);
+           session.setAttribute("userLogin", user2);            
+           response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+        } else {
+            request.setAttribute("LoginAdmin", user);
+            request.setAttribute("loginFail", "User name or password is incorrect");
+            request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
+        }
+     */
 
     /**
      * Returns a short description of the servlet.

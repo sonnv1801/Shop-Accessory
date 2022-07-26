@@ -80,4 +80,30 @@ public class UsersDao {
             }
         }
     }
+<<<<<<< HEAD
+=======
+    
+    public Users GetUser(int iduser) throws Exception {
+        String sql = "SELECT * FROM Users WHERE iduser =?";
+        DBUtil db = DBUtil.getInstance();
+        Connection con = null;
+        Users user=null;
+        try {
+            con = db.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1, iduser);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                user = new Users(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NewsDao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(NewsDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return user;
+    }
+    
+    
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
 }

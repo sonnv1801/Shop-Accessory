@@ -1025,16 +1025,42 @@ exists or setup the property manually. For example like this:
     <target depends="init" if="dist.ear.dir" name="library-inclusion-in-manifest">
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+<<<<<<< HEAD
+=======
         <copyfiles files="${file.reference.sqljdbc4.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+<<<<<<< HEAD
 >>>>>>> main
         <copyfiles files="${file.reference.jstl-1.2.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.sqljdbc42__1_.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+=======
+        <copyfiles files="${file.reference.jstl-1.2.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+=======
+        <copyfiles files="${file.reference.jstl-1.2.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.sqljdbc4.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+>>>>>>> mthanh
+=======
+        <copyfiles files="${file.reference.jstl-1.2.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.sqljdbc42__1_.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+>>>>>>> Tin
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target depends="init" name="library-inclusion-in-archive" unless="dist.ear.dir">
+<<<<<<< HEAD
         <copyfiles files="${file.reference.jstl-1.2.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.sqljdbc42__1_.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+=======
+<<<<<<< HEAD
+        <copyfiles files="${file.reference.jstl-1.2.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.sqljdbc4.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+=======
+        <copyfiles files="${file.reference.jstl-1.2.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.sqljdbc42__1_.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+>>>>>>> Tin
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
     </target>
     <target depends="init" if="dist.ear.dir" name="-clean-webinf-lib">
         <delete dir="${build.web.dir}/WEB-INF/lib"/>

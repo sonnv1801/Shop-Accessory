@@ -7,7 +7,11 @@ package entity;
 
 /**
  *
+<<<<<<< HEAD
  * @author PC
+=======
+ * @author Tin_Ngo
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
  */
 public class Users {
     private int iduser;
@@ -34,6 +38,20 @@ public class Users {
         this.address = address;
         this.phone = phone;
     }
+<<<<<<< HEAD
+=======
+    
+    public Users(int iduser, String avatar, String name, String age, String username, String password, String address, String phone) {
+        this.iduser = iduser;
+        this.avatar = avatar;
+        this.name = name;
+        this.age = age;
+        this.username = username;
+        this.password = password;
+        this.address = address;
+        this.phone = phone;
+    }
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
 
     public int getIduser() {
         return iduser;
@@ -111,7 +129,10 @@ public class Users {
     public String toString() {
         return "Users{" + "iduser=" + iduser + ", idconvat=" + idconvat + ", avatar=" + avatar + ", name=" + name + ", age=" + age + ", username=" + username + ", password=" + password + ", address=" + address + ", phone=" + phone + '}';
     }
+<<<<<<< HEAD
     
     
+=======
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
             
 }

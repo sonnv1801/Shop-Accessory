@@ -6,6 +6,17 @@
             <name>ShopAccessory</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            <web-module-libraries>
+                <library dirs="200">
+                    <file>${file.reference.jstl-1.2.jar-1}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.sqljdbc4.jar-1}</file>
+=======
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
             <explicit-platform explicit-source-supported="true"/>
 =======
 >>>>>>> main
@@ -16,6 +27,10 @@
                 </library>
                 <library dirs="200">
                     <file>${file.reference.sqljdbc42__1_.jar}</file>
+<<<<<<< HEAD
+=======
+>>>>>>> Tin
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
