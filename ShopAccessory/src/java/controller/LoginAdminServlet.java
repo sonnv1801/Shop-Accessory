@@ -80,6 +80,7 @@ public class LoginAdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+<<<<<<< HEAD
 //       response.setContentType("text/html;charset=UTF-8");
 //        try ( PrintWriter out = response.getWriter()) {
 //            String email = request.getParameter("username");
@@ -130,6 +131,9 @@ public class LoginAdminServlet extends HttpServlet {
 //            request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
 //        }
             
+=======
+      
+>>>>>>> main
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         Admin user = new Admin(username, password);

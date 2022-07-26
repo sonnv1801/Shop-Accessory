@@ -6,8 +6,14 @@
 package dbcontext;
 
 import dao.AdminDao;
+import dao.NewsDao;
 import dao.QlAdminDao;
 import entity.Admin;
+<<<<<<< HEAD
+import entity.News;
+=======
+import java.sql.Connection;
+>>>>>>> main
 import java.util.List;
 
 /**
@@ -19,16 +25,35 @@ public class Main {
     /**
      * @param args the command line arguments
      */
+<<<<<<< HEAD
+<<<<<<< HEAD
+    public static void main(String[] args) throws Exception {
+//        AdminDao dao = new AdminDao();
+//        Boolean check = dao.login(new Admin("vson", "12345"));
+//        System.out.println(""+check);
+//        
+=======
     public static void main(String[] args) throws Exception{
 //        AdminDao dao = new AdminDao();
 //        Boolean check = dao.login(new Admin("adim", "12345"));
 //        System.out.println(""+check);
         
+>>>>>>> Tin
 //        check = dao.registerUser(new Admin("image2","Nguyen Van Son","adim","12345"));
 //       System.out.println("Insert: "+check);
 
 //        AdminDao dao = new AdminDao();
 //        System.out.println("" + dao.getAdmins());
+<<<<<<< HEAD
+//       QlAdminDao dao = new QlAdminDao();
+//        System.out.println(""+ dao.getAdmins());
+//        
+////        dao.addAdmin(new Admin("image5", "Son", "v2", "12345"));
+////        System.out.println("ok");
+//        
+//     dao.updateAdmin(new Admin(7, "image2", "Van Son 1", "son47788@donga.edu.vn", "12345"));
+//      System.out.println(""+ dao.getAdmins());
+=======
 
 //       QlAdminDao dao = new QlAdminDao();
 //        System.out.println(""+ dao.getAdmins());
@@ -39,7 +64,29 @@ public class Main {
 //     dao.updateAdmin(new Admin(1, "img2", "Van Son 1", "admin1", "12345"));
 //      System.out.println(""+ dao.getAdmins());
 
+>>>>>>> Tin
 //      dao.deleteAdmin("12");
+        NewsDao dao = new NewsDao();
+//        dao.addNews(new News("admin", "Noi Dung Des", "7/11/2002", "Tieu De", "image1.png"));
+//        System.out.println("ok");
+
+//        System.out.println("" + dao.getNews());
+
+//        dao.updateNews(new News(1, "Noi Dung Des", "Noi Dung Title", "image1.png"));
+//      System.out.println(""+ dao.getNews());
+//        System.out.println("" + dao.getNews("2"));
+//        dao.deleteNews("1");
+        System.out.println("" + dao.getAllNews());
+=======
+    public static void main(String[] args) throws Exception{
+        DBUtil db =DBUtil.getInstance();
+        Connection con = db.getConnection();
+        if (con != null) {
+            System.out.println("ok");
+        }else{
+            System.out.println("fail");
+        }
+>>>>>>> main
     }
 
 }

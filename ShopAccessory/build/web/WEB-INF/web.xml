@@ -32,6 +32,10 @@
         <servlet-name>AdminControllerServlet</servlet-name>
         <servlet-class>controller.AdminControllerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewsServlet</servlet-name>
+        <servlet-class>controller.NewsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -63,6 +67,13 @@
     <servlet-mapping>
         <servlet-name>AdminControllerServlet</servlet-name>
         <url-pattern>/AdminControllerServlet</url-pattern>
+<<<<<<< HEAD
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewsServlet</servlet-name>
+        <url-pattern>/NewsServlet</url-pattern>
+=======
+>>>>>>> Tin
     </servlet-mapping>
     <session-config>
         <session-timeout>
