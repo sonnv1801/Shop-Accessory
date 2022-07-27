@@ -41,8 +41,11 @@
                         Search
                         <div class="search-child">
                             <div class="container-search">
-                                <input type="text" name="search" placeholder="Enter....">
-                                <a href="#"><i style="color:#ffca44;" class="fa-solid fa-magnifying-glass"></i></a>
+                                <form action="SearchController" method="get">
+                                    <input type="text" name="search" placeholder="Enter....">
+                                    <button type="submit"><i style="color:#ffca44;" class="fa-solid fa-magnifying-glass"></i></button>
+
+                                </form>
 
                             </div>
                         </div>
@@ -52,7 +55,7 @@
             <div class="header-child3 header-padding">
                 <ul class="header-ul ul-child3">
                     <li class="header-li">
-                        <a href="#">Trang chủ</a>
+                        <a href="TrangchuController">Trang chủ</a>
                     </li>
                     <li class="header-li">
                         <a href="gioithieu.jsp">giới thiệu</a>
@@ -64,9 +67,9 @@
                         </a>
                         <div class="menu-child">
                             <ul class="ul-menu-child">
-                                <li>Giỏ hàng</li>
-                                <li>Thanh toán</li>
-                                <li>Kiểm tra đơn hàng</li>
+                                <li><a href="#">Giỏ hàng</a></li>
+                                <li><a href="#">Thanh toán</a></li>
+                                <li><a href="#">Kiểm tra đơn hàng</a></li>
                             </ul>
                         </div>
                     </li>

@@ -91,7 +91,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <li class=\"header-li\">Open</li>\r\n");
       out.write("                <li class=\"header-li\">Mail</li>\r\n");
       out.write("                <li class=\"header-li\">\r\n");
-      out.write("                    <a href=\"LoginAdmin.js\" style=\"text-decoration: none;color: rgb(108, 100, 101);\">\r\n");
+      out.write("                    <a href=\"LoginAdmin.jsp\" style=\"text-decoration: none;color: rgb(108, 100, 101);\">\r\n");
       out.write("                        <i class=\"fa-solid fa-arrow-right-to-bracket\"></i>\r\n");
       out.write("                        Login\r\n");
       out.write("                    </a>\r\n");
@@ -209,50 +209,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"content-container\" id=\"container2\">\r\n");
       out.write("            <h1>Sản phẩm hiện tại</h1>\r\n");
       out.write("            <div class=\"content-view\">\r\n");
-      out.write("                <div class=\"products-view\">\r\n");
-      out.write("                    <div class=\"product-image\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/sec3-1.jpg\" alt=\"\">\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"product-information\">\r\n");
-      out.write("                        <span id=\"span1\">phụ kiện</span>\r\n");
-      out.write("                        <span id=\"span2\">Cổ áo da nguyên bản</span>\r\n");
-      out.write("                        <span id=\"span3\">$130.00</span>\r\n");
-      out.write("                        <a href=\"#\">Giỏ hàng</a>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"products-view\">\r\n");
-      out.write("                    <div class=\"product-image\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/sec3-1.jpg\" alt=\"\">\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"product-information\">\r\n");
-      out.write("                        <span id=\"span1\">phụ kiện</span>\r\n");
-      out.write("                        <span id=\"span2\">Cổ áo da nguyên bản</span>\r\n");
-      out.write("                        <span id=\"span3\">$130.00</span>\r\n");
-      out.write("                        <a href=\"#\">Giỏ hàng</a>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"products-view\">\r\n");
-      out.write("                    <div class=\"product-image\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/sec3-1.jpg\" alt=\"\">\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"product-information\">\r\n");
-      out.write("                        <span id=\"span1\">phụ kiện</span>\r\n");
-      out.write("                        <span id=\"span2\">Cổ áo da nguyên bản</span>\r\n");
-      out.write("                        <span id=\"span3\">$130.00</span>\r\n");
-      out.write("                        <a href=\"#\">Giỏ hàng</a>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"products-view\">\r\n");
-      out.write("                    <div class=\"product-image\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/sec3-1.jpg\" alt=\"\">\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"product-information\">\r\n");
-      out.write("                        <span id=\"span1\">phụ kiện</span>\r\n");
-      out.write("                        <span id=\"span2\">Cổ áo da nguyên bản</span>\r\n");
-      out.write("                        <span id=\"span3\">$130.00</span>\r\n");
-      out.write("                        <a href=\"#\">Giỏ hàng</a>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
+      out.write("                ");
+      if (_jspx_meth_c_forEach_1(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
       out.write("        <div class=\"content-container\" id=\"container3\">\r\n");
@@ -350,79 +310,15 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            </ul>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                    <div class=\"list-item\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/10/food_2-150x150.jpg\" alt=\"\">\r\n");
-      out.write("                        <div class=\"item-flex\">\r\n");
-      out.write("                            <ul class=\"ul-item\">\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <h5>Thức ăn bình thường</h5>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <del>105,000đ</del>\r\n");
-      out.write("                                    <span>100.000đ</span>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                            </ul>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"list-item\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/10/food_2-150x150.jpg\" alt=\"\">\r\n");
-      out.write("                        <div class=\"item-flex\">\r\n");
-      out.write("                            <ul class=\"ul-item\">\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <h5>Thức ăn bình thường</h5>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <del>105,000đ</del>\r\n");
-      out.write("                                    <span>100.000đ</span>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                            </ul>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"category-list\">\r\n");
       out.write("                    <h2>Sản phẩm mới</h2>\r\n");
-      out.write("                    <div class=\"list-item\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/10/food_2-150x150.jpg\" alt=\"\">\r\n");
-      out.write("                        <div class=\"item-flex\">\r\n");
-      out.write("                            <ul class=\"ul-item\">\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <h5>Thức ăn bình thường</h5>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <del>105,000đ</del>\r\n");
-      out.write("                                    <span>100.000đ</span>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                            </ul>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"list-item\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/10/food_2-150x150.jpg\" alt=\"\">\r\n");
-      out.write("                        <div class=\"item-flex\">\r\n");
-      out.write("                            <ul class=\"ul-item\">\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <h5>Thức ăn bình thường</h5>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <del>105,000đ</del>\r\n");
-      out.write("                                    <span>100.000đ</span>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                            </ul>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"list-item\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/10/food_2-150x150.jpg\" alt=\"\">\r\n");
-      out.write("                        <div class=\"item-flex\">\r\n");
-      out.write("                            <ul class=\"ul-item\">\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <h5>Thức ăn bình thường</h5>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <del>105,000đ</del>\r\n");
-      out.write("                                    <span>100.000đ</span>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                            </ul>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
+      out.write("                    ");
+      if (_jspx_meth_c_forEach_2(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                    \r\n");
+      out.write("\r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"category-list\">\r\n");
       out.write("                    <h2>Sản phẩm mua nhiều</h2>\r\n");
@@ -440,34 +336,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            </ul>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                    <div class=\"list-item\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/10/food_2-150x150.jpg\" alt=\"\">\r\n");
-      out.write("                        <div class=\"item-flex\">\r\n");
-      out.write("                            <ul class=\"ul-item\">\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <h5>Thức ăn bình thường</h5>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <del>105,000đ</del>\r\n");
-      out.write("                                    <span>100.000đ</span>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                            </ul>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"list-item\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/10/food_2-150x150.jpg\" alt=\"\">\r\n");
-      out.write("                        <div class=\"item-flex\">\r\n");
-      out.write("                            <ul class=\"ul-item\">\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <h5>Thức ăn bình thường</h5>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <del>105,000đ</del>\r\n");
-      out.write("                                    <span>100.000đ</span>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                            </ul>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
+      out.write("\r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"category-list\">\r\n");
       out.write("                    <h2>Sản phẩm tự chọn</h2>\r\n");
@@ -485,34 +354,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            </ul>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                    <div class=\"list-item\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/10/food_2-150x150.jpg\" alt=\"\">\r\n");
-      out.write("                        <div class=\"item-flex\">\r\n");
-      out.write("                            <ul class=\"ul-item\">\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <h5>Thức ăn bình thường</h5>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <del>105,000đ</del>\r\n");
-      out.write("                                    <span>100.000đ</span>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                            </ul>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"list-item\">\r\n");
-      out.write("                        <img src=\"http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/10/food_2-150x150.jpg\" alt=\"\">\r\n");
-      out.write("                        <div class=\"item-flex\">\r\n");
-      out.write("                            <ul class=\"ul-item\">\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <h5>Thức ăn bình thường</h5>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                                <li>\r\n");
-      out.write("                                    <del>105,000đ</del>\r\n");
-      out.write("                                    <span>100.000đ</span>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                            </ul>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
+      out.write("\r\n");
       out.write("                </div>\r\n");
       out.write("\r\n");
       out.write("            </div>\r\n");
@@ -644,7 +486,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                <!-- Kết hợp hình ảnh và nội dung cho mội phần tử trong slideshow-->\r\n");
           out.write("                <div class=\"mySlides fade\">\r\n");
           out.write("                    <div class=\"numbertext\">");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${lb.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${lb.idbanner}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write(" / 2</div>\r\n");
           out.write("                    <img class=\"slide-img\" src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${lb.image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -684,6 +526,117 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspx_th_c_forEach_0.doFinally();
       _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_1.setParent(null);
+    _jspx_th_c_forEach_1.setVar("ll");
+    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listlimit}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
+      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                    <div class=\"products-view\">\r\n");
+          out.write("                        <div class=\"product-image\">\r\n");
+          out.write("                            <img src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ll.image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" alt=\"\">\r\n");
+          out.write("                        </div>\r\n");
+          out.write("                        <div class=\"product-information\">\r\n");
+          out.write("                            <span id=\"span1\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ll.namecategory}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</span>\r\n");
+          out.write("                            <span id=\"span2\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ll.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</span>\r\n");
+          out.write("                            <span id=\"span3\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ll.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("đ</span>\r\n");
+          out.write("                            <a href=\"#\">Giỏ hàng</a>\r\n");
+          out.write("                        </div>\r\n");
+          out.write("                    </div>\r\n");
+          out.write("                ");
+          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_1.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_1);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_2 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_2.setParent(null);
+    _jspx_th_c_forEach_2.setVar("ln");
+    _jspx_th_c_forEach_2.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listnew}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_2 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_2 = _jspx_th_c_forEach_2.doStartTag();
+      if (_jspx_eval_c_forEach_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                        <div class=\"list-item\">\r\n");
+          out.write("                        <img src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ln.image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" alt=\"\">\r\n");
+          out.write("                        <div class=\"item-flex\">\r\n");
+          out.write("                            <ul class=\"ul-item\">\r\n");
+          out.write("                                <li>\r\n");
+          out.write("                                    <h5>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ln.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</h5>\r\n");
+          out.write("                                </li>\r\n");
+          out.write("                                <li>\r\n");
+          out.write("                                    <del>105,000đ</del>\r\n");
+          out.write("                                    <span>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ln.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("đ</span>\r\n");
+          out.write("                                </li>\r\n");
+          out.write("                            </ul>\r\n");
+          out.write("                        </div>\r\n");
+          out.write("                    </div>\r\n");
+          out.write("                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_2.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_2[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_2.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_2.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_2);
     }
     return false;
   }

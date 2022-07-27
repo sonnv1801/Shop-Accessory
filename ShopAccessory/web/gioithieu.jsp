@@ -10,10 +10,17 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Giới thiệu</title>
+        <link rel="stylesheet" href="css/trangchu.css">
+        <link rel="stylesheet" href="css/slideshow.css">
+        <link rel="stylesheet" href="css/gioithieu.css">
+        <link rel="stylesheet" href="css/search.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.leanhduc.pro.vn/utilities/animation/shake-effect/style.css"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     </head>
     <body>
         <%@include file="includes/header.jsp"%>
-        <%@page contentType="text/html" pageEncoding="UTF-8"%>
         <div class="introduce-container">
             <div class="layer-banner">
                 <div class="text-fill-banner">

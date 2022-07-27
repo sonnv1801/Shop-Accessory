@@ -1,113 +1,113 @@
 .slideshow-container {
-   width: 100%;
-   position: relative;
-   margin: auto;
- }
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
 /* ẩn hình ảnh cho phần tử slideshow */
- .mySlides {
-   display: none;
- }
- .slide-img{
-   height: 450px;
-   width: 100%;
- }
+.mySlides {
+    display: none;
+}
+.slide-img{
+    height: 450px;
+    width: 100%;
+}
 /* thiết kế nút mũi tên*/
- .prev, .next {
-   cursor: pointer;
-   position: absolute;
-   top: 50%;
-   width: auto;
-   margin-top: -22px;
-   padding: 16px;
-   color: white;
-   font-weight: bold;
-   font-size: 18px;
-   transition: 0.6s ease;
-   border-radius: 0 3px 3px 0;
-   user-select: none;
-   z-index: 10;
- }
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    z-index: 10;
+}
 /* thiết kế nút mũi tên next nằm phía bên phải */
- .next {
-   right: 0;
-   border-radius: 3px 0 0 3px;
- }
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
 /* hiệu ứng thay đổi background khi hover vào nút mũi tên*/
- .prev:hover, .next:hover {
-   background-color: rgba(0,0,0,0.8);
- }
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
 /* Thiết lập style cho nội dung của mỗi phần tử slideshow */
- .text {
-   color: #f2f2f2;
-   font-size: 15px;
-   padding: 8px 12px;
-   position: absolute;
-   bottom: 8px;
-   width: 100%;
-   text-align: center;
- }
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
 /* Thiết lập style cho số hiển thị của phần tử */
- .numbertext {
-   color: #f2f2f2;
-   font-size: 12px;
-   padding: 8px 12px;
-   position: absolute;
-   top: 0;
- }
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
 /* thiết lập style  nút tròn điều khiển*/
- .dot {
-   cursor: pointer;
-   height: 13px;
-   width: 13px;
-   margin: 0 2px;
-   background-color: transparent;
-   border: 3px solid #c2c2c2;
-   border-radius: 50%;
-   display: inline-block;
-   transition: background-color 0.6s ease;
- }
+.dot {
+    cursor: pointer;
+    height: 13px;
+    width: 13px;
+    margin: 0 2px;
+    background-color: transparent;
+    border: 3px solid #c2c2c2;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
 
- .dot-position{
-   position: absolute;
-   top: 20%;
-   left: 50%;
-   z-index: 10;
-   opacity: 0;
- }
+.dot-position{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    z-index: 10;
+    opacity: 0;
+}
 
 .active, .dot:hover {
-   background-color: #fff;
-   border: 3px solid #fff;
- }
+    background-color: #fff;
+    border: 3px solid #fff;
+}
 /* tạo hiệu ứng chuyển động fade */
- .fade {
-   -webkit-animation-name: fade;
-   -webkit-animation-duration: 1.5s;
-   animation-name: fade;
-   animation-duration: 1.5s;
- }
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
 @-webkit-keyframes fade {
-   from {opacity: .4}
-   to {opacity: 1}
- }
+    from {opacity: .4}
+    to {opacity: 1}
+}
 @keyframes fade {
-   from {opacity: .4}
-   to {opacity: 1}
- }
+    from {opacity: .4}
+    to {opacity: 1}
+}
 
- /* content up image */
+/* content up image */
 .content-up-image{
-   position: absolute;
-   width: 90%;
-   top: 15%;
-   left: 9%;
-   color: #fff;
-   display: flex;
-   justify-content: space-around;
+    position: absolute;
+    width: 90%;
+    top: 15%;
+    left: 9%;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
 }
 
 .content-right{
-   width: 30%;
+    width: 30%;
 }
 
 .content-right h3{
@@ -117,75 +117,155 @@
 }
 
 .content-right h2{
-   font-size: 3em;
+    font-size: 3em;
     font-weight: 900;
     margin-bottom: 0.7em;
     margin-top: -0.2em;
 }
 
 .content-right p{
-   color: #f1f1f1;
-   font-weight: 900;
-   margin-top: 0.3em;
-   padding: 2px 0 3px 0;
+    color: #f1f1f1;
+    font-weight: 900;
+    margin-top: 0.3em;
+    padding: 2px 0 3px 0;
 }
 
 .content-left{
-   width: 20%;
-   background-color: transparent;
+    width: 20%;
+    background-color: transparent;
 }
 
 
 .button-circle{
-     background: tomato;
-     border: 0.1875em solid #fff;
-     border-radius: 50%;
-     height: 9em;
-     width: 9em;    
-     padding: 20px;
-     display: flex;
-     flex-direction: column;
-     text-align: center;
-     animation-name: show;
-     animation-duration:4s;
-     animation-iteration-count:infinite;
+    background: tomato;
+    border: 0.1875em solid #fff;
+    border-radius: 50%;
+    height: 9em;
+    width: 9em;    
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    animation-name: show;
+    animation-duration:4s;
+    animation-iteration-count:infinite;
 }
 
 .button-circle span{
-   font-size: 20px;
+    font-size: 20px;
 }
 
 .button-circle h3{
     font-size: 3em;
     margin-bottom: 0.7em;
     font-weight: 500;
-   line-height: 60px;
+    line-height: 60px;
 
 }
 
+ /* ----------------------------------- */
+.button-effect{
+    display: block;
+    background-color: tomato;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 25px;
+    letter-spacing: 3px;
+    width: 150px; 
 
- .button-effect{
-   display: block;
-   background-color: tomato;
-   color: #fff;
-   font-weight: bold;
-   text-align: center;
-   border-radius: 5px;
-   font-size: 25px;
-   letter-spacing: 3px;
-   width: 150px;
- }
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #FFF;
+}
 
- @keyframes show {
-   0% {background-color: green;}
-   25% {background-color: pink;}
-   50% {background-color: tomato;}
-   100% {background-color: #333;}
- }
+.button-effect::before{
+  content: '';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background: rgba(255,255,255,0.1);
+  transition:0.5s;
+  pointer-events: none;
+}
 
- @keyframes move{
-   0% {margin-left: }
-   25% {background-color: pink;}
-   50% {background-color: tomato;}
-   100% {background-color: #333;}
- }
+.button-effect:hover::before{
+  left:-50%;
+  transform: skewX(-5deg);
+}
+
+.button-effect span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  box-sizing: border-box;
+  
+}
+
+.button-effect span:nth-child(1)
+{
+  transform:rotate(0deg);
+}
+
+.button-effect span:nth-child(2)
+{
+  transform:rotate(180deg);
+}
+
+.button-effect span::before
+{
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(to right, red , blue);
+  animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+  transform:scaleX(0);
+  transform-origin: left;
+  }
+  50%
+  {
+    transform:scaleX(1);
+  transform-origin: left;
+  }
+  50.1%
+  {
+    transform:scaleX(1);
+  transform-origin: right;   
+  } 
+  100%
+  {
+    transform:scaleX(0);
+  transform-origin: right;
+    
+  }
+  
+  
+} 
+
+ /* ----------------------------------- */
+
+@keyframes show {
+    0% {background-color: green;}
+    25% {background-color: pink;}
+    50% {background-color: tomato;}
+    100% {background-color: #333;}
+}
+
+@keyframes move{
+    0% {margin-left: }
+    25% {background-color: pink;}
+    50% {background-color: tomato;}
+    100% {background-color: #333;}
+}

@@ -79,9 +79,9 @@
     <script type="text/javascript" src="js/slideshow.js"></script>
     <script type="text/javascript" src="js/scrollnavba.js"></script>
     <script type="text/javascript" src="js/backtoptop.js"></script>
+    <script type="text/javascript" src="js/collapsesidebar.js"></script>
+</div>
 
-</div>
-</div>
 
 
 

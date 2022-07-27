@@ -15,9 +15,11 @@
         <link rel="stylesheet" href="css/trangchu.css">
         <link rel="stylesheet" href="css/slideshow.css">
         <link rel="stylesheet" href="css/gioithieu.css">
+        <link rel="stylesheet" href="css/search.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.leanhduc.pro.vn/utilities/animation/shake-effect/style.css"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     </head>
     <body>
         <%@include file="includes/header.jsp" %>
@@ -39,7 +41,11 @@
                         <h2>Tiết kiệm tiền</h2>
                         <p>Tiết kiệm tối đa cho bạn</p>
                         <p>Tại cửa hàng và trực tuyến</p>
-                        <a href="#" class="button-effect">Bắt đầu</a>
+                        <a href="#" class="button-effect">
+                            <span></span>
+                            <span></span>			
+                            Bắt đầu
+                        </a>
                     </div>
                     <div class="content-left">
                         <div class="button-circle">
@@ -122,52 +128,21 @@
             </div>
         </div>
         <div class="content-container" id="container2">
-            <h1>Sản phẩm hiện tại</h1>
+            <h1>Sản phẩm phổ biến </h1>
             <div class="content-view">
-                <div class="products-view">
-                    <div class="product-image">
-                        <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/sec3-1.jpg" alt="">
+                 <c:forEach var="lm" items="${listmost}">
+                    <div class="products-view">
+                        <div class="product-image">
+                            <img src="${lm.image}" alt="">
+                        </div>
+                        <div class="product-information">
+                            <span id="span1">${lm.namecategory}</span>
+                            <span id="span2">${lm.name}</span>
+                            <span id="span3">${lm.price}đ</span>
+                            <a href="#">Giỏ hàng</a>
+                        </div>
                     </div>
-                    <div class="product-information">
-                        <span id="span1">phụ kiện</span>
-                        <span id="span2">Cổ áo da nguyên bản</span>
-                        <span id="span3">$130.00</span>
-                        <a href="#">Giỏ hàng</a>
-                    </div>
-                </div>
-                <div class="products-view">
-                    <div class="product-image">
-                        <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/sec3-1.jpg" alt="">
-                    </div>
-                    <div class="product-information">
-                        <span id="span1">phụ kiện</span>
-                        <span id="span2">Cổ áo da nguyên bản</span>
-                        <span id="span3">$130.00</span>
-                        <a href="#">Giỏ hàng</a>
-                    </div>
-                </div>
-                <div class="products-view">
-                    <div class="product-image">
-                        <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/sec3-1.jpg" alt="">
-                    </div>
-                    <div class="product-information">
-                        <span id="span1">phụ kiện</span>
-                        <span id="span2">Cổ áo da nguyên bản</span>
-                        <span id="span3">$130.00</span>
-                        <a href="#">Giỏ hàng</a>
-                    </div>
-                </div>
-                <div class="products-view">
-                    <div class="product-image">
-                        <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/sec3-1.jpg" alt="">
-                    </div>
-                    <div class="product-information">
-                        <span id="span1">phụ kiện</span>
-                        <span id="span2">Cổ áo da nguyên bản</span>
-                        <span id="span3">$130.00</span>
-                        <a href="#">Giỏ hàng</a>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
         <div class="content-container" id="container4">
@@ -186,76 +161,82 @@
             <div class="list-view">
                 <div class="category-list">
                     <h2>Sản phẩm giảm giá</h2>
-                    <div class="list-item">
-                        <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/10/food_2-150x150.jpg" alt="">
-                        <div class="item-flex">
-                            <ul class="ul-item">
-                                <li>
-                                    <h5>Thức ăn bình thường</h5>
-                                </li>
-                                <li>
-                                    <del>105,000đ</del>
-                                    <span>100.000đ</span>
-                                </li>
-                            </ul>
+                    <c:forEach var="ld" items="${listdiscount}">
+                        <div class="list-item">
+                            <img src="${ld.image}" alt="">
+                            <div class="item-flex">
+                                <ul class="ul-item">
+                                    <li>
+                                        <h5>${ld.name}</h5>
+                                    </li>
+                                    <li>
+                                        <del>105,000đ</del>
+                                        <span>${ld.price}đ</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    </c:forEach>
+
                 </div>
                 <div class="category-list">
                     <h2>Sản phẩm mới</h2>
                     <c:forEach var="ln" items="${listnew}">
                         <div class="list-item">
-                        <img src="${ln.image}" alt="">
-                        <div class="item-flex">
-                            <ul class="ul-item">
-                                <li>
-                                    <h5>${ln.name}</h5>
-                                </li>
-                                <li>
-                                    <del>105,000đ</del>
-                                    <span>${ln.price}đ</span>
-                                </li>
-                            </ul>
+                            <img src="${ln.image}" alt="">
+                            <div class="item-flex">
+                                <ul class="ul-item">
+                                    <li>
+                                        <h5>${ln.name}</h5>
+                                    </li>
+                                    <li>
+                                        <del>105,000đ</del>
+                                        <span>${ln.price}đ</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
                     </c:forEach>
-                    
+
 
                 </div>
                 <div class="category-list">
                     <h2>Sản phẩm mua nhiều</h2>
-                    <div class="list-item">
-                        <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/10/food_2-150x150.jpg" alt="">
-                        <div class="item-flex">
-                            <ul class="ul-item">
-                                <li>
-                                    <h5>Thức ăn bình thường</h5>
-                                </li>
-                                <li>
-                                    <del>105,000đ</del>
-                                    <span>100.000đ</span>
-                                </li>
-                            </ul>
+                   <c:forEach var="lbs" items="${listbestseller}">
+                        <div class="list-item">
+                            <img src="${lbs.image}" alt="">
+                            <div class="item-flex">
+                                <ul class="ul-item">
+                                    <li>
+                                        <h5>${lbs.name}</h5>
+                                    </li>
+                                    <li>
+                                        <del>105,000đ</del>
+                                        <span>${lbs.price}đ</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-
+                    </c:forEach>
                 </div>
                 <div class="category-list">
                     <h2>Sản phẩm tự chọn</h2>
-                    <div class="list-item">
-                        <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/10/food_2-150x150.jpg" alt="">
-                        <div class="item-flex">
-                            <ul class="ul-item">
-                                <li>
-                                    <h5>Thức ăn bình thường</h5>
-                                </li>
-                                <li>
-                                    <del>105,000đ</del>
-                                    <span>100.000đ</span>
-                                </li>
-                            </ul>
+                     <c:forEach var="lr" items="${listrandom}">
+                        <div class="list-item">
+                            <img src="${lr.image}" alt="">
+                            <div class="item-flex">
+                                <ul class="ul-item">
+                                    <li>
+                                        <h5>${lr.name}</h5>
+                                    </li>
+                                    <li>
+                                        <del>105,000đ</del>
+                                        <span>${lr.price}đ</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    </c:forEach>
 
                 </div>
 

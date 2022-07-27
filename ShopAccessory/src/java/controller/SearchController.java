@@ -5,9 +5,7 @@
  */
 package controller;
 
-import dao.BannerDAO;
 import dao.ProductDAO;
-import entity.Banner;
 import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ADMIN
  */
-@WebServlet(name = "TrangchuController", urlPatterns = {"/TrangchuController"})
-public class TrangchuController extends HttpServlet {
+@WebServlet(name = "SearchController", urlPatterns = {"/SearchController"})
+public class SearchController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +40,10 @@ public class TrangchuController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet TrangchuController</title>");            
+            out.println("<title>Servlet SearchController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet TrangchuController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SearchController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,26 +61,14 @@ public class TrangchuController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String s = request.getParameter("search");
+
         ProductDAO productDAO = new ProductDAO();
-        BannerDAO bannerDAO = new BannerDAO();
-        List<Product> listNew = productDAO.getNewProducts();
-        List<Product> listLimit = productDAO.getProductLimit();
-        List<Product> listMost = productDAO.getMostProducts();
-        List<Product> listBestSeller = productDAO.getBestSellerProducts();
-        List<Product> listRandom = productDAO.getRandomProducts();
-        List<Product> listDiscount = productDAO.getDiscountProducts();
-        
-        List<Banner> listBanner = bannerDAO.getAllBanner();
-        
-        request.setAttribute("listnew", listNew);
-        request.setAttribute("listlimit", listLimit);
-        request.setAttribute("listmost", listMost);
-        request.setAttribute("listbestseller", listBestSeller);
-        request.setAttribute("listrandom", listRandom);
-        request.setAttribute("listdiscount", listDiscount);
-        request.setAttribute("listbanner", listBanner);
-        
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        List<Product> productSearch = productDAO.SearchProduct(s);
+
+        request.setAttribute("productsearch", productSearch);
+        request.setAttribute("value", s);
+        request.getRequestDispatcher("SearchPage.jsp").forward(request, response);
     }
 
     /**
@@ -96,7 +82,7 @@ public class TrangchuController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
     }
 
     /**

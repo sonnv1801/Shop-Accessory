@@ -89,6 +89,77 @@ public class ProductDAO {
         return list;
     }
 
+    public List<Product> getMostProducts() {
+        List<Product> list = new ArrayList<>();
+        DBUtil db = DBUtil.getInstance();
+        String sql = "SELECT Products.*,ProductType.name,ProductImage.image FROM ((Products\n"
+                + "INNER JOIN ProductType ON Products.idprt = ProductType.idprt)\n"
+                + "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct)\n"
+                + "ORDER BY Products.quantity DESC\n"
+                + "OFFSET 0 ROWS\n"
+                + "FETCH NEXT 4 ROWS ONLY;";
+
+        Connection con = null;
+        try {
+
+            con = db.getConnection();
+
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11)));
+
+            }
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+        return list;
+    }
+
+    public List<Product> getDiscountProducts() {
+        List<Product> list = new ArrayList<>();
+        DBUtil db = DBUtil.getInstance();
+        String sql = "SElECT  Products.*,ProductImage.image FROM (Products\n"
+                + "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct) order by NewID() \n"
+                + "OFFSET 0 ROWS\n"
+                + "FETCH NEXT 3 ROWS ONLY;";
+
+        Connection con = null;
+        try {
+
+            con = db.getConnection();
+
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10)));
+
+            }
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+        return list;
+    }
+
     public List<Product> getNewProducts() {
         List<Product> list = new ArrayList<>();
         DBUtil db = DBUtil.getInstance();
@@ -121,14 +192,81 @@ public class ProductDAO {
         return list;
     }
 
-    public Product SearchProduct(String s) {
+    public List<Product> getBestSellerProducts() {
+        List<Product> list = new ArrayList<>();
+        DBUtil db = DBUtil.getInstance();
+        String sql = "SELECT Top 3 Products.*, ProductImage.image FROM  (Products INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct),\n"
+                + "(SELECT count(Orders.idorder) as tongbill , Orders.idproduct as x  FROM Orders group by Orders.idproduct ) truyvancon1\n"
+                + "where truyvancon1.x = Products.idproduct Order by tongbill DESC";
+
+        Connection con = null;
+        try {
+
+            con = db.getConnection();
+
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10)));
+
+            }
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+        return list;
+    }
+
+    public List<Product> getRandomProducts() {
+        List<Product> list = new ArrayList<>();
+        DBUtil db = DBUtil.getInstance();
+        String sql = "SElECT  Products.*,ProductImage.image FROM (Products\n"
+                + "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct) order by NewID() \n"
+                + "OFFSET 0 ROWS\n"
+                + "FETCH NEXT 3 ROWS ONLY;";
+
+        Connection con = null;
+        try {
+
+            con = db.getConnection();
+
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10)));
+
+            }
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+        return list;
+    }
+
+    public List<Product> SearchProduct(String s) {
+        List<Product> list = new ArrayList<>();
         DBUtil db = DBUtil.getInstance();
         String sql = "SELECT Products.*,ProductType.name,ProductImage.image FROM ((Products\n"
                 + "INNER JOIN ProductType ON Products.idprt = ProductType.idprt)\n"
                 + "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct) WHERE Products.name LIKE (?)";
 
         Connection con = null;
-        Product product = null;
         try {
 
             con = db.getConnection();
@@ -138,7 +276,7 @@ public class ProductDAO {
 
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                product = new Product(rs.getInt(1),
+                list.add(new Product(rs.getInt(1),
                         rs.getInt(2),
                         rs.getInt(3),
                         rs.getString(4),
@@ -148,19 +286,19 @@ public class ProductDAO {
                         rs.getString(8),
                         rs.getString(9),
                         rs.getString(10),
-                        rs.getString(11));
+                        rs.getString(11)));
 
             }
         } catch (Exception e) {
             System.out.println("" + e);
         }
-        return product;
+        return list;
     }
 
     public void InsertProduct() {
         DBUtil db = DBUtil.getInstance();
         String sql = "INSERT Products(idadmin,idprt,name,description,quantity,price,color,size) VALUES (1,1,'chuồng','áadas',2,5000,'red','L');\n";
-        
+
         Connection con = null;
         Product product = null;
         try {
@@ -171,13 +309,14 @@ public class ProductDAO {
             statement.execute();
             lastID();
             InsertImageProduct();
-        
+
         } catch (Exception e) {
             System.out.println("" + e);
         }
     }
-    
+
     public static int count;
+
     public void lastID() {
 
         DBUtil db = DBUtil.getInstance();
@@ -191,21 +330,21 @@ public class ProductDAO {
             PreparedStatement statement = con.prepareStatement(sql);
 
             ResultSet rs = statement.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 count = rs.getInt(1);
             }
-            
-            System.out.println("lastID ="+count);
+
+            System.out.println("lastID =" + count);
         } catch (Exception e) {
             System.out.println("" + e);
         }
     }
-    
-    public void InsertImageProduct(){
+
+    public void InsertImageProduct() {
         DBUtil db = DBUtil.getInstance();
         String sql = "INSERT ProductImage(idproduct,image) VALUES (?,?)";
-        
+
         Connection con = null;
         try {
 
@@ -216,11 +355,10 @@ public class ProductDAO {
 
             statement.execute();
             System.out.println("ok");
-        
+
         } catch (Exception e) {
             System.out.println("" + e);
         }
     }
-    
-}
 
+}
