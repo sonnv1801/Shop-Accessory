@@ -12,6 +12,7 @@ package dbcontext;
 public interface DatabaseInfor {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
     public static String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
@@ -36,12 +37,17 @@ public interface DatabaseInfor {
     public static String pass= "123456";
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> Admin
     public static String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     public static String url="jdbc:sqlserver://127.0.0.1:1433;databaseName=javaFPT;";
     public static String user="sa";
     public static String pass="vanson123";
+<<<<<<< HEAD
 >>>>>>> main
 =======
 >>>>>>> Tin
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+=======
+>>>>>>> Admin
 }

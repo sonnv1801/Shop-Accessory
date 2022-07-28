@@ -7,6 +7,7 @@
             <minimum-ant-version>1.6.5</minimum-ant-version>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             <web-module-libraries>
                 <library dirs="200">
@@ -20,17 +21,23 @@
             <explicit-platform explicit-source-supported="true"/>
 =======
 >>>>>>> main
+=======
+>>>>>>> Admin
             <web-module-libraries>
                 <library dirs="200">
-                    <file>${file.reference.jstl-1.2.jar}</file>
+                    <file>${file.reference.sqljdbc4.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
+<<<<<<< HEAD
                     <file>${file.reference.sqljdbc42__1_.jar}</file>
 <<<<<<< HEAD
 =======
 >>>>>>> Tin
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+=======
+                    <file>${file.reference.jstl-1.2.jar}</file>
+>>>>>>> Admin
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

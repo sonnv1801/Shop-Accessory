@@ -7,6 +7,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+
+<c:if test="${userLogin == null}">
+    <%
+    response.sendRedirect("LoginAdmin.jsp");
+    %>
+</c:if>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,14 +31,14 @@
                 <div class="col-xl-9">
                    <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
-                        <div class="container table-all">
+                        <div class="container table-all" style="overflow: auto; height: 550px;">
                             <div class="table-body">
-                                <div class="ex1">
+                                <div>
                                     <h4>Danh Sách Users</h4>
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
+                                                <th scope="col" style="color: #00ff79">#</th>
                                                 <th scope="col">Name</th>
                                                 <th scope="col">Age</th>
                                                 <th scope="col">UserName</th>
@@ -53,7 +59,7 @@
 
                                                 </c:url>
                                                 <tr>
-                                                    <th scope="row">${sothutu}</th>
+                                                    <th scope="row" style="color: #00ff79">${sothutu}</th>
                                                     <td>${user.name}</td>
                                                     <td>${user.age}</td>
                                                     <td>${user.username}</td>

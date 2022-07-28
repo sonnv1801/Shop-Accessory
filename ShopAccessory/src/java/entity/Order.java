@@ -8,12 +8,21 @@ package entity;
 /**
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @author PC
 =======
  * @author Tin_Ngo
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+=======
+ * <<<<<<< HEAD
+ * @a
+ *
+ * uthor PC =======
+ * @author Tin_Ngo >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+>>>>>>> Admin
  */
 public class Order {
+
     private int idorder;
     private int idproduct;
     private int iduser;
@@ -22,7 +31,19 @@ public class Order {
     private int condition;
 <<<<<<< HEAD
 
+    private String nameSP;
+    private int soluongmua;
+    private int price;
+
     public Order() {
+    }
+
+    public Order(int idproduct, int iduser, int total, String datecreate, int condition) {
+        this.idproduct = idproduct;
+        this.iduser = iduser;
+        this.total = total;
+        this.datecreate = datecreate;
+        this.condition = condition;
     }
 
     public Order(int idorder, int idproduct, int iduser, int total, String datecreate, int condition) {
@@ -55,6 +76,12 @@ public class Order {
 =======
     
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+
+    public Order(int price, int soluongmua) {
+        this.price = price;
+        this.soluongmua = soluongmua;
+
+    }
 
     public int getIdorder() {
         return idorder;
@@ -147,10 +174,14 @@ public class Order {
     public String toString() {
         return "Order{" + "idorder=" + idorder + ", idproduct=" + idproduct + ", iduser=" + iduser + ", total=" + total + ", datecreate=" + datecreate + ", condition=" + condition + '}';
     }
+<<<<<<< HEAD
     
     
     
 =======
+=======
+
+>>>>>>> Admin
     public String getNameSP() {
         return nameSP;
     }
@@ -174,7 +205,11 @@ public class Order {
     public void setPrice(int price) {
         this.price = price;
     }
+<<<<<<< HEAD
     
     
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+=======
+
+>>>>>>> Admin
 }

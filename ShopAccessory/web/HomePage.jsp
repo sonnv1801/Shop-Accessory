@@ -4,6 +4,8 @@
     Author     : PC
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="entity.Admin"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="entity.HomePageAdmin"%>
 <%@page import="dao.HomePageAdminDao"%>
@@ -17,27 +19,33 @@
 <!DOCTYPE html>
 
 <%
-    
 
     DBUtil db = new DBUtil();
     HomePageAdminDao count = new HomePageAdminDao();
     int dataAdmin = count.countAdmin();
-    
-    int dataProducts = count.countProducts();
-    
-    int dataTotal = count.sumTotal();
-    
-     DecimalFormat formatter = new DecimalFormat("###,###,###");
-     String sum = formatter.format(dataTotal);
-     
-     int dataUsers = count.countUsers();
-     
 
-     int dataNews = count.countNews();
-     
-     int dataOrders = count.countOrders();
-    
+    int dataProducts = count.countProducts();
+
+    int dataTotal = count.sumTotal();
+
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
+    String sum = formatter.format(dataTotal);
+
+    int dataUsers = count.countUsers();
+
+    int dataNews = count.countNews();
+
+    int dataOrders = count.countOrders();
+
 %>
+
+
+<c:if test="${userLogin == null}">
+    <%
+    response.sendRedirect("LoginAdmin.jsp");
+    %>
+</c:if>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -75,9 +83,9 @@
             function drawChart() {
                 var data = google.visualization.arrayToDataTable([
                     ['Task', 'Hours per Day'],
-                    ['Sản Phẩm', <%= dataProducts %>],
-                    ['Đơn Hàng', <%= dataOrders %>],
-                    ['Tin Tức', <%= dataNews %>]
+                    ['Sản Phẩm', <%= dataProducts%>],
+                    ['Đơn Hàng', <%= dataOrders%>],
+                    ['Tin Tức', <%= dataNews%>]
                 ]);
 
                 var options = {
@@ -91,16 +99,20 @@
         </script>
     </head>
     <body>
+<<<<<<< HEAD
         ss
                     <h1>${userLogin.id}</h1>
                     <h1>${userLogin.avatar}</h1>
+=======
+
+>>>>>>> Admin
         <div class="container-fluid backgroud-all">
             <div class="row">
                 <div class="col-xl-3">
                     <%@include file="./inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                     <%@include file="dayandclockAdmin.jsp" %>
+                    <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
                         <div class="row card-top">
                             <div class="col-xl-3">
@@ -109,14 +121,14 @@
                                         <h5 class="card-title">Giỏ Hàng</h5>
                                         <i class="fa fa-shopping-cart"></i>
                                         <hr/>
-                                        <p class="card-text">Tổng Sản Phẩm: <%= dataProducts %></p>
+                                        <p class="card-text">Tổng Sản Phẩm: <%= dataProducts%></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3">
                                 <div class="card text-bg-light mb-3" style="max-width: 18rem;">
                                     <div class="card-body">
-                                        <h5 class="card-title"><%= sum + "" %> VNĐ</h5>
+                                        <h5 class="card-title"><%= sum + ""%> VNĐ</h5>
                                         <i class="fa fa-money"></i>
                                         <hr/>
                                         <p class="card-text">Lợi Nhuận Tháng Này <i class="fa fa-arrow-up"></i> </p>
@@ -136,7 +148,7 @@
                             <div class="col-xl-3">
                                 <div class="card text-bg-light mb-3" style="max-width: 18rem;">
                                     <div class="card-body">
-                                        <h5 class="card-title"><%= dataNews %></h5>
+                                        <h5 class="card-title"><%= dataNews%></h5>
                                         <i class="fa fa-envira"></i>
                                         <hr/>
                                         <p class="card-text">Tổng Bài Viết <i class="fa fa-arrow-up"></i> </p>

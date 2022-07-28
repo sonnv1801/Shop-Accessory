@@ -23,10 +23,13 @@ import java.util.logging.Logger;
 public class AdminDao {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+=======
+>>>>>>> Admin
     public String login(Admin user) {
         DBUtil db = DBUtil.getInstance();
         String sql = "select * from Admin where username=? and password=?";
@@ -43,6 +46,7 @@ public class AdminDao {
             if (rs.next()) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 System.out.println("Success test đăng nhập thành công");
                 return true;
 =======
@@ -57,6 +61,12 @@ public class AdminDao {
                 System.out.println("test----------"+result);
                 return result;
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+=======
+                System.out.println(rs.getInt(1));
+                result = result+rs.getInt(1)+"--"+rs.getString(2)+"--"+rs.getString(3);
+                System.out.println("test----------"+result);
+                return result;
+>>>>>>> Admin
             }
 
         } catch (Exception ex) {

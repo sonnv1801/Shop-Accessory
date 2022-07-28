@@ -93,9 +93,12 @@
         <url-pattern>/AdminControllerServlet</url-pattern>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+=======
+>>>>>>> Admin
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>NewsServlet</servlet-name>
@@ -117,7 +120,6 @@
     <servlet-mapping>
         <servlet-name>OrderServlet</servlet-name>
         <url-pattern>/OrderServlet</url-pattern>
->>>>>>> main
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddProductAdmin</servlet-name>

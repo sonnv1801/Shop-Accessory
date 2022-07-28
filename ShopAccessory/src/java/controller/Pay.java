@@ -5,7 +5,11 @@
  */
 package controller;
 
+<<<<<<< HEAD
 import dao.OrderDAO;
+=======
+import dao.OrderDao;
+>>>>>>> Admin
 import dao.UsersDao;
 import entity.Order;
 import entity.Product;
@@ -61,7 +65,11 @@ public class Pay extends HttpServlet {
             switch(action){
                 case "ordered":
                     System.out.println(AllInforPay);
+<<<<<<< HEAD
                     OrderDAO orderDao = new OrderDAO();
+=======
+                    OrderDao orderDao = new OrderDao();
+>>>>>>> Admin
                     String TotalPrice = request.getParameter("TotalPrice");
             //        request.setAttribute("TotalPrice", TotalPrice);
             //        request.setAttribute("AllNameProduct", AllNameProduct);
@@ -90,6 +98,10 @@ public class Pay extends HttpServlet {
                                 totalbuy = price*soluongmua;
                             }
                         }
+<<<<<<< HEAD
+=======
+                        
+>>>>>>> Admin
                         orderDao.AddOrder(new Order(idproduct, iduser, totalbuy, datecreate, 0));
                         
                         orderDao.AddOrderDetails(new Order(price, soluongmua));

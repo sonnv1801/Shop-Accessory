@@ -106,12 +106,7 @@ public class PosterAdminServlet extends HttpServlet {
         
         if (newsDao.addNews(news)) {
             request.setAttribute("trueAdd", "Thêm Thành Công");
-            
-            try {
-                listAdmins(request, response);
-            } catch (Exception ex) {
-                Logger.getLogger(PosterAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            response.sendRedirect("NewsServlet");
         } else {
             request.setAttribute("AddAd", news);
             request.setAttribute("flaseAdd", "Thêm Không Thành Công");

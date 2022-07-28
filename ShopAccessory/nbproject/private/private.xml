@@ -15,6 +15,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/productDetails.jsp</file>
             <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/dao/ProductsDAO.java</file>
             <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/entity/Product.java</file>
@@ -69,6 +70,17 @@
             <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/ProductsDAO.java</file>
             <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/Product.java</file>
             <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/ImageProducts.java</file>
+>>>>>>> Admin
+=======
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/OrderDao.java</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/UpadateProductAdmin.jsp</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/css/ViewOrder.css</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/Orders.jsp</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/controller/OrderServlet.java</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dbcontext/Main.java</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/ViewOrder.jsp</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/OrderDetails.java</file>
+            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/HomePage.jsp</file>
 >>>>>>> Admin
         </group>
     </open-files>

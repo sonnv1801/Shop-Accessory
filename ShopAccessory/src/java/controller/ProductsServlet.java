@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.ProductAdminDao;
 import dao.ProductsDAO;
 import entity.Product;
 import java.io.IOException;
@@ -40,7 +41,7 @@ public class ProductsServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProductsServlet</title>");            
+            out.println("<title>Servlet ProductsServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ProductsServlet at " + request.getContextPath() + "</h1>");
@@ -70,7 +71,15 @@ public class ProductsServlet extends HttpServlet {
                 case "LIST":
                     listProducts(request, response);
                     break;
-                
+                case "LOAD":
+                    loadProduct(request, response);
+                    break;
+                case "UPDATE":
+                    updateProduct(request, response);
+                    break;
+                case "DELETE":
+                    deleteProduct(request, response);
+                    break;
                 default:
                     listProducts(request, response);
             }
@@ -102,15 +111,46 @@ public class ProductsServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-    
-        private void listProducts(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+    private void listProducts(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ProductsDAO newsDao = new ProductsDAO();
         List<Product> list = newsDao.getAllProducts();
         request.setAttribute("listProducts", list);
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("DS.jsp");
         dispatcher.forward(request, response);
+    }
+    
+    
+    private void loadProduct(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        String ThePrId = request.getParameter("newId");
+        Product pr = new ProductAdminDao().getPr(ThePrId);
+        Product p = (Product) pr;
+        request.setAttribute("THE_PR", pr);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("UpadateProductAdmin.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void updateProduct(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+        int id = Integer.parseInt(request.getParameter("newsId"));
+        String name = request.getParameter("name");
+        String description = request.getParameter("description");
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        int price = Integer.parseInt(request.getParameter("price"));
+        String color = request.getParameter("color");
+        String size = request.getParameter("size");
+        
+        Product product = new Product(id, name, description, quantity, price, color, size);
+        new ProductAdminDao().updateProduct(product);
+        response.sendRedirect("ProductsServlet");
+    }
+    
+    private void deleteProduct(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+        String thePrId = request.getParameter("prId");
+        new ProductAdminDao().deleteProduct(thePrId);
+        listProducts(request, response);
     }
 
 }

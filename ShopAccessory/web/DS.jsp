@@ -6,6 +6,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+
+<c:if test="${userLogin == null}">
+    <%
+        response.sendRedirect("LoginAdmin.jsp");
+    %>
+</c:if>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,16 +29,16 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                   <%@include file="dayandclockAdmin.jsp" %>
+                    <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
                         <a href="AddProductAdmin"><button type="button" class="btn btn-secondary button-add-a dmin" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Thêm Sản Phẩm</button></a>
-                       
-                        <div class="container table-all" style="overflow: auto; min-height: 500px;">
+
+                        <div class="container table-all" style="overflow: auto; height: 550px;">
                             <div class="table-body">
                                 <h4>Danh Sách Products</h4>
                                 <table class="table">
                                     <thead>
-                                       <tr>
+                                        <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Tên Sản Phẩm</th>
                                             <th scope="col">Mô Tả</th>
@@ -48,6 +54,20 @@
                                         <c:set scope="request" var="sothutu" value="0"></c:set>
                                         <c:forEach var="product" items="${listProducts}">
                                             <c:set scope="request" var="sothutu" value="${sothutu + 1}"></c:set>
+                                            <c:url var="tempLink" value="ProductsServlet">
+                                                <c:param name="command" value="LOAD"
+                                                         ></c:param>
+                                                <c:param name="newId" value="${product.idproduct}"
+                                                         ></c:param>
+
+                                            </c:url>
+                                            <c:url var="deleteLink" value="ProductsServlet">
+                                                <c:param name="command" value="DELETE"
+                                                         ></c:param>
+                                                <c:param name="prId" value="${product.idproduct}"
+                                                         ></c:param>
+
+                                            </c:url>
                                             <tr>
                                                 <th scope="row">${sothutu}</th>
                                                 <th>${product.name}</th>
@@ -56,12 +76,12 @@
                                                 <th>${product.price}</th>
                                                 <th>${product.color}</th>
                                                 <th>${product.size}</th>
-                                               <th><img src="./images/products/${product.image}" alt="image" style="width: 90px"/></th>
+                                                <th><img src="./images/products/${product.image}" alt="image" style="width: 90px"/></th>
                                                 <td>
-                                                    <a href="${deleteLink}" onclick="if (!(confirm('Bạn có chắc chắn là xóa Products này không?')))
+                                                    <a href="${deleteLink}" onclick="if (!(confirm('Bạn có chắc chắn là xóa Products với ID ${product.idproduct} này không?')))
                                                                 return false"><button style="background-color: red; color: white; border: none">Xóa <i class="fa fa-remove"></i></button></a>
                                                     <a href="${tempLink}"><button style="background-color: green; color: white; border: none" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sửa <i class="fa fa-edit"></i></button></a>
-                                                </c:forEach>
+                                                        </c:forEach>
                                             </td>
                                         </tr>
                                     </tbody>

@@ -82,8 +82,11 @@ public class LoginAdminServlet extends HttpServlet {
             throws ServletException, IOException {
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> Admin
 //       response.setContentType("text/html;charset=UTF-8");
 //        try ( PrintWriter out = response.getWriter()) {
 //            String email = request.getParameter("username");
@@ -134,16 +137,23 @@ public class LoginAdminServlet extends HttpServlet {
 //            request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
 //        }
             
+<<<<<<< HEAD
 =======
       
 >>>>>>> main
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+=======
+>>>>>>> Admin
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         Admin user = new Admin(username, password);
         if (userDao.login(user) != "") {
             HttpSession session = request.getSession();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> Admin
             String fullUser = userDao.login(user);
             String[] string = fullUser.split("--");
             int iduser = Integer.parseInt(string[0]);
@@ -153,6 +163,7 @@ public class LoginAdminServlet extends HttpServlet {
             Admin user2 = new Admin(iduser, image,name, username, password);
             session.setAttribute("userLogin", user2);
             response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+<<<<<<< HEAD
 =======
            String fullUser = userDao.login(user);
            String[] string = fullUser.split("--");
@@ -163,6 +174,9 @@ public class LoginAdminServlet extends HttpServlet {
            session.setAttribute("userLogin", user2);            
            response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+=======
+
+>>>>>>> Admin
         } else {
             request.setAttribute("LoginAdmin", user);
             request.setAttribute("loginFail", "User name or password is incorrect");

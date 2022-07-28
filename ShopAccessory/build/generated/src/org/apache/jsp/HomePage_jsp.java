@@ -3,9 +3,16 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import entity.Admin;
+import java.text.DecimalFormat;
+import entity.HomePageAdmin;
+import dao.HomePageAdminDao;
+import dbcontext.DBUtil;
 import java.text.SimpleDateFormat;
 import java.sql.Date;
 import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.text.SimpleDateFormat;
 
 public final class HomePage_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -15,14 +22,25 @@ public final class HomePage_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants = new java.util.ArrayList<String>(2);
     _jspx_dependants.add("/./inclusesAdmin.jsp");
+    _jspx_dependants.add("/dayandclockAdmin.jsp");
   }
+
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_if_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -57,14 +75,38 @@ public final class HomePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("\n");
 
-long millis=System.currentTimeMillis();  
-java.util.Date date = new java.util.Date(millis);
-SimpleDateFormat datetoday = new SimpleDateFormat("MM/dd/yyyy");
-String today = datetoday.format(date);
 
+    DBUtil db = new DBUtil();
+    HomePageAdminDao count = new HomePageAdminDao();
+    int dataAdmin = count.countAdmin();
+
+    int dataProducts = count.countProducts();
+
+    int dataTotal = count.sumTotal();
+
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
+    String sum = formatter.format(dataTotal);
+
+    int dataUsers = count.countUsers();
+
+    int dataNews = count.countNews();
+
+    int dataOrders = count.countOrders();
+
+
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -83,8 +125,12 @@ String today = datetoday.format(date);
       out.write("\n");
       out.write("                var data = google.visualization.arrayToDataTable([\n");
       out.write("                    ['Task', 'Hours per Day'],\n");
-      out.write("                    ['Admin', 11],\n");
-      out.write("                    ['Users', 5],\n");
+      out.write("                    ['Admin', ");
+      out.print( dataAdmin);
+      out.write("],\n");
+      out.write("                    ['Users', ");
+      out.print( dataUsers);
+      out.write("],\n");
       out.write("                ]);\n");
       out.write("\n");
       out.write("                var options = {\n");
@@ -103,9 +149,15 @@ String today = datetoday.format(date);
       out.write("            function drawChart() {\n");
       out.write("                var data = google.visualization.arrayToDataTable([\n");
       out.write("                    ['Task', 'Hours per Day'],\n");
-      out.write("                    ['Sản Phẩm', 4],\n");
-      out.write("                    ['Đơn Hàng', 2],\n");
-      out.write("                    ['Tin Tức', 7]\n");
+      out.write("                    ['Sản Phẩm', ");
+      out.print( dataProducts);
+      out.write("],\n");
+      out.write("                    ['Đơn Hàng', ");
+      out.print( dataOrders);
+      out.write("],\n");
+      out.write("                    ['Tin Tức', ");
+      out.print( dataNews);
+      out.write("]\n");
       out.write("                ]);\n");
       out.write("\n");
       out.write("                var options = {\n");
@@ -119,6 +171,7 @@ String today = datetoday.format(date);
       out.write("        </script>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
+      out.write("\n");
       out.write("        <div class=\"container-fluid backgroud-all\">\n");
       out.write("            <div class=\"row\">\n");
       out.write("                <div class=\"col-xl-3\">\n");
@@ -126,7 +179,10 @@ String today = datetoday.format(date);
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
@@ -139,7 +195,9 @@ String today = datetoday.format(date);
       out.write("\n");
       out.write("        <div class=\"menu-left\">\n");
       out.write("            <div class=\"menu-top\">\n");
-      out.write("                <img src=\"./images/iconUsers.png\" alt=\"imageUser\"/>\n");
+      out.write("                <img src=\"./images/");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userLogin.avatar}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" alt=\"image\" style=\"width: 44px;\" alt=\"imageUser\"/>\n");
       out.write("                <h4>Admin Web Accessory</h4>\n");
       out.write("                <hr/>\n");
       out.write("                <h6>Menu Admin</h6>\n");
@@ -164,15 +222,66 @@ String today = datetoday.format(date);
       out.write("\n");
       out.write("                </div>\n");
       out.write("                <div class=\"col-xl-9\">\n");
-      out.write("                    <div class=\"navbar-admin\">\n");
-      out.write("                        <i class=\"fa fa-bars\"></i>\n");
-      out.write("                        <i class=\"fa fa-user-circle\" ><p style=\"color: #ffcf00; display: inline-block; padding: 0px 13px; text-transform: uppercase\">Xin Chào: ");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userLogin.username}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("                    ");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+
+    long millis = System.currentTimeMillis();
+    java.util.Date date = new java.util.Date(millis);
+    SimpleDateFormat datetoday = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    String today = datetoday.format(date);
+
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("\n");
+      //  c:if
+      org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+      _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+      _jspx_th_c_if_0.setParent(null);
+      _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userLogin == null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+      int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+      if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\n");
+          out.write("    ");
+
+    response.sendRedirect("LoginAdmin.jsp");
+    
+          out.write('\n');
+          int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+        return;
+      }
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+      out.write("\n");
+      out.write("\n");
+      out.write("<html>\n");
+      out.write("    <head>\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <title>JSP Page</title>\n");
+      out.write("    </head>\n");
+      out.write("    <body>\n");
+      out.write("        <div class=\"navbar-admin\">\n");
+      out.write("            <div class=\"navbar-admin\">\n");
+      out.write("                <i class=\"fa fa-bars\"></i>\n");
+      out.write("                <i class=\"fa fa-user-circle\"><p style=\"color: #ffcf00; display: inline-block; padding: 0px 13px; text-transform: uppercase\">Xin Chào: ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userLogin.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</p></i>\n");
-      out.write("                        <i class=\"fa fa-user-circle\" style=\" margin-left:  524px\" ><p style=\"color: #ffcf00; display: inline-block; padding: 0px 13px; text-transform: uppercase;\">");
+      out.write("                <i class=\"fa fa-calendar\" style=\" font-size: 20px;\"><p style=\"color: #ffcf00; display: inline-block; padding: 0px 13px; text-transform: uppercase;\">");
       out.print( today);
       out.write("</p></i>\n");
-      out.write("                    </div>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("    </body>\n");
+      out.write("</html>\n");
+      out.write("\n");
       out.write("                    <div style=\"margin: 55px 0px;\">\n");
       out.write("                        <div class=\"row card-top\">\n");
       out.write("                            <div class=\"col-xl-3\">\n");
@@ -181,14 +290,18 @@ String today = datetoday.format(date);
       out.write("                                        <h5 class=\"card-title\">Giỏ Hàng</h5>\n");
       out.write("                                        <i class=\"fa fa-shopping-cart\"></i>\n");
       out.write("                                        <hr/>\n");
-      out.write("                                        <p class=\"card-text\">Tổng Sản Phẩm: 7</p>\n");
+      out.write("                                        <p class=\"card-text\">Tổng Sản Phẩm: ");
+      out.print( dataProducts);
+      out.write("</p>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"col-xl-3\">\n");
       out.write("                                <div class=\"card text-bg-light mb-3\" style=\"max-width: 18rem;\">\n");
       out.write("                                    <div class=\"card-body\">\n");
-      out.write("                                        <h5 class=\"card-title\">700.0000</h5>\n");
+      out.write("                                        <h5 class=\"card-title\">");
+      out.print( sum + "");
+      out.write(" VNĐ</h5>\n");
       out.write("                                        <i class=\"fa fa-money\"></i>\n");
       out.write("                                        <hr/>\n");
       out.write("                                        <p class=\"card-text\">Lợi Nhuận Tháng Này <i class=\"fa fa-arrow-up\"></i> </p>\n");
@@ -198,20 +311,24 @@ String today = datetoday.format(date);
       out.write("                            <div class=\"col-xl-3\">\n");
       out.write("                                <div class=\"card text-bg-light mb-3\" style=\"max-width: 18rem;\">\n");
       out.write("                                    <div class=\"card-body\">\n");
-      out.write("                                        <h5 class=\"card-title\">256</h5>\n");
+      out.write("                                        <h5 class=\"card-title\">");
+      out.print( dataUsers);
+      out.write("</h5>\n");
       out.write("                                        <i class=\"fa fa-eye\"></i>\n");
       out.write("                                        <hr/>\n");
-      out.write("                                        <p class=\"card-text\">Lượt Xem <i class=\"fa fa-arrow-up\"></i> </p>\n");
+      out.write("                                        <p class=\"card-text\">Người Đăng Ký <i class=\"fa fa-arrow-up\"></i> </p>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"col-xl-3\">\n");
       out.write("                                <div class=\"card text-bg-light mb-3\" style=\"max-width: 18rem;\">\n");
       out.write("                                    <div class=\"card-body\">\n");
-      out.write("                                        <h5 class=\"card-title\">100</h5>\n");
+      out.write("                                        <h5 class=\"card-title\">");
+      out.print( dataNews);
+      out.write("</h5>\n");
       out.write("                                        <i class=\"fa fa-envira\"></i>\n");
       out.write("                                        <hr/>\n");
-      out.write("                                        <p class=\"card-text\">Sản Phẩm Bán Ra <i class=\"fa fa-arrow-up\"></i> </p>\n");
+      out.write("                                        <p class=\"card-text\">Tổng Bài Viết <i class=\"fa fa-arrow-up\"></i> </p>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");

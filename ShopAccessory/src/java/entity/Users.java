@@ -39,7 +39,10 @@ public class Users {
         this.phone = phone;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> Admin
     
     public Users(int iduser, String avatar, String name, String age, String username, String password, String address, String phone) {
         this.iduser = iduser;
@@ -51,7 +54,10 @@ public class Users {
         this.address = address;
         this.phone = phone;
     }
+<<<<<<< HEAD
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+=======
+>>>>>>> Admin
 
     public int getIduser() {
         return iduser;
@@ -130,9 +136,13 @@ public class Users {
         return "Users{" + "iduser=" + iduser + ", idconvat=" + idconvat + ", avatar=" + avatar + ", name=" + name + ", age=" + age + ", username=" + username + ", password=" + password + ", address=" + address + ", phone=" + phone + '}';
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     
 =======
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+=======
+
+>>>>>>> Admin
             
 }

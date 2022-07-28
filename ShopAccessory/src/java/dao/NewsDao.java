@@ -25,7 +25,7 @@ public class NewsDao {
     public List<News> getAllNews() {
         List<News> sl = new ArrayList<>();
         DBUtil db = DBUtil.getInstance();
-        String sql = "Select * from News";
+        String sql = "Select * from News ORDER BY idnews DESC";
         Connection con = null;
         try {
             con = db.getConnection();

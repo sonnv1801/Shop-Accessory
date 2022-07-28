@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,48 +25,53 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                     <%@include file="dayandclockAdmin.jsp" %>
+                    <%@include file="dayandclockAdmin.jsp" %>
                     <div class="container backgroud-all-update">
                         <h1>UPDATE Product</h1>
-                         <form action="NewsServlet" method="GET">
+                        <form action="ProductsServlet" method="GET">
                             <input type="hidden" name="command" value="UPDATE">
-                            <input type="hidden" name="newsId"  required value="${THE_NEWS.id}">
+                            <input type="hidden" name="newsId"  required value="${THE_PR.idproduct}">
                              <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Tên Sản Phẩm</label>
-                                    <input type="text" name="name" required class="form-control" id="recipient-name" placeholder="Nhập tên sản phẩm">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Mô Tả</label>
-                                    <input type="text" name="description" required class="form-control" id="recipient-name" placeholder="Nhập mô tả">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Số Lượng</label>
-                                    <input type="number" name="quantity" required class="form-control" id="recipient-name" placeholder="Nhập số lượng">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Giá</label>
-                                    <input type="number" name="price" required class="form-control" id="recipient-name" placeholder="Nhập giá tiền">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Màu</label>
-                                    <input type="text" name="color" required class="form-control" id="recipient-name" placeholder="Nhập tên màu">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Kích Cỡ</label>
-                                    <input type="text" name="size" required class="form-control" id="recipient-name" placeholder="Nhập kích cỡ">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Hình Ảnh</label>
-                                    <input type="file" required name="image" class="form-control" id="recipient-name" placeholder="Nhập tên hình ảnh">
-                                </div>
-                          
+                                <label for="recipient-name" class="col-form-label">ID Sản Phẩm</label>
+                                <input type="text" name="name" required class="form-control" id="recipient-name" placeholder="Nhập tên sản phẩm" value="${THE_PR.idproduct.toString().trim()}" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Tên Sản Phẩm</label>
+                                <input type="text" name="name" required class="form-control" id="recipient-name" placeholder="Nhập tên sản phẩm" value="${THE_PR.name.trim()}">
+                            </div>
+                           <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Mô Tả</label>
+                                <textarea class="form-control" name="description" id="message-text" required >${THE_PR.description.toString().trim()}</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Số Lượng</label>
+                                <input type="number" name="quantity" required class="form-control" id="recipient-name" placeholder="Nhập số lượng" value="${THE_PR.quantity.toString().trim()}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Giá</label>
+                                <input type="number" name="price" required class="form-control" id="recipient-name" placeholder="Nhập giá tiền" value="${THE_PR.price.toString().trim()}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Màu</label >
+                                <input type="text" name="color" required class="form-control" id="recipient-name" placeholder="Nhập tên màu" value="${THE_PR.color.trim()}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Kích Cỡ</label>
+                                <select class="form-select" name="size" aria-label="Default select example" required>
+                                    <option value="">${THE_PR.size}</option>
+                                    <option value="L">Lớn</option>
+                                    <option value="M">Vừa</option>
+                                    <option value="S">Nhỏ</option>
+                                </select>
+                            </div>
+
                             <button type="submit" class="btn btn-success">Save</button>
-                            <a id="back" href="NewsServlet"><i class="fa fa-arrow-circle-o-left" style="font-size:36px"></i></a>
+                            <a id="back" href="ProductsServlet"><i class="fa fa-arrow-circle-o-left" style="font-size:36px"></i></a>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
-</div>
+        </div>
     </body>
 </html>

@@ -113,11 +113,7 @@ public class AddProductAdmin extends HttpServlet {
 
         if (productDao.InsertProduct(product, image)) {
             request.setAttribute("trueAdd", "Thêm Thành Công");
-            try {
-                GetAllType(request, response);
-            } catch (Exception ex) {
-                Logger.getLogger(PosterAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            response.sendRedirect("ProductsServlet");
         } else {
             request.setAttribute("DS", product);
             request.setAttribute("loi", "Them khong thanh cong");

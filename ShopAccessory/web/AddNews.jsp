@@ -11,6 +11,12 @@
 <% long millis = System.currentTimeMillis();
     java.sql.Date date = new java.sql.Date(millis);
 %>
+
+<c:if test="${userLogin == null}">
+    <%
+    response.sendRedirect("LoginAdmin.jsp");
+    %>
+</c:if>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

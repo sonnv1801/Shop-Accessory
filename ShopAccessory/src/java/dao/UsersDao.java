@@ -26,25 +26,23 @@ public class UsersDao {
     public List<Users> getAllUsers() {
         List<Users> sl = new ArrayList<>();
         DBUtil db = DBUtil.getInstance();
-        String sql = "Select * from Users";
+        String sql = "Select * from Users ORDER BY iduser DESC";
         Connection con = null;
-
         try {
             con = db.getConnection();
             PreparedStatement statement = con.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt(1);
-                int idconvat = rs.getInt(2);
-                String avatar = rs.getString(3);
-                String name = rs.getString(4);
-                String age = rs.getString(5);
-                String username = rs.getString(6);
-                String password = rs.getString(7);
-                String address = rs.getString(8);
-                String phone = rs.getString(9);
+                String avatar = rs.getString(2);
+                String name = rs.getString(3);
+                String age = rs.getString(4);
+                String username = rs.getString(5);
+                String password = rs.getString(6);
+                String address = rs.getString(7);
+                String phone = rs.getString(8);
 
-                Users users = new Users(id, idconvat, avatar, name, age, username, password, address, phone);
+                Users users = new Users(id, avatar, name, age, username, password, address, phone);
                 sl.add(users);
             }
             rs.close();
@@ -81,7 +79,10 @@ public class UsersDao {
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> Admin
     
     public Users GetUser(int iduser) throws Exception {
         String sql = "SELECT * FROM Users WHERE iduser =?";
@@ -103,7 +104,11 @@ public class UsersDao {
         }
         return user;
     }
+<<<<<<< HEAD
     
     
 >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
+=======
+   
+>>>>>>> Admin
 }

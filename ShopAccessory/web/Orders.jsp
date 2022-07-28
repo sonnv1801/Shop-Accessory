@@ -12,7 +12,11 @@
 
 
 <!DOCTYPE html>
-
+<c:if test="${userLogin == null}">
+    <%
+        response.sendRedirect("LoginAdmin.jsp");
+    %>
+</c:if>
 
 <html>
     <head>
@@ -30,7 +34,7 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                     <%@include file="dayandclockAdmin.jsp" %>
+                    <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
                         <div class="container table-all">
                             <div class="table-body">
@@ -39,7 +43,7 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
+                                                <th scope="col" style="color: #00ff79">#</th>
                                                 <th scope="col">ID Product</th>
                                                 <th scope="col">ID User</th>
                                                 <th scope="col">Tổng Tiền</th>
@@ -52,6 +56,14 @@
                                             <c:set scope="request" var="sothutu" value="0"></c:set>
                                             <c:forEach var="order" items="${listOrders}">
                                                 <c:set scope="request" var="sothutu" value="${sothutu + 1}"></c:set>
+
+                                                <c:url var="view" value="OrderServlet">
+                                                    <c:param name="command" value="VIEW"
+                                                             ></c:param>
+                                                    <c:param name="orderId" value="${order.idorder}"
+                                                             ></c:param>
+
+                                                </c:url>
                                                 <c:url var="update" value="OrderServlet">
                                                     <c:param name="command" value="UPDATE"
                                                              ></c:param>
@@ -77,9 +89,19 @@
                                                 </c:url>
 
                                                 <tr>
-                                                    <th scope="row">${sothutu}</th>
+                                                    <c:if test="${order.condition == 0}">
+                                                        <th scope="row" style="color: #df2525">${sothutu}</th>
+                                                        </c:if>
+                                                        <c:if test="${order.condition == 1}">
+                                                        <th scope="row" style="color: #1a921a">${sothutu}</th>
+                                                        </c:if>
+                                                        <c:if test="${order.condition == 2}">
+                                                        <th scope="row" style="color: #fd630d">${sothutu}</th>
+                                                        </c:if>
                                                     <td>${order.idproduct}</td>
                                                     <td>${order.idorder}</td>
+
+                                                    
                                                     <td>
                                                         ${ order.total } VNĐ
                                                     </td>
@@ -96,14 +118,15 @@
                                                         </c:if> 
 
                                                         <c:if test="${order.condition == 2}">
-                                                            <button type="button" style="background-color: #fd630d; color: white; border: none" class="btn btn-info" disabled>Đã Vận Chuyển</button>
+                                                            <button type="button" style="background-color: #fd630d; color: white; border: none" class="btn btn-info" disabled>Đang Vận Chuyển</button>
                                                         </c:if> 
 
                                                     </td>
 
 
                                                     <td>
-                                                        <c:if test="${order.condition == 0}">
+                                                        <a href="${view}" style="padding: 0px 20px; color: #cef100"><i class="fa fa-eye" style="font-size:24px"></i></a>
+                                                            <c:if test="${order.condition == 0}">
                                                             <a href="${delete}" onclick="if (!(confirm('Bạn có chắc chắn là xóa Đơn Hàng với id ${order.idorder} này không?')))
                                                                         return false"><button style="background-color: red; color: white; border: none">Xóa <i class="fa fa-remove"></i></button></a>
                                                                 </c:if> 

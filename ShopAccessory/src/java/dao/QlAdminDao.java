@@ -26,7 +26,7 @@ public class QlAdminDao {
     public List<Admin> getAdmins() throws Exception {
         List<Admin> sl = new ArrayList<>();
         DBUtil db = DBUtil.getInstance();
-        String sql = "Select * from Admin";
+        String sql = "Select * from Admin ORDER BY idadmin DESC";
         Connection con = null;
         try {
             con = db.getConnection();

@@ -11,15 +11,13 @@ package entity;
  */
 public class ProductType {
     private int idprt;
-    private int idconvat;
     private String name;
 
     public ProductType() {
     }
 
-    public ProductType(int idprt, int idconvat, String name) {
+    public ProductType(int idprt, String name) {
         this.idprt = idprt;
-        this.idconvat = idconvat;
         this.name = name;
     }
 
@@ -31,13 +29,6 @@ public class ProductType {
         this.idprt = idprt;
     }
 
-    public int getIdconvat() {
-        return idconvat;
-    }
-
-    public void setIdconvat(int idconvat) {
-        this.idconvat = idconvat;
-    }
 
     public String getName() {
         return name;
@@ -49,8 +40,9 @@ public class ProductType {
 
     @Override
     public String toString() {
-        return "ProductType{" + "idprt=" + idprt + ", idconvat=" + idconvat + ", name=" + name + '}';
+        return "ProductType{" + "idprt=" + idprt + ", name=" + name + '}';
     }
+
     
     
 }
