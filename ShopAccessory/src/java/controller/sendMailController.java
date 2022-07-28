@@ -5,13 +5,8 @@
  */
 package controller;
 
-import dao.BannerDAO;
-import dao.ProductDAO;
-import entity.Banner;
-import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
@@ -30,8 +25,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ADMIN
  */
-@WebServlet(name = "TrangchuController", urlPatterns = {"/TrangchuController"})
-public class TrangchuController extends HttpServlet {
+@WebServlet(name = "sendMailController", urlPatterns = {"/sendMailController"})
+public class sendMailController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -50,10 +45,10 @@ public class TrangchuController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet TrangchuController</title>");
+            out.println("<title>Servlet sendMailController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet TrangchuController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet sendMailController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -72,27 +67,7 @@ public class TrangchuController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String action;
-        if (request.getParameter("action") != null) {
-            action = request.getParameter("action");
-        } else {
-            action = request.getContextPath();
-        }
-        try {
-            switch (action) {
-                case "index":
-                    initData(request, response);
-                    break;
-                case "recommend":
-                    navigationRecommend(request, response);
-                    break;
-                default:
-                    initData(request, response);
-                    break;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        sendMail(request, response);
     }
 
     /**
@@ -118,34 +93,38 @@ public class TrangchuController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private void initData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductDAO productDAO = new ProductDAO();
-        BannerDAO bannerDAO = new BannerDAO();
-        List<Product> listNew = productDAO.getNewProducts();
-        List<Product> listLimit = productDAO.getProductLimit();
-        List<Product> listMost = productDAO.getMostProducts();
-        List<Product> listBestSeller = productDAO.getBestSellerProducts();
-        List<Product> listRandom = productDAO.getRandomProducts();
-        List<Product> listDiscount = productDAO.getDiscountProducts();
-
-        List<Banner> listBanner = bannerDAO.getAllBanner();
-
-        request.setAttribute("listnew", listNew);
-        request.setAttribute("listlimit", listLimit);
-        request.setAttribute("listmost", listMost);
-        request.setAttribute("listbestseller", listBestSeller);
-        request.setAttribute("listrandom", listRandom);
-        request.setAttribute("listdiscount", listDiscount);
-        request.setAttribute("listbanner", listBanner);
-
-        request.getRequestDispatcher("index.jsp").forward(request, response);
-    }
-
-    private void navigationRecommend(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("gioithieu.jsp"); //tin/productDetails.jsp
-        dispatcher.forward(request, response);
-    }
-
     
+    private void sendMail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        final String username = "dlmthanh.20it12@vku.udn.vn";
+        final String password = "01684699152Ti";
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true"); //TLS
+        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+//        dang nhap mail
+        String emailTo = request.getParameter("email");
+//        String emailTo = "dlmthanh.20it12@vku.udn.vn";
+        String emailSubject = "Shop phu kien thu cung";
+        String emailContent = "Chung toi se lien lac voi ban!";
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username,"PetCareShop"));
+            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(emailTo));
+            message.setSubject(emailSubject);
+            message.setText(emailContent);
+            Transport.send(message);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("TrangchuController"); //tin/productDetails.jsp
+            dispatcher.forward(request, response);
+            
+        } catch (Exception e) {
+            System.out.println(""+e);
+        }
+    }
 }

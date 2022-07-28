@@ -43,7 +43,9 @@
                         <p>Tại cửa hàng và trực tuyến</p>
                         <a href="#" class="button-effect">
                             <span></span>
-                            <span></span>			
+                            <span></span>	
+                            <span></span>
+                            <span></span>
                             Bắt đầu
                         </a>
                     </div>

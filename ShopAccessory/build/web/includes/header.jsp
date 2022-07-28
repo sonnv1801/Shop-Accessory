@@ -55,10 +55,10 @@
             <div class="header-child3 header-padding">
                 <ul class="header-ul ul-child3">
                     <li class="header-li">
-                        <a href="TrangchuController">Trang chủ</a>
+                        <a href="<%=request.getContextPath()%>/TrangchuController">Trang chủ</a>
                     </li>
                     <li class="header-li">
-                        <a href="gioithieu.jsp">giới thiệu</a>
+                        <a href="<%=request.getContextPath()%>/TrangchuController?action=recommend">giới thiệu</a>
                     </li>
                     <li class="header-li menu-item">
                         <a href="#" class="a-special">

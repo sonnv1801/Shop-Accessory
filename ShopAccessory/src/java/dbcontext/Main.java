@@ -6,6 +6,7 @@
 package dbcontext;
 
 import dao.ProductDAO;
+import dao.ProductTypeDao;
 
 /**
  *
@@ -18,11 +19,13 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
         ProductDAO productDAO = new ProductDAO();
+//            ProductTypeDao productTypeDAO = new ProductTypeDao();
+//            System.out.println(""+ productTypeDAO.getAllTypes());
 //        System.out.println(productDAO.getNewProducts());
 //        productDAO.InsertProduct();
 //        BannerDAO dao = new BannerDAO();
 //        System.out.println(""+productDAO.SearchProduct("chuồng"));
-        System.out.println(""+productDAO.getMostProducts());
+        System.out.println(""+productDAO.getAllAppreciateProducts());
     }
 
 }

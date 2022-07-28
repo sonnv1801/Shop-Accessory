@@ -142,7 +142,7 @@
 
                     </div>
                     <div class="post-item">
-                        <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/03/fosterling-1170x778-300x199.jpg" class="post-item-img" alt="">
+                        <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/03/nursling1-1170x814-300x209.jpg" class="post-item-img" alt="">
                         <div class="post-item-text">
                             <h3>Giống Hamster: Cái nào phù hợp với tôi</h3>
                             <span>Qua nhiều năm, tôi sẽ đến, ai sẽ nostrud ra khỏi cô lợi thế</span>
@@ -153,7 +153,7 @@
                         </div>
                     </div>
                     <div class="post-item">
-                        <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/03/fosterling-1170x778-300x199.jpg" class="post-item-img" alt="">
+                        <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/03/Pets-1170x718-300x184.jpg" class="post-item-img" alt="">
                         <div class="post-item-text">
                             <h3>Giống Hamster: Cái nào phù hợp với tôi</h3>
                             <span>Qua nhiều năm, tôi sẽ đến, ai sẽ nostrud ra khỏi cô lợi thế</span>

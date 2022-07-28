@@ -60,7 +60,7 @@ public class ProductDAO {
                 + "INNER JOIN ProductType ON Products.idprt = ProductType.idprt)\n"
                 + "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct) ORDER BY Products.idproduct\n"
                 + "OFFSET 0 ROWS\n"
-                + "FETCH NEXT 10 ROWS ONLY;";
+                + "FETCH NEXT 4 ROWS ONLY;";
 
         Connection con = null;
         try {
@@ -118,6 +118,75 @@ public class ProductDAO {
                         rs.getString(9),
                         rs.getString(10),
                         rs.getString(11)));
+
+            }
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+        return list;
+    }
+
+    public List<Product> getAllMostProducts() {
+        List<Product> list = new ArrayList<>();
+        DBUtil db = DBUtil.getInstance();
+        String sql = "SELECT Products.*,ProductType.name,ProductImage.image FROM ((Products\n"
+                + "INNER JOIN ProductType ON Products.idprt = ProductType.idprt)\n"
+                + "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct)\n"
+                + "ORDER BY Products.quantity DESC\n";
+
+        Connection con = null;
+        try {
+
+            con = db.getConnection();
+
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11)));
+
+            }
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+        return list;
+    }
+
+    public List<Product> getAllAppreciateProducts() {
+        List<Product> list = new ArrayList<>();
+        DBUtil db = DBUtil.getInstance();
+        String sql = "SELECT Products.*, ProductImage.image FROM  (Products INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct),\n"
+                + "	(SELECT count(Comments.idcmt) as tongstart , Comments.idproduct as x , sum(Comments.start) as y\n"
+                + "	FROM Comments group by Comments.idproduct ) truyvancon1\n"
+                + "	where truyvancon1.x = Products.idproduct and y > 5  Order by tongstart DESC";
+
+        Connection con = null;
+        try {
+
+            con = db.getConnection();
+
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10)));
 
             }
         } catch (Exception e) {
@@ -287,6 +356,102 @@ public class ProductDAO {
                         rs.getString(9),
                         rs.getString(10),
                         rs.getString(11)));
+
+            }
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+        return list;
+    }
+
+    public List<Product> getProductPriceASC() {
+        List<Product> list = new ArrayList<>();
+        DBUtil db = DBUtil.getInstance();
+        String sql = "SElECT  Products.*,ProductImage.image FROM (Products\n"
+                + "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct) order by Products.price ASC ";
+
+        Connection con = null;
+        try {
+
+            con = db.getConnection();
+
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10)));
+
+            }
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+        return list;
+    }
+
+    public List<Product> getProductPriceDESC() {
+        List<Product> list = new ArrayList<>();
+        DBUtil db = DBUtil.getInstance();
+        String sql = "SElECT  Products.*,ProductImage.image FROM (Products\n"
+                + "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct) order by Products.price DESC ";
+
+        Connection con = null;
+        try {
+
+            con = db.getConnection();
+
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10)));
+
+            }
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+        return list;
+    }
+
+    public List<Product> getAllNewProducts() {
+        List<Product> list = new ArrayList<>();
+        DBUtil db = DBUtil.getInstance();
+        String sql = "SElECT Top 8  Products.*,ProductImage.image FROM (Products\n"
+                + "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct) order by Products.idproduct DESC ";
+
+        Connection con = null;
+        try {
+
+            con = db.getConnection();
+
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10)));
 
             }
         } catch (Exception e) {

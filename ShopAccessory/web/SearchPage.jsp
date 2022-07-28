@@ -27,15 +27,18 @@
                 <span>Trang chủ / cửa hàng / </span><B>kết quả tìm kiếm '${value}'</B>
             </div>
             <div class="flex-title-right">
-                <div class="text-title">
-                    <span>Hiển thị một kết quả duy nhất</span>
-                    <select name="find" >
-                        <option value="">Thứ tự theo mức phổ biến</option>
-                        <option value="">Thứ tự theo điểm đánh giá</option>
-                        <option value="">Mới nhất</option>
-                        <option value="">Thứ tự theo giá: Từ thấp đến cao</option>
-                        <option value="">Thứ tự theo giá: Từ cao đến thấp</option>
-                    </select>
+                <div>
+                    <form class="text-title" method="get" action="<%=request.getContextPath()%>/SearchController?">
+                        <span>Hiển thị một kết quả duy nhất</span>
+                        <select name="find">
+                            <option value="most">Thứ tự theo mức phổ biến</option>
+                            <option value="appreciate">Thứ tự theo điểm đánh giá</option>
+                            <option value="new">Mới nhất</option>
+                            <option value="priceASC">Thứ tự theo giá: Từ thấp đến cao</option>
+                            <option value="priceDESC">Thứ tự theo giá: Từ cao đến thấp</option>
+                        </select>
+                        <button type="submit">Lọc</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -63,6 +66,7 @@
                                 <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/03/fosterling-1170x778-300x199.jpg" class="post-item-img" alt="">
                                 <div class="post-item-text">
                                     <h3>Giống Hamster: Cái nào phù hợp với tôi</h3>
+                                    <hr>
                                     <span>Qua nhiều năm, tôi sẽ đến, ai sẽ nostrud ra khỏi cô lợi thế</span>
                                     <div class="post-item-assign">
                                         <span>08</span>
@@ -72,10 +76,23 @@
 
                             </div>
                             <div class="post-item">
-                                <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/03/fosterling-1170x778-300x199.jpg" class="post-item-img" alt="">
+                                <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/03/nursling1-1170x814-300x209.jpg" class="post-item-img" alt="">
                                 <div class="post-item-text">
-                                    <h3>Giống Hamster: Cái nào phù hợp với tôi</h3>
-                                    <span>Qua nhiều năm, tôi sẽ đến, ai sẽ nostrud ra khỏi cô lợi thế</span>
+                                    <h3>Lịch tiêm phòng cho chó</h3>
+                                    <hr>
+                                    <span>Lịch tiêm phòng cho chó qua nhiều năm, tôi sẽ đến,ai sẽ nostrud aliquip</span>
+                                    <div class="post-item-assign">
+                                        <span>08</span>
+                                        <span>th3</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-item">
+                                <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/03/Pets-1170x718-300x184.jpg" class="post-item-img" alt="">
+                                <div class="post-item-text">
+                                    <h3>Một khoảng khắc tạm thời</h3>
+                                    <hr>
+                                    <span>Một khoảng khác tạm thời đối với giá của một cái hồ, tivi khối lượng</span>
                                     <div class="post-item-assign">
                                         <span>08</span>
                                         <span>th3</span>
@@ -86,17 +103,7 @@
                                 <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/03/fosterling-1170x778-300x199.jpg" class="post-item-img" alt="">
                                 <div class="post-item-text">
                                     <h3>Giống Hamster: Cái nào phù hợp với tôi</h3>
-                                    <span>Qua nhiều năm, tôi sẽ đến, ai sẽ nostrud ra khỏi cô lợi thế</span>
-                                    <div class="post-item-assign">
-                                        <span>08</span>
-                                        <span>th3</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="post-item">
-                                <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2018/03/fosterling-1170x778-300x199.jpg" class="post-item-img" alt="">
-                                <div class="post-item-text">
-                                    <h3>Giống Hamster: Cái nào phù hợp với tôi</h3>
+                                    <hr>
                                     <span>Qua nhiều năm, tôi sẽ đến, ai sẽ nostrud ra khỏi cô lợi thế</span>
                                     <div class="post-item-assign">
                                         <span>08</span>
@@ -107,7 +114,7 @@
                         </div>
                     </div>
                     <div class="child-category-bottom">
-                        b
+                        <h2>PAGE FOUND</h2>
                     </div>
                 </div>
             </div>
@@ -121,9 +128,10 @@
                             <div class="item">
                                 <a href="#" class="sub-btn sole2"><i class="fa-solid fa-circle-check"></i>Demo 02<i class="fas fa-angle-right dropdown"></i></a>
                                 <div class="sub-menu">
-                                    <a href="#" class="sub-item">Danh mục con 01</a>
-                                    <a href="#" class="sub-item">Danh mục con 02</a>
-                                    <a href="#" class="sub-item">Danh mục con 03</a>
+                                    <c:forEach var="item" items="${type}">
+                                         <a href="#" class="sub-item">${item.name}</a>
+                                    </c:forEach>
+                                   
                                 </div>
                             </div>
                             <div class="item">
@@ -142,41 +150,17 @@
                 <div class="category-middle">
                     <h2>Sản phẩm</h2>
                     <div class="recommend-product">
-                        <div class="product-container sole">
-                            <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/Dog-raincoat-4-300x300.jpg" class="product-img" alt="">
-                            <div class="product-text">
-                                <a href="#" title="">Áo mưa cho chó</a>
-                                <span>240.000đ</span>
+                        <c:forEach var="item" items="${listmost}">
+                            <div class="product-container sole">
+                                <img src="${item.image}" class="product-img" alt="">
+                                <div class="product-text">
+                                    <a href="#" title="">${item.name}</a>
+                                    <span>${item.price}đ</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product-container sole2">
-                            <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/Dog-raincoat-4-300x300.jpg" class="product-img" alt="">
-                            <div class="product-text">
-                                <a href="#" title="">Áo mưa cho chó</a>
-                                <span>240.000đ</span>
-                            </div>
-                        </div>
-                        <div class="product-container sole">
-                            <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/Dog-raincoat-4-300x300.jpg" class="product-img" alt="">
-                            <div class="product-text">
-                                <a href="#" title="">Áo mưa cho chó</a>
-                                <span>240.000đ</span>
-                            </div>
-                        </div>
-                        <div class="product-container sole2">
-                            <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/Dog-raincoat-4-300x300.jpg" class="product-img" alt="">
-                            <div class="product-text">
-                                <a href="#" title="">Áo mưa cho chó</a>
-                                <span>240.000đ</span>
-                            </div>
-                        </div>
-                        <div class="product-container sole">
-                            <img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/Dog-raincoat-4-300x300.jpg" class="product-img" alt="">
-                            <div class="product-text">
-                                <a href="#" title="">Áo mưa cho chó</a>
-                                <span>240.000đ</span>
-                            </div>
-                        </div>
+                        </c:forEach>
+
+
                     </div>
                 </div>
                 <div class="category-bottom">

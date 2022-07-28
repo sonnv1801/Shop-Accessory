@@ -12,11 +12,23 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/includes/header.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/dao/ProductDAO.java</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/index.jsp</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/css/search.css</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/controller/sendMailController.java</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/includes/search.jsp</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/entity/ProductType.java</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/SearchPage.jsp</file>
             <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/dbcontext/Main.java</file>
             <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/controller/TrangchuController.java</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/WEB-INF/web.xml</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/META-INF/context.xml</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/conf/MANIFEST.MF</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/dao/ProductTypeDao.java</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/includes/header.jsp</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/controller/SearchController.java</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/includes/slide.jsp</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/dao/ProductDAO.java</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/includes/footer.jsp</file>
+            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>

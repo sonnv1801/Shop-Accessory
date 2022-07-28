@@ -7,9 +7,11 @@
                 <li><img src="http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/Pet-Care-1.png" alt=""></li>
                 <li>Đăng ký để nhận được được thông tin mới nhất từ chúng tôi.</li>
                 <li>
-                    <div class="email-footer">
-                        <input type="text" name="email" placeholder="Email..">
-                        <i class="fa-solid fa-paper-plane"></i>
+                    <div>
+                        <form class="email-footer" method="get" action="<%=request.getContextPath()%>/sendMailController">
+                            <input type="email" name="email" placeholder="Email..">
+                            <button type="submit" style="outline:none;border:none;background-color: #FFF"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
                     </div>
                 </li>
             </ul>
