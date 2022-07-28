@@ -7,15 +7,11 @@ package entity;
 
 /**
  *
-<<<<<<< HEAD
  * @author PC
-=======
- * @author Tin_Ngo
->>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
  */
 public class Users {
+
     private int iduser;
-    private int idconvat;
     private String avatar;
     private String name;
     private String age;
@@ -27,10 +23,13 @@ public class Users {
     public Users() {
     }
 
-    public Users(int iduser, int idconvat, String avatar, String name, String age, String username, String password, String address, String phone) {
+    public Users(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public Users(int iduser, String name, String age, String username, String password, String address, String phone) {
         this.iduser = iduser;
-        this.idconvat = idconvat;
-        this.avatar = avatar;
         this.name = name;
         this.age = age;
         this.username = username;
@@ -38,12 +37,25 @@ public class Users {
         this.address = address;
         this.phone = phone;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> Admin
+
+    public Users(String age, String phone, String address) {
+        this.age = age;
+        this.phone = phone;
+        this.address = address;
+    }
     
+    public Users(int iduser, String avatar,String age, String phone, String address) {
+        this.iduser = iduser;
+        this.avatar = avatar;
+        this.age = age;
+        this.phone = phone;
+        this.address = address;
+    }
+
+    public Users(int iduser) {
+        this.iduser = iduser;
+    }
+
     public Users(int iduser, String avatar, String name, String age, String username, String password, String address, String phone) {
         this.iduser = iduser;
         this.avatar = avatar;
@@ -54,10 +66,14 @@ public class Users {
         this.address = address;
         this.phone = phone;
     }
-<<<<<<< HEAD
->>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
-=======
->>>>>>> Admin
+//sua o day
+
+    public Users(int iduser, String name, String username, String password) {
+        this.iduser = iduser;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+    }
 
     public int getIduser() {
         return iduser;
@@ -65,14 +81,6 @@ public class Users {
 
     public void setIduser(int iduser) {
         this.iduser = iduser;
-    }
-
-    public int getIdconvat() {
-        return idconvat;
-    }
-
-    public void setIdconvat(int idconvat) {
-        this.idconvat = idconvat;
     }
 
     public String getAvatar() {
@@ -133,16 +141,7 @@ public class Users {
 
     @Override
     public String toString() {
-        return "Users{" + "iduser=" + iduser + ", idconvat=" + idconvat + ", avatar=" + avatar + ", name=" + name + ", age=" + age + ", username=" + username + ", password=" + password + ", address=" + address + ", phone=" + phone + '}';
+        return "Users{" + "iduser=" + iduser + ", avatar=" + avatar + ", name=" + name + ", age=" + age + ", username=" + username + ", password=" + password + ", address=" + address + ", phone=" + phone + '}';
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-    
-=======
->>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
-=======
 
->>>>>>> Admin
-            
 }

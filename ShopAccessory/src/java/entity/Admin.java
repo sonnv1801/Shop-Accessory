@@ -32,12 +32,6 @@ public class Admin {
         this.username = username;
         this.password = password;
     }
-    
-    public Admin(int iduser, String username, String password) {
-        this.id = iduser;
-        this.username = username;
-        this.password = password;
-    }
 
     public Admin(String avatar, String name, String username, String password) {
 

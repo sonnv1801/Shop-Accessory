@@ -1,87 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>web/LoginAdmin.jsp</url>
-            <bookmark id="1">
-                <name/>
-                <line>25</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/productDetails.jsp</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/dao/ProductsDAO.java</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/entity/Product.java</file>
-=======
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/News.jsp</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dbcontext/Main.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/inclusesAdmin.jsp</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/controller/NewsServlet.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/Users.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/QLUsers.jsp</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/UsersDao.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/NewsDao.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/controller/UsersServlet.java</file>
-=======
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/dao/OrderDAO.java</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/entity/Order.java</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/cart.jsp</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/controller/Cart.java</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/controller/Pay.java</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/pay.jsp</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/entity/Admin.java</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/css/gioithieu.css</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/css/trangchu.css</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/gioithieu.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/css/slideshow.css</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/js/scrollnavba.js</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/js/backtoptop.js</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/controller/LoginAdminServlet.java</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/dao/AdminDao.java</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/js/slideshow.js</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/footer.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/body.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/controller/AdminControllerServlet.java</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/index.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/index.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/includes/footer.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/header.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/slide.jsp</file>
-=======
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/productDetails.jsp</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/dao/ProductsDAO.java</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/entity/Product.java</file>
->>>>>>> Tin
->>>>>>> main
-        </group>
->>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
->>>>>>> main
-=======
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dbcontext/Main.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/ProductsDAO.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/Product.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/ImageProducts.java</file>
->>>>>>> Admin
-=======
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dao/OrderDao.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/UpadateProductAdmin.jsp</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/css/ViewOrder.css</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/Orders.jsp</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/controller/OrderServlet.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/dbcontext/Main.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/ViewOrder.jsp</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/src/java/entity/OrderDetails.java</file>
-            <file>file:/C:/Users/PC/Desktop/ShopAccessory/web/HomePage.jsp</file>
->>>>>>> Admin
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/JavaWeb/src/java/control/ProfileServlet.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/JavaWeb/src/java/control/ChangePasswordServlet.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/JavaWeb/web/changepass.jsp</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/JavaWeb/web/testTrangHome.jsp</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/JavaWeb/web/profile.jsp</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/JavaWeb/src/java/dao/UsersDao.java</file>
         </group>
     </open-files>
 </project-private>

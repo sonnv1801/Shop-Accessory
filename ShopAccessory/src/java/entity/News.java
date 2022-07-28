@@ -31,17 +31,7 @@ public class News {
     }
 
     public News(String idAdmin, String des, String dateSubmit, String title, String image) {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> main
->>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
-=======
->>>>>>> Admin
         this.idAdmin = idAdmin;
         this.des = des;
         this.dateSubmit = dateSubmit;
@@ -55,27 +45,6 @@ public class News {
         this.title = title;
         this.image = image;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> Admin
-    
-        public News(String des, String title, String image) {
-        this.des = des;
-        this.title = title;
-        this.image = image;
-    }
-
-<<<<<<< HEAD
-
-
->>>>>>> main
->>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
-=======
->>>>>>> Admin
 
     public int getId() {
         return id;

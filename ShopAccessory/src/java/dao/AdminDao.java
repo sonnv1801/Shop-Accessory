@@ -22,18 +22,11 @@ import java.util.logging.Logger;
  */
 public class AdminDao {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
-=======
->>>>>>> Admin
-    public String login(Admin user) {
+    public boolean login(Admin user) {
         DBUtil db = DBUtil.getInstance();
         String sql = "select * from Admin where username=? and password=?";
-        String result = "";
+
         Connection con = null;
         try {
             con = db.getConnection();
@@ -42,31 +35,10 @@ public class AdminDao {
             statement.setString(1, user.getUsername().trim());
             statement.setString(2, user.getPassword().trim());
             ResultSet rs = statement.executeQuery();
-            
+
             if (rs.next()) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                System.out.println("Success test đăng nhập thành công");
+                System.out.println("Success");
                 return true;
-=======
-               
-                result= result+ rs.getInt(1)+ "--"+rs.getString(2)+"--"+rs.getString(3);
-                System.out.println("" + result);
-                return result;
->>>>>>> Admin
-=======
-                System.out.println(rs.getInt(1));
-                result = result+rs.getInt(1)+"--"+rs.getString(2);
-                System.out.println("test----------"+result);
-                return result;
->>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
-=======
-                System.out.println(rs.getInt(1));
-                result = result+rs.getInt(1)+"--"+rs.getString(2)+"--"+rs.getString(3);
-                System.out.println("test----------"+result);
-                return result;
->>>>>>> Admin
             }
 
         } catch (Exception ex) {
@@ -78,38 +50,8 @@ public class AdminDao {
                 Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return result;
+        return false;
     }
-
-//    public boolean login(Admin user) {
-//        DBUtil db = DBUtil.getInstance();
-//        String sql = "select * from Admin where username=? and password=?";
-//
-//        Connection con = null;
-//        try {
-//            con = db.getConnection();
-//
-//            PreparedStatement statement = con.prepareStatement(sql);
-//            statement.setString(1, user.getUsername().trim());
-//            statement.setString(2, user.getPassword().trim());
-//            ResultSet rs = statement.executeQuery();
-//            
-//            if (rs.next()) {
-//                System.out.println("Success test đăng nhập thành công");
-//                return true;
-//            }
-//
-//        } catch (Exception ex) {
-//            Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
-//        } finally {
-//            try {
-//                DBUtil.closeConnection(con);
-//            } catch (SQLException ex) {
-//                Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        return false;
-//    }
 
     public boolean registerUser(Admin user) {
         DBUtil db = DBUtil.getInstance();

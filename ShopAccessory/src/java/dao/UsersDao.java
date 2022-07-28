@@ -6,7 +6,6 @@
 package dao;
 
 import dbcontext.DBUtil;
-import entity.News;
 import entity.Users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,8 +25,9 @@ public class UsersDao {
     public List<Users> getAllUsers() {
         List<Users> sl = new ArrayList<>();
         DBUtil db = DBUtil.getInstance();
-        String sql = "Select * from Users ORDER BY iduser DESC";
+        String sql = "Select * from Users";
         Connection con = null;
+
         try {
             con = db.getConnection();
             PreparedStatement statement = con.prepareStatement(sql);
@@ -52,10 +52,129 @@ public class UsersDao {
         }
         return sl;
     }
-    
-    
+
+    public Users GetUser(int iduser) throws Exception {
+        String sql = "SELECT * FROM Users WHERE iduser =?";
+        DBUtil db = DBUtil.getInstance();
+        Connection con = null;
+        Users user = null;
+        try {
+            con = db.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1, iduser);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                user = new Users(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NewsDao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(NewsDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return user;
+    }
+
+    public Users login(Users user) {
+        DBUtil db = DBUtil.getInstance();
+        String sql = "select * from Users where username =? and password=?";
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, user.getUsername());
+            statement.setString(2, user.getPassword());
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                return new Users(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    //lay id
+    public Users checkId(int iduser) {
+        DBUtil db = DBUtil.getInstance();
+        String sql = "select *from Users where iduser=?";
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1, iduser);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                return new Users(rs.getInt(1));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public void changePassword(Users users) {
+        DBUtil db = DBUtil.getInstance();
+        String sql = "update Users set password =? where iduser =?";
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, users.getPassword());
+            statement.setInt(2, users.getIduser());
+            statement.execute();
+        } catch (Exception e) {
+        }
+    }
+
+    public void changeProfile(Users users) {
+        DBUtil db = DBUtil.getInstance();
+        String sql = "update Users set avatar=?, age =?, address=?, phone=? where iduser =?";
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, users.getAvatar());
+            statement.setString(2, users.getAge());
+            statement.setString(3, users.getAddress());
+            statement.setString(4, users.getPhone());
+            statement.setInt(5, users.getIduser());
+            statement.execute();
+        } catch (Exception e) {
+        }
+    }
+
+    public Users checkAccountExist(String username) {
+        DBUtil db = DBUtil.getInstance();
+        String sql = "select * from Users where username =?";
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, username);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                return new Users(rs.getString(5), rs.getString(6));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public void signup(String name, String user, String pass1) {
+        DBUtil db = DBUtil.getInstance();
+        String sql = "insert into Users values(0,?,0,?,?,0,0)";
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setString(2, user);
+            statement.setString(3, pass1);
+            int rs = statement.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
     public void deleteUsers(String idd) throws Exception {
-         String sql = "DELETE FROM Users WHERE iduser =?";
+        String sql = "DELETE FROM Users WHERE iduser =?";
         DBUtil db = DBUtil.getInstance();
         Connection con = null;
         PreparedStatement statement = null;
@@ -78,37 +197,5 @@ public class UsersDao {
             }
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> Admin
-    
-    public Users GetUser(int iduser) throws Exception {
-        String sql = "SELECT * FROM Users WHERE iduser =?";
-        DBUtil db = DBUtil.getInstance();
-        Connection con = null;
-        Users user=null;
-        try {
-            con = db.getConnection();
-            PreparedStatement statement = con.prepareStatement(sql);
-            statement.setInt(1, iduser);
-            ResultSet rs = statement.executeQuery();
-            if(rs.next()){
-                user = new Users(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NewsDao.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(NewsDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return user;
-    }
-<<<<<<< HEAD
-    
-    
->>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
-=======
-   
->>>>>>> Admin
+
 }
