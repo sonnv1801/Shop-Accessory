@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -35,8 +36,10 @@ public class AddComment extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();
         ProductsDAO productDao = new ProductsDAO();
-        int iduser = Integer.parseInt(request.getParameter("iduser"));
+//        int iduser = Integer.parseInt(request.getParameter("iduser"));
+        int iduser = Integer.parseInt(session.getAttribute("iduser").toString());
         int idproduct = Integer.parseInt(request.getParameter("idproduct"));
         String comment = request.getParameter("comments");
         int star = Integer.parseInt(request.getParameter("star"));

@@ -187,7 +187,11 @@
                                                                     <select name="size" class="box-select--wrap box-select--wrap--color">
                                                                         <option value="" disabled selected>None</option>
                                                                         <c:forEach var="s" items="${AllSize}">
-                                                                            <option value="${s.size}">${s.size}</option>
+                                                                            <option value="${s.size}">
+                                                                                <c:if test="${s.size=='L'}">Lớn (size L)</c:if>
+                                                                                <c:if test="${s.size=='M'}">Vừa (size M)</c:if>
+                                                                                <c:if test="${s.size=='S'}">Nhỏ (size S)</c:if>
+                                                                            </option>
                                                                         </c:forEach>
                                                                     </select>
                                                             </td>
@@ -347,7 +351,7 @@
                                 </div>
                                 <div class="content_evaluate__add-evaluate">
                                     <div class="evaluate_header">
-                                        <h1>Hãy là người đầu tiên nhận xét <br/> “<%=product.getName() %>”</h1> 
+                                        <h1>Hãy để lại nhận xét cho sản phẩm <br/> “<%=product.getName() %>”</h1> 
                                     </div>
                                     <form action="AddComment" method="post" class="form-add-evaluate" accept-charset="UTF-8">
                                         <div class="evaluate_start">

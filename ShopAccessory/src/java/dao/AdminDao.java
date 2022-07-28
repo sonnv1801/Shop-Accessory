@@ -22,7 +22,6 @@ import java.util.logging.Logger;
  */
 public class AdminDao {
 
-    
     public String login(Admin user) {
         DBUtil db = DBUtil.getInstance();
         String sql = "select * from Admin where username=? and password=?";
@@ -38,7 +37,7 @@ public class AdminDao {
             
             if (rs.next()) {
                 System.out.println(rs.getInt(1));
-                result = result+rs.getInt(1)+"--"+rs.getString(2);
+                result = result+rs.getInt(1)+"--"+rs.getString(2)+"--"+rs.getString(3);
                 System.out.println("test----------"+result);
                 return result;
             }

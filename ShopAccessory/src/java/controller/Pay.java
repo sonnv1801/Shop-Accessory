@@ -5,7 +5,8 @@
  */
 package controller;
 
-import dao.OrderDAO;
+import dao.OrderDao;
+import dao.ProductsDAO;
 import dao.UsersDao;
 import entity.Order;
 import entity.Product;
@@ -60,14 +61,19 @@ public class Pay extends HttpServlet {
         try {
             switch(action){
                 case "ordered":
+                    // lấy id user từ session
+                    HttpSession session = request.getSession();
+                    int iduser = Integer.parseInt(session.getAttribute("iduser").toString());
+        
                     System.out.println(AllInforPay);
-                    OrderDAO orderDao = new OrderDAO();
+                    OrderDao orderDao = new OrderDao();
+                    ProductsDAO productDao = new ProductsDAO();
                     String TotalPrice = request.getParameter("TotalPrice");
             //        request.setAttribute("TotalPrice", TotalPrice);
             //        request.setAttribute("AllNameProduct", AllNameProduct);
                     String[] item = AllInforPay.split("---");
                     for(int i = 0; i<item.length; i++){
-                        int idproduct = 0, iduser = 0, totalbuy = 0, soluongmua=0, condition = 0, price = 0;
+                        int idproduct = 0, totalbuy = 0, soluongmua=0, condition = 0, price = 0;
                         String datecreate = getDayNow();
                         String[] subItem = item[i].split("--");
                         for(int j = 0; j<subItem.length; j++){
@@ -77,7 +83,7 @@ public class Pay extends HttpServlet {
                             if(j==3) đây là số lượng mua
                             if(j==4) đây là đươn giá - lấy đơn giá nhân số lượng mua ra tổng tiền
                             */
-                            iduser = 2;
+                            
                             if(j==0){}
                             if(j==1){
                                 idproduct = Integer.parseInt(subItem[1]);
@@ -90,18 +96,24 @@ public class Pay extends HttpServlet {
                                 totalbuy = price*soluongmua;
                             }
                         }
+                        
+                        // thêm vào bảng Orders
                         orderDao.AddOrder(new Order(idproduct, iduser, totalbuy, datecreate, 0));
-                        
-                        orderDao.AddOrderDetails(new Order(price, soluongmua));
-                        System.out.println("Da insert thanh cong");
-                        
-                        request.setAttribute("orderSuccess", "Bạn đã đặt hàng thành công!");
+                        // thêm vào Order Details
+                        if(orderDao.AddOrderDetails(new Order(soluongmua, price))==true){
+                            // cập nhật lại số lượng trong kho hàng khi khách hàng mua
+                            productDao.updateQuantityProduct_Ordered(idproduct, soluongmua);
+                            response.sendRedirect("HistoryControl?result=success");
+                        }else{
+                            response.sendRedirect("HistoryControl?result=error");
+                        }
                         
                         HuyeSessionCart(request, response);
                     }
                     
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("tin/pay.jsp"); //tin/productDetails.jsp
-                    dispatcher.forward(request, response);
+//                    RequestDispatcher dispatcher = request.getRequestDispatcher("HistoryControl"); //tin/productDetails.jsp
+//                    dispatcher.forward(request, response);
+                    response.sendRedirect("HistoryControl");
                     break;
                 default:
                     break;
@@ -114,10 +126,14 @@ public class Pay extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
+        // lấy id user từ session
+        HttpSession session = request.getSession();
+        int iduser = Integer.parseInt(session.getAttribute("iduser").toString());
+        
         UsersDao udao = new UsersDao();
         Users user=null;
         try {
-            user = udao.GetUser(2);
+            user = udao.GetUser(iduser);
         } catch (Exception ex) {
             Logger.getLogger(Pay.class.getName()).log(Level.SEVERE, null, ex);
         }

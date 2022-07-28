@@ -17,11 +17,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     </head>
 <body>
-    <c:if test="${orderSuccess!=null}">
-        <script>
-            alert("Bạn đã đặt hàng thành công");
-        </script>
-    </c:if>
     <div class="thanhtoan__main">
         <div class="row">
             <!--  -->
@@ -108,7 +103,8 @@
                                             Giao hàng
                                         </td>
                                         <td class="column_right">
-                                            <span> giao hàng miễn phí</span>
+                                            <!-- <span> giao hàng miễn phí</span> -->
+                                            <span>Nhận hàng tại cửa hàng</span>
                                         </td>
                                     </tr>
                                     <tr class="table_body">

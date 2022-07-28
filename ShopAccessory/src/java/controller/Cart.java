@@ -97,6 +97,7 @@ public class Cart extends HttpServlet {
         int SumPrice = 0;
       
         HttpSession session = request.getSession();
+        // nếu giỏ hàng hiện tại đang null thì thêm vào
         if(session.getAttribute("cart") == null){
             List<Product> cart = new ArrayList<Product>();
             cart.add(new Product(idproduct, idamin, 
@@ -104,11 +105,21 @@ public class Cart extends HttpServlet {
                                             price, color, size, nameprt, image, quantityPurchased));
             session.setAttribute("cart", cart);
             // session.setAttribute("cart", null);
+        // nếu giỏ hàng hiện tại đang có sản phẩm 
         }else{
             List<Product> cart = (List<Product>)session.getAttribute("cart");
-            cart.add(new Product(idproduct, idamin, 
+            int index = isExisting(request.getParameter("idproduct"), cart);
+            // nếu sản phẩm định thêm chưa có ở giỏ hàng thì thêm bình thường
+            if(index==-1){
+                cart.add(new Product(idproduct, idamin, 
                                             idprt, name, desc, quantity, 
                                             price, color, size, nameprt, image, quantityPurchased));
+            // nếu sản phẩm định thêm đã có ở giỏ hàng thì set quantityPurchased cộng thêm số lượng đã chọn mua thêm
+            // nghĩa là cho số lượng mua tăng lên 1 khi sản phẩm đã có ở giỏ hàng
+            }else{
+                int new_quantityPurchased = cart.get(index).getQuantityPurchased() + quantityPurchased;
+                cart.get(index).setQuantityPurchased(new_quantityPurchased);
+            }
             session.setAttribute("cart", cart);
         }
         response.sendRedirect("Cart");

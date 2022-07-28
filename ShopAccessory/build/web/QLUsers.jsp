@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,12 +23,8 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                    <div class="navbar-admin">
-                        <i class="fa fa-bars"></i>
-                    </div>
+                   <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
-
-
                         <div class="container table-all">
                             <div class="table-body">
                                 <div class="ex1">
@@ -45,59 +42,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Nguyễn Văn Sơn</td>
-                                                <td>21</td>
-                                                <td>VanSon</td>
-                                                <td>Quảng Ngãi</td>
-                                                <td>0375521434</td>
-                                                <td>
-                                                    <a href="#"><button style="background-color: red; color: white; border: none">Xóa <i class="fa fa-remove"></i></button></a>
-                                                    <a href="#"><button style="background-color: green; color: white; border: none" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sửa <i class="fa fa-edit"></i></button></a>
-                                                    <!-- Modal -->
-                                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="staticBackdropLabel" style="color: black">Sửa Users</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <form>
-                                                                        <div class="mb-3">
-                                                                            <label for="recipient-name" class="col-form-label" style="color: black">ID</label>
-                                                                            <input type="text" class="form-control" id="recipient-name" value="1">
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="recipient-name" class="col-form-label" style="color: black">Name</label>
-                                                                            <input type="text" class="form-control" id="recipient-name" placeholder="Nhập tên">
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="recipient-name" class="col-form-label" style="color: black">Age</label>
-                                                                            <input type="number" class="form-control" id="recipient-name" placeholder="Nhập tuổi">
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="recipient-name" class="col-form-label" style="color: black">UserName</label>
-                                                                            <input type="password" class="form-control" id="recipient-name" placeholder="Nhập UserName">
-                                                                        </div>
-                                                                         <div class="mb-3">
-                                                                            <label for="recipient-name" class="col-form-label" style="color: black">Address</label>
-                                                                            <input type="text" class="form-control" id="recipient-name" placeholder="Nhập địa chỉ">
-                                                                        </div>
-                                                                         <div class="mb-3">
-                                                                            <label for="recipient-name" class="col-form-label" style="color: black">Phone</label>
-                                                                            <input type="number" class="form-control" id="recipient-name" placeholder="Nhập số điện thoại">
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-primary">Save</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            <c:set scope="request" var="sothutu" value="0"></c:set>
+                                            <c:forEach var="user" items="${listUsers}">
+                                                <c:set scope="request" var="sothutu" value="${sothutu + 1}"></c:set>
+                                                <c:url var="deleteLink" value="UsersServlet">
+                                                    <c:param name="command" value="DELETE"
+                                                             ></c:param>
+                                                    <c:param name="userId" value="${user.iduser}"
+                                                             ></c:param>
+
+                                                </c:url>
+                                                <tr>
+                                                    <th scope="row">${sothutu}</th>
+                                                    <td>${user.name}</td>
+                                                    <td>${user.age}</td>
+                                                    <td>${user.username}</td>
+                                                    <td>${user.address}</td>
+                                                    <td>${user.phone}</td>
+                                                    <td>
+                                                        <a href="${deleteLink}" onclick="if (!(confirm('Bạn có chắc chắn là xóa Users với id ${user.iduser} này không?')))
+                                                               return false"><button style="background-color: red; color: white; border: none">Xóa <i class="fa fa-remove"></i></button></a>
+
+                                                    </c:forEach>
                                                 </td>
                                             </tr>
 

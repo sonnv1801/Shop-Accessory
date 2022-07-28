@@ -22,6 +22,7 @@ import entity.Size;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 import javax.swing.text.html.HTML;
 /**
  *
@@ -62,6 +63,9 @@ public class ProductsControl extends HttpServlet {
         try {
             switch(action){
                 default:
+                    HttpSession session = request.getSession();
+                    session.setAttribute("iduser", 1);
+                    
                     ShowSimilarProduct(request, response);
                     AllColor(request, response);
                     AllSize(request, response);

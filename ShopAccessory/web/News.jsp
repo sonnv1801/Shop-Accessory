@@ -31,55 +31,9 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                    <div class="navbar-admin">
-                        <div class="navbar-admin">
-                            <i class="fa fa-bars"></i>
-                            <i class="fa fa-user-circle"><p style="color: #33ccff; display: inline-block; padding: 0px 13px; text-transform: uppercase;">Xin Chào: ${userLogin.username}</p></i>
-                        </div>
-                    </div>
+                    <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
-                        <button type="button" class="btn btn-secondary button-add-a dmin" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Thêm Tin Tức</button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Thêm Tin Tức</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        <p style="text-align: center; font-size: 15px; font-family: cursive; color: palevioletred" role="alert">
-                                            ${loginFail}
-                                        </p>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="NewsServlet" method="GET">
-                                            <input type="hidden" name="command" value="ADD" />
-                                            <div class="mb-3">
-                                                <label for="recipient-name" class="col-form-label">Người Đăng</label>
-                                                <input type="text" name="poster" class="form-control" id="recipient-name" value="${userLogin.username}" required disabled>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="recipient-name" class="col-form-label">Tiêu Đề</label>
-                                                <input type="text" name="title" class="form-control" id="recipient-name" placeholder="Nhập tiêu đề" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="message-text" class="col-form-label">Nội Dung</label>
-                                                <textarea class="form-control" name="des" id="message-text" required ></textarea>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="recipient-name" class="col-form-label">Ngày Tạo</label>
-                                                <input type="date" name="daySubmit" class="form-control" id="recipient-name" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="recipient-name" class="col-form-label">Link Hình Ảnh</label>
-                                                <input type="file" name="image" class="form-control" id="recipient-name" placeholder="Nhập link hình ảnh" required>
-                                            </div>
-                                            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save</button>
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                        <a href="PosterAdminServlet"><button type="button" class="btn btn-secondary button-add-a dmin">Thêm Tin Tức</button></a>
                         <div class="container table-all" style="overflow: auto; height: 500px;">
                             <div class="table-body">
                                 <h4>Danh Sách Tin Tức</h4>
@@ -95,7 +49,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:set scope="request" var="sothutu" value="0"></c:set>
                                         <c:forEach var="news" items="${listNews}">
+                                            <c:set scope="request" var="sothutu" value="${sothutu + 1}"></c:set>
                                             <c:url var="tempLink" value="NewsServlet">
                                                 <c:param name="command" value="LOAD"
                                                          ></c:param>
@@ -111,11 +67,11 @@
 
                                             </c:url>
                                             <tr>
-                                                <th scope="row">${news.id}</th>
+                                                <th scope="row">${sothutu}</th>
                                                 <th >${news.title}</th>
                                                 <th >${news.des}</th>
                                                 <th >${news.dateSubmit}</th>
-                                                <th><img src="./images/${news.image}" alt="image" style="width: 90px"/></th>
+                                                <th><img src="./images/news/${news.image}" alt="image" style="width: 90px"/></th>
                                                 <td>
                                                     <a href="${deleteLink}" onclick="if (!(confirm('Bạn có chắc chắn là xóa Tin Tức với id ${admin.id} này không?')))
                                                                 return false"><button style="background-color: red; color: white; border: none">Xóa <i class="fa fa-remove"></i></button></a>

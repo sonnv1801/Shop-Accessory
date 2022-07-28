@@ -125,7 +125,7 @@ public class NewsServlet extends HttpServlet {
 
     private void addNews(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
-
+        
         String idAdmin = request.getParameter("poster");
         String title = request.getParameter("title");
         String des = request.getParameter("des");

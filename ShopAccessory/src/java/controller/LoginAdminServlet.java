@@ -80,7 +80,7 @@ public class LoginAdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<<<<<<< HEAD
+
 //       response.setContentType("text/html;charset=UTF-8");
 //        try ( PrintWriter out = response.getWriter()) {
 //            String email = request.getParameter("username");
@@ -131,22 +131,22 @@ public class LoginAdminServlet extends HttpServlet {
 //            request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
 //        }
             
-=======
-      
->>>>>>> main
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         Admin user = new Admin(username, password);
         if (userDao.login(user) != "") {
             HttpSession session = request.getSession();
-           String fullUser = userDao.login(user);
-           String[] string = fullUser.split("--");
-           int iduser = Integer.parseInt(string[0]);
-           String image = string[1];
+
+            String fullUser = userDao.login(user);
+            String[] string = fullUser.split("--");
+            int iduser = Integer.parseInt(string[0]);
+            String image = string[1];
+            String name = string[2];
             System.out.println("image là:" + image);
-           Admin user2 = new Admin(iduser, image, username, password);
-           session.setAttribute("userLogin", user2);            
-           response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+            Admin user2 = new Admin(iduser, image,name, username, password);
+            session.setAttribute("userLogin", user2);
+            response.sendRedirect(request.getContextPath() + "/HomePage.jsp");
+
         } else {
             request.setAttribute("LoginAdmin", user);
             request.setAttribute("loginFail", "User name or password is incorrect");

@@ -2,44 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/dao/OrderDAO.java</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/entity/Order.java</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/cart.jsp</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/controller/Cart.java</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/controller/Pay.java</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/pay.jsp</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/entity/Admin.java</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/css/gioithieu.css</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/css/trangchu.css</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/gioithieu.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/css/slideshow.css</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/js/scrollnavba.js</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/js/backtoptop.js</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/controller/LoginAdminServlet.java</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/dao/AdminDao.java</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/js/slideshow.js</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/footer.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/body.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/src/java/controller/AdminControllerServlet.java</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/index.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/index.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/includes/footer.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/header.jsp</file>
-            <file>file:/D:/Projects/Java-FPT/Shop-Accessory/ShopAccessory/web/MinhThanh/views/slide.jsp</file>
-=======
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/web/tin/productDetails.jsp</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/dao/ProductsDAO.java</file>
-            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory/ShopAccessory/src/java/entity/Product.java</file>
->>>>>>> Tin
->>>>>>> main
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory-main/ShopAccessory/src/java/dao/OrderDao.java</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory-main/ShopAccessory/src/java/dao/AdminDao.java</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory-main/ShopAccessory/src/java/entity/OrderDetails.java</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory-main/ShopAccessory/src/java/controller/Pay.java</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory-main/ShopAccessory/web/css/history.css</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory-main/ShopAccessory/src/java/controller/AddAdmin.java</file>
+            <file>file:/D:/JavaFsoftNetBean/Shop-Accessory-main/ShopAccessory/web/tin/history.jsp</file>
         </group>
->>>>>>> main
     </open-files>
 </project-private>

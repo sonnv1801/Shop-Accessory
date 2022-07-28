@@ -23,6 +23,7 @@ public class ImageProducts {
         this.idproduct = idproduct;
         this.image = image;
     }
+
     
 //    Start getter
 

@@ -157,14 +157,16 @@ public final class QlAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                                        </p>\n");
       out.write("                                    </div>\n");
+      out.write("                         \n");
       out.write("                                    <div class=\"modal-body\">\n");
+      out.write("                                         \n");
       out.write("                                        <form action=\"");
       out.print(request.getContextPath());
       out.write("/AddAdmin\" method=\"post\"\n");
       out.write("                                              onsubmit=\"return validateRegister()\" name=\"frm-register\">\n");
       out.write("                                            <div class=\"mb-3\">\n");
       out.write("                                                <label for=\"recipient-name\" class=\"col-form-label\">Hình Ảnh</label>\n");
-      out.write("                                                <input type=\"text\" required name=\"avatar\" class=\"form-control\" id=\"recipient-name\" placeholder=\"Nhập tên hình ảnh\">\n");
+      out.write("                                                <input type=\"file\" required name=\"avatar\" class=\"form-control\" id=\"recipient-name\" placeholder=\"Nhập tên hình ảnh\">\n");
       out.write("                                            </div>\n");
       out.write("                                            <div class=\"mb-3\">\n");
       out.write("                                                <label for=\"recipient-name\" class=\"col-form-label\">Tên Admin</label>\n");
@@ -182,6 +184,9 @@ public final class QlAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                <button type=\"submit\" class=\"btn btn-primary\">Save</button>\n");
       out.write("                                        </form>\n");
       out.write("                                    </div>\n");
+      out.write("                                                       ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
       out.write("\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
@@ -201,7 +206,7 @@ public final class QlAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </thead>\n");
       out.write("                                    <tbody>\n");
       out.write("                                        ");
-      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+      if (_jspx_meth_c_forEach_1(_jspx_page_context))
         return;
       out.write("\n");
       out.write("                                            </td>\n");
@@ -244,33 +249,19 @@ public final class QlAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
     _jspx_th_c_forEach_0.setParent(null);
     _jspx_th_c_forEach_0.setVar("admin");
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listNews}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${adminlist}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
     try {
       int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\n");
-          out.write("                                            <!-- set up a link for each admin -->\n");
-          out.write("                                            ");
-          if (_jspx_meth_c_url_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
-            return true;
-          out.write("\n");
-          out.write("                                            <!-- set up a link to delete a admin -->\n");
-          out.write("                                            ");
-          if (_jspx_meth_c_url_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
-            return true;
           out.write("\n");
           out.write("                                            <tr>\n");
           out.write("                                                <th scope=\"row\">");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.idprt}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</th>\n");
-          out.write("                                                <td><img src=\"./images/");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.des}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" alt=\"image\" style=\"width: 44px;\"/> </td>\n");
-          out.write("                                                <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.daySubmit}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\n");
+          out.write("                                                \n");
           out.write("                                                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
@@ -303,32 +294,100 @@ public final class QlAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_url_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+  private boolean _jspx_meth_c_forEach_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_1.setParent(null);
+    _jspx_th_c_forEach_1.setVar("admin");
+    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${adminlist}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
+      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\n");
+          out.write("                                            <!-- set up a link for each admin -->\n");
+          out.write("                                            ");
+          if (_jspx_meth_c_url_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
+            return true;
+          out.write("\n");
+          out.write("                                            <!-- set up a link to delete a admin -->\n");
+          out.write("                                            ");
+          if (_jspx_meth_c_url_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
+            return true;
+          out.write("\n");
+          out.write("                                            <tr>\n");
+          out.write("                                                <th scope=\"row\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</th>\n");
+          out.write("                                                <td><img src=\"./images/");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.avatar}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" alt=\"image\" style=\"width: 44px;\"/> </td>\n");
+          out.write("                                                <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.username}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\n");
+          out.write("                                                <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\n");
+          out.write("                                                <td>\n");
+          out.write("                                                    <a href=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${deleteLink}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" onclick=\"if (!(confirm('Bạn có chắc chắn là xóa Admin này không?')))\n");
+          out.write("                                                                return false\"><button style=\"background-color: red; color: white; border: none\">Xóa <i class=\"fa fa-remove\"></i></button></a>\n");
+          out.write("                                                    <a href=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tempLink}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\"><button style=\"background-color: green; color: white; border: none\" data-bs-toggle=\"modal\" data-bs-target=\"#staticBackdrop\">Sửa <i class=\"fa fa-edit\"></i></button></a>\n");
+          out.write("\n");
+          out.write("                                                ");
+          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_1.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_1);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_url_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:url
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_var_value.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_url_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_url_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_c_url_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_1);
     _jspx_th_c_url_0.setVar("tempLink");
     _jspx_th_c_url_0.setValue("AdminControllerServlet");
     int _jspx_eval_c_url_0 = _jspx_th_c_url_0.doStartTag();
     if (_jspx_eval_c_url_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       if (_jspx_eval_c_url_0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
         out = _jspx_page_context.pushBody();
-        _jspx_push_body_count_c_forEach_0[0]++;
+        _jspx_push_body_count_c_forEach_1[0]++;
         _jspx_th_c_url_0.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
         _jspx_th_c_url_0.doInitBody();
       }
       do {
         out.write("\n");
         out.write("                                                ");
-        if (_jspx_meth_c_param_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_url_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+        if (_jspx_meth_c_param_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_url_0, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
           return true;
         out.write("\n");
         out.write("                                                ");
-        if (_jspx_meth_c_param_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_url_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+        if (_jspx_meth_c_param_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_url_0, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
           return true;
         out.write("\n");
         out.write("\n");
@@ -339,7 +398,7 @@ public final class QlAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
       } while (true);
       if (_jspx_eval_c_url_0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE)
         out = _jspx_page_context.popBody();
-        _jspx_push_body_count_c_forEach_0[0]--;
+        _jspx_push_body_count_c_forEach_1[0]--;
     }
     if (_jspx_th_c_url_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_url_var_value.reuse(_jspx_th_c_url_0);
@@ -349,7 +408,7 @@ public final class QlAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_param_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_url_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+  private boolean _jspx_meth_c_param_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_url_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
@@ -368,7 +427,7 @@ public final class QlAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_param_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_url_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+  private boolean _jspx_meth_c_param_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_url_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
@@ -387,32 +446,32 @@ public final class QlAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_url_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+  private boolean _jspx_meth_c_url_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:url
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_var_value.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_url_1.setPageContext(_jspx_page_context);
-    _jspx_th_c_url_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_c_url_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_1);
     _jspx_th_c_url_1.setVar("deleteLink");
     _jspx_th_c_url_1.setValue("AdminControllerServlet");
     int _jspx_eval_c_url_1 = _jspx_th_c_url_1.doStartTag();
     if (_jspx_eval_c_url_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       if (_jspx_eval_c_url_1 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
         out = _jspx_page_context.pushBody();
-        _jspx_push_body_count_c_forEach_0[0]++;
+        _jspx_push_body_count_c_forEach_1[0]++;
         _jspx_th_c_url_1.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
         _jspx_th_c_url_1.doInitBody();
       }
       do {
         out.write("\n");
         out.write("                                                ");
-        if (_jspx_meth_c_param_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_url_1, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+        if (_jspx_meth_c_param_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_url_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
           return true;
         out.write("\n");
         out.write("                                                ");
-        if (_jspx_meth_c_param_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_url_1, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+        if (_jspx_meth_c_param_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_url_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
           return true;
         out.write("\n");
         out.write("\n");
@@ -423,7 +482,7 @@ public final class QlAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
       } while (true);
       if (_jspx_eval_c_url_1 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE)
         out = _jspx_page_context.popBody();
-        _jspx_push_body_count_c_forEach_0[0]--;
+        _jspx_push_body_count_c_forEach_1[0]--;
     }
     if (_jspx_th_c_url_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_url_var_value.reuse(_jspx_th_c_url_1);
@@ -433,7 +492,7 @@ public final class QlAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_param_2(javax.servlet.jsp.tagext.JspTag _jspx_th_c_url_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+  private boolean _jspx_meth_c_param_2(javax.servlet.jsp.tagext.JspTag _jspx_th_c_url_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
@@ -452,7 +511,7 @@ public final class QlAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_param_3(javax.servlet.jsp.tagext.JspTag _jspx_th_c_url_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+  private boolean _jspx_meth_c_param_3(javax.servlet.jsp.tagext.JspTag _jspx_th_c_url_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();

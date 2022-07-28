@@ -7,7 +7,11 @@ package entity;
 
 /**
  *
+<<<<<<< HEAD
+ * @author PC
+=======
  * @author Tin_Ngo
+>>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
  */
 public class Order {
     private int idorder;
@@ -20,17 +24,16 @@ public class Order {
     private String nameSP;
     private int soluongmua;
     private int price;
-    
+
     public Order() {
     }
     
-    // chi tiết
-    public Order(int price, int quantity) {
+    // thêm vào Order Details
+    public Order(int soluongmua, int price) {
+        this.soluongmua = soluongmua;
         this.price = price;
-        this.soluongmua = quantity;
     }
-
-    //order thường
+    
     public Order(int idproduct, int iduser, int total, String datecreate, int condition) {
         this.idproduct = idproduct;
         this.iduser = iduser;
@@ -39,55 +42,72 @@ public class Order {
         this.condition = condition;
     }
     
+    public Order(int idorder, int idproduct, int iduser, int total, String datecreate, int condition) {
+        this.idorder = idorder;
+        this.idproduct = idproduct;
+        this.iduser = iduser;
+        this.total = total;
+        this.datecreate = datecreate;
+        this.condition = condition;
+    }
+
 
     public int getIdorder() {
         return idorder;
-    }
-
-    public int getIdproduct() {
-        return idproduct;
-    }
-
-    public int getIduser() {
-        return iduser;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public String getDatecreate() {
-        return datecreate;
-    }
-
-    public int getCondition() {
-        return condition;
     }
 
     public void setIdorder(int idorder) {
         this.idorder = idorder;
     }
 
+    public int getIdproduct() {
+        return idproduct;
+    }
+
     public void setIdproduct(int idproduct) {
         this.idproduct = idproduct;
+    }
+
+    public int getIduser() {
+        return iduser;
     }
 
     public void setIduser(int iduser) {
         this.iduser = iduser;
     }
 
+    public int getTotal() {
+        return total;
+    }
+
     public void setTotal(int total) {
         this.total = total;
+    }
+
+    public String getDatecreate() {
+        return datecreate;
     }
 
     public void setDatecreate(String datecreate) {
         this.datecreate = datecreate;
     }
 
+    public int getCondition() {
+        return condition;
+    }
+
+   
+
     public void setCondition(int condition) {
         this.condition = condition;
     }
 
+    @Override
+    public String toString() {
+        return "Order{" + "idorder=" + idorder + ", idproduct=" + idproduct + ", iduser=" + iduser + ", total=" + total + ", datecreate=" + datecreate + ", condition=" + condition + '}';
+    }
+    
+    
     public String getNameSP() {
         return nameSP;
     }
@@ -112,5 +132,5 @@ public class Order {
         this.price = price;
     }
     
-    
+
 }

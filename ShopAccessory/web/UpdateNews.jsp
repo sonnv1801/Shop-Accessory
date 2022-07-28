@@ -24,9 +24,7 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                    <div class="navbar-admin">
-                        <i class="fa fa-bars"></i>
-                    </div>
+                    <%@include file="dayandclockAdmin.jsp" %>
                     <div class="container backgroud-all-update">
                         <h1>UPDATE Tin Tức</h1>
                          <form action="NewsServlet" method="GET">

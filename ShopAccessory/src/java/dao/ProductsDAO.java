@@ -26,13 +26,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
+
 public class ProductsDAO {
         
     public List<Product> selectLimitProduct(int limit) throws Exception {
        DBUtil db = DBUtil.getInstance();
        String query = "SELECT Products.*,ProductType.name,ProductImage.image FROM ((Products\n" +
                       "INNER JOIN ProductType ON Products.idprt = ProductType.idprt)\n" +
-                      "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct)";
+                      "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct) ORDER BY idproduct DESC";
        List<Product> listProducts = new ArrayList<>();
        Connection conn = null;
        try{
@@ -70,7 +71,6 @@ public class ProductsDAO {
         String sql = "SELECT Products.*,ProductType.name,ProductImage.image FROM ((Products\n" +
                       "INNER JOIN ProductType ON Products.idprt = ProductType.idprt)\n" +
                       "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct)";
-
         Connection con = null;
         try {
             con = db.getConnection();
@@ -78,6 +78,7 @@ public class ProductsDAO {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 list.add(new Product(rs.getInt(1),
+
                                     rs.getInt(2),
                                     rs.getInt(3),
                                     rs.getString(4),
@@ -88,21 +89,25 @@ public class ProductsDAO {
                                     rs.getString(9),
                                     rs.getString(10),
                                     rs.getString(11)));
+
             }
         } catch (Exception e) {
             System.out.println("" + e);
         }
         return list;
     }
+
     
 
     
     
     public List<ImageProducts> getImageOfProduct(int idproduct) throws Exception{
+
         List<ImageProducts> images = new ArrayList<>();
         DBUtil db = DBUtil.getInstance();
         String sql = "SELECT * FROM ProductImage WHERE idproduct=?";
         Connection conn = null;
+
         
         try {
             conn = db.getConnection();
@@ -110,6 +115,7 @@ public class ProductsDAO {
             ps.setInt(1,idproduct);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
+
                 images.add(new ImageProducts(rs.getInt(1), rs.getInt(2), rs.getString(3)));
             }
         } catch (Exception e) {
@@ -117,6 +123,7 @@ public class ProductsDAO {
         }
         return images;
     }
+
     
     
     public Product GetProductDetails(int idproduct)throws Exception{
@@ -127,6 +134,7 @@ public class ProductsDAO {
                     "INNER JOIN ProductImage ON Products.idproduct = ProductImage.idproduct)\n"+
                     "WHERE Products.idproduct = ?";
         try{
+
             Connection conn = db.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idproduct);
@@ -135,11 +143,13 @@ public class ProductsDAO {
                 product = new Product(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),rs.getInt(6), rs.getInt(7),rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
             }
         }catch(Exception e){
+
             e.printStackTrace();
             System.out.println("Error ở đây dao.ProductsDAO.GetProductDetails()");
         }
         return product;
     }
+
     
     public List<Color> GetAllColor() throws Exception{
         List<Color> colors = new ArrayList<>();
@@ -153,10 +163,12 @@ public class ProductsDAO {
                 colors.add(new Color(rs.getString(1)));
             }
         }catch(Exception e){
+
             e.printStackTrace();
         }
         return colors;
     }
+
     
     
      public List<Size> GetAllSize() throws Exception{
@@ -171,10 +183,12 @@ public class ProductsDAO {
                 sizes.add(new Size(rs.getString(1)));
             }
         }catch(Exception e){
+
             e.printStackTrace();
         }
         return sizes;
     }
+
      
      
      public List<Comments> getCommentProduct(int idproduct){
@@ -273,4 +287,135 @@ public class ProductsDAO {
 //        ProductsDAO p = new ProductsDAO();
 //        p.getSimilarProduct(7);
 //    }
+
+
+    public boolean InsertProduct(Product product, String img) {
+        DBUtil db = DBUtil.getInstance();
+        String sql = "INSERT Products(idadmin,idprt,name,description,quantity,price,color,size) VALUES (?,?,?,?,?,?,?,?);\n";
+
+        Connection con = null;
+        try {
+
+            con = db.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1, product.getIdadmin());
+            statement.setInt(2, product.getIdprt());
+            statement.setString(3, product.getName());
+            statement.setString(4, product.getDescription());
+            statement.setInt(5, product.getQuantity());
+            statement.setInt(6, product.getPrice());
+            statement.setString(7, product.getColor());
+            statement.setString(8, product.getSize());
+            int rs = statement.executeUpdate();
+            if (rs == 1) {
+                lastID();
+                InsertImageProduct(img);
+                System.out.println("ok");
+                return true;
+            }
+
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+        return false;
+    }
+
+    public static int count;
+
+    public void lastID() {
+
+        DBUtil db = DBUtil.getInstance();
+        String sql = "SELECT MAX(idproduct) as lastID From Products";
+
+        Connection con = null;
+        Product product = null;
+        try {
+
+            con = db.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+
+            System.out.println("lastID =" + count);
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+    }
+
+    public void InsertImageProduct(String img) {
+        DBUtil db = DBUtil.getInstance();
+        String sql = "INSERT ProductImage(idproduct,image) VALUES (?,?)";
+
+        Connection con = null;
+        try {
+
+            con = db.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1, count);
+            statement.setString(2, img);
+
+            statement.execute();
+            System.out.println("ok");
+
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+    }
+    
+    
+   
+
+    
+
+    public void updateImg(ImageProducts img) throws Exception {
+        DBUtil db = DBUtil.getInstance();
+        String sql = "UPDATE ProductImage \n"
+                + "SET image=? \n"
+                + "WHERE idimgproduct = ?;";
+
+        Connection con = null;
+        PreparedStatement statement = null;
+
+        try {
+            con = db.getConnection();
+            statement = con.prepareStatement(sql);
+            statement.setString(1, img.getImage());
+            statement.setInt(2, img.getIdimgproduct());
+            statement.execute();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProductsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                statement.close();
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(ProductsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public void updateQuantityProduct_Ordered(int idproduct, int quantity){
+        DBUtil db = new DBUtil();
+        String sql = "UPDATE Products SET quantity=(Products.quantity - ?) WHERE idproduct=?";
+        try {
+            Connection conn = db.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, quantity);
+            ps.setInt(2, idproduct);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+//    public static void main(String[] args){
+//        selectLimitProduct(5);
+//    }
+
+
 }
