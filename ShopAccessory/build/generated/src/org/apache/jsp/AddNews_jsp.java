@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.text.SimpleDateFormat;
 
 public final class AddNews_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -52,7 +53,10 @@ public final class AddNews_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("\n");
- System.out.println(java.time.LocalDate.now());  
+ long millis = System.currentTimeMillis();
+    java.sql.Date date = new java.sql.Date(millis);
+
+      out.write("\n");
       out.write("\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -73,7 +77,10 @@ public final class AddNews_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
@@ -86,7 +93,9 @@ public final class AddNews_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("        <div class=\"menu-left\">\n");
       out.write("            <div class=\"menu-top\">\n");
-      out.write("                <img src=\"./images/iconUsers.png\" alt=\"imageUser\"/>\n");
+      out.write("                <img src=\"./images/");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userLogin.avatar}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" alt=\"image\" style=\"width: 44px;\" alt=\"imageUser\"/>\n");
       out.write("                <h4>Admin Web Accessory</h4>\n");
       out.write("                <hr/>\n");
       out.write("                <h6>Menu Admin</h6>\n");
@@ -111,14 +120,17 @@ public final class AddNews_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                </div>\n");
       out.write("                <div class=\"col-xl-9\">\n");
-      out.write("                    <div class=\"navbar-admin\">\n");
-      out.write("                        <div class=\"navbar-admin\">\n");
-      out.write("                            <i class=\"fa fa-bars\"></i>\n");
-      out.write("                            <i class=\"fa fa-user-circle\"><p style=\"color: #33ccff; display: inline-block; padding: 0px 13px; text-transform: uppercase;\">Xin Chào: ");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userLogin.username}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("                     <div class=\"navbar-admin\">\n");
+      out.write("            <div class=\"navbar-admin\">\n");
+      out.write("                <i class=\"fa fa-bars\"></i>\n");
+      out.write("                <i class=\"fa fa-user-circle\"><p style=\"color: #ffcf00; display: inline-block; padding: 0px 13px; text-transform: uppercase\">Xin Chào: ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userLogin.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</p></i>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
+      out.write("                <i class=\"fa fa-calendar\" style=\" font-size: 20px;\"><p style=\"color: #ffcf00; display: inline-block; padding: 0px 13px; text-transform: uppercase;\">");
+      out.print( date);
+      out.write("</p></i>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
       out.write("                    <div style=\"margin: 55px 0px;\">\n");
       out.write("                        <div class=\"container backgroud-all-update\">\n");
       out.write("                            <h1>Add News</h1>\n");
@@ -132,6 +144,8 @@ public final class AddNews_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    color: #83ea87;\">");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${trueAdd}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</h1>\n");
+      out.write("\n");
+      out.write("\n");
       out.write("                                <div class=\"mb-3\">\n");
       out.write("                                    <label for=\"recipient-name\" class=\"col-form-label\">Tiêu Đề</label>\n");
       out.write("                                    <input type=\"text\" name=\"title\" class=\"form-control\" id=\"recipient-name\" placeholder=\"Nhập tiêu đề\" required>\n");
@@ -142,7 +156,9 @@ public final class AddNews_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </div>\n");
       out.write("                                <div class=\"mb-3\">\n");
       out.write("                                    <label for=\"recipient-name\" class=\"col-form-label\">Ngày Tạo</label>\n");
-      out.write("                                    <input type=\"date\" name=\"daySubmit\" class=\"form-control\" id=\"recipient-name\" required>\n");
+      out.write("                                    <input type=\"date\" name=\"daySubmit\" value=\"");
+      out.print( date);
+      out.write("\" class=\"form-control\" id=\"recipient-name\" required>\n");
       out.write("                                </div>\n");
       out.write("                                <div class=\"mb-3\">\n");
       out.write("                                    <label for=\"recipient-name\" class=\"col-form-label\">Link Hình Ảnh</label>\n");
@@ -152,11 +168,11 @@ public final class AddNews_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    <label for=\"recipient-name\" class=\"col-form-label\">Người Đăng</label>\n");
       out.write("                                    <select class=\"form-select\" name=\"poster\" aria-label=\"Default select example\" required>\n");
       out.write("                                        <option value=\"\">Chọn Người Đăng</option>\n");
-      out.write("                                            <option value=\"");
+      out.write("                                        <option value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userLogin.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write('"');
       out.write('>');
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userLogin.username}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userLogin.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</option>\n");
       out.write("                                    </select>\n");
       out.write("                                </div>\n");

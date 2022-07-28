@@ -91,8 +91,6 @@
     <servlet-mapping>
         <servlet-name>AdminControllerServlet</servlet-name>
         <url-pattern>/AdminControllerServlet</url-pattern>
-<<<<<<< HEAD
-=======
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>NewsServlet</servlet-name>
@@ -113,7 +111,6 @@
     <servlet-mapping>
         <servlet-name>OrderServlet</servlet-name>
         <url-pattern>/OrderServlet</url-pattern>
->>>>>>> main
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddProductAdmin</servlet-name>

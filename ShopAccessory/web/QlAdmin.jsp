@@ -14,6 +14,12 @@
 
 
 <!DOCTYPE html>
+
+<c:if test="${userLogin == null}">
+    <%
+    response.sendRedirect("LoginAdmin.jsp");
+    %>
+</c:if>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -72,13 +78,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="container table-all" style="overflow: auto; height: 500px;">
+                        <div class="container table-all" style="overflow: auto; height: 550px;">
                             <div class="table-body">
                                 <h4>Danh Sách Admin</h4>
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
+                                            <th scope="col" style="color: #00ff79">#</th>
                                             <th scope="col">Hình Ảnh</th>
                                             <th scope="col">Tên Đăng Nhập</th>
                                             <th scope="col">Tên Admin</th>
@@ -106,7 +112,7 @@
 
                                             </c:url>
                                             <tr>
-                                                <th scope="row">${sothutu}</th>
+                                                <th scope="row" style="color: #00ff79">${sothutu}</th>
                                                 <td><img src="./images/${admin.avatar}" alt="image" style="width: 44px;"/> </td>
                                                 <td>${admin.username}</td>
                                                 <td>${admin.name}</td>

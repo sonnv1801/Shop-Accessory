@@ -1,0 +1,37 @@
+SMAP
+UpdateNews_jsp.java
+JSP
+*S JSP
+*F
++ 0 UpdateNews.jsp
+UpdateNews.jsp
++ 1 inclusesAdmin.jsp
+inclusesAdmin.jsp
++ 2 dayandclockAdmin.jsp
+dayandclockAdmin.jsp
+*L
+5,4:52
+9:56,3
+10:59
+11,2:61
+12,18:63
+5#1,19:81
+24:100,3
+25,10:103
+35:113,3
+36,9:116
+29#0,4:124
+5#2,10:128
+14,12:138
+26,2:150,3
+28,5:156
+32#0,5:160
+37:165,3
+38,2:168
+40:170,3
+41,3:173
+44:176,3
+45,3:179
+48:182,3
+49,13:185
+*E

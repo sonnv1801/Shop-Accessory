@@ -23,15 +23,7 @@ public class ImageProducts {
         this.idproduct = idproduct;
         this.image = image;
     }
-<<<<<<< HEAD
-=======
 
-       public ImageProducts(int ididimgproduct, String image) {
-        this.idimgproduct = ididimgproduct;
-        this.image = image;
-    }
-
->>>>>>> Admin
     
 //    Start getter
 

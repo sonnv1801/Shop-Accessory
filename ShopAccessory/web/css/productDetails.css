@@ -79,7 +79,7 @@
 }
 
 .sbnav__item__descripts p{
-    transform: translateY(120%);
+    transform: translateY(100%);
 }
 
 .subnav__item__img--new{
@@ -392,12 +392,26 @@ img.body_img_multi-img--disable{
     justify-content: center;
     align-items: center;
     margin-top: 24px;
+    margin-left: 20px;
 }
 
 .btnBuy a{
     color: #fff;
     text-decoration: none;
     display: block;
+}
+
+.btnBuy input{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    line-height: 40px;
+    background-color: #ee5978;
+}
+
+.btn_buy_input{
+    border: none;
 }
 
 .payments{
@@ -516,6 +530,10 @@ img.body_img_multi-img--disable{
     text-align: center;
 }
 
+.similar-products__item:hover{
+    box-shadow: 0px 5px 5px 5px rgb(0 0 0 / 10%);
+}
+
 .similar-products__item__img img{
     width: 278px;
     height: 278px;
@@ -555,6 +573,11 @@ img.body_img_multi-img--disable{
     font-weight: bold;
 }
 
+.similar-products__item__content--button:hover{
+    opacity: 0.7;
+    color: #fff;
+}
+
 /* COntent */
 .content_mota{
     display: block;
@@ -568,6 +591,25 @@ img.body_img_multi-img--disable{
 
 .content_evaluate{
     display: block;
+}
+
+.show_name-cmt{
+    border-top:1px solid #ddd;
+    padding-top: 16px;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.show__cmt{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 18px;
+    font-size: 15px;
+}   
+
+.show_star-cmt{
+    color: yellow;
+    font-size: 16px;
+    margin-left:-12px;
 }
 
 
@@ -592,6 +634,8 @@ img.body_img_multi-img--disable{
 
 .content_evaluate__content{
     margin: 20px 0 40px 0;
+    padding: 0 50px;
+    font-style: italic;
 }
 
 .form-add-evaluate{
@@ -601,7 +645,7 @@ img.body_img_multi-img--disable{
 .evaluate_header h1{
     font-weight: bold;
     text-align: center;
-    margin-top: 20px;
+    margin: 30px 0;
 }
 
 .evaluate_start .evaluate_start--action{
@@ -660,9 +704,11 @@ img.body_img_multi-img--disable{
     margin-bottom: 60px;
 }
 
-.evaluate__button a{
+.evaluate__button input{
     text-decoration: none;
     color: #fff;
+    background-color: transparent;
+    border: none;
 }
 
 .evaluate_start--action--selected{

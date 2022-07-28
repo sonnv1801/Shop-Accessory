@@ -32,9 +32,8 @@ public class ProductTypeDao {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt(1);
-                int idconvat = rs.getInt(2);
-                String name = rs.getString(3);
-                ProductType productType = new ProductType(id, idconvat, name);
+                String name = rs.getString(2);
+                ProductType productType = new ProductType(id, name);
                 sl.add(productType);
             }
             rs.close();

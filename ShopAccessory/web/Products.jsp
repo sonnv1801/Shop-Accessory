@@ -6,6 +6,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+
+<c:if test="${userLogin == null}">
+    <%
+        response.sendRedirect("LoginAdmin.jsp");
+    %>
+</c:if>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,13 +30,13 @@
                     <%@include file="inclusesAdmin.jsp" %>
                 </div>
                 <div class="col-xl-9">
-                     <%@include file="dayandclockAdmin.jsp" %>
+                    <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
                         <div class="container backgroud-all-update">
                             <h1>Add Products</h1>
                             <form action="<%=request.getContextPath()%>/AddProductAdmin" method="post"
                                   onsubmit="return validateRegister()" name="frm-register">
-                                  <h1 style="text-align: center;
+                                <h1 style="text-align: center;
                                     font-size: 23px;
                                     font-family: cursive;
                                     color: #83ea87;">${trueAdd}</h1>
@@ -39,7 +45,7 @@
                                     <label for="recipient-name" class="col-form-label">Người Đăng</label>
                                     <select class="form-select" name="poster" aria-label="Default select example" required>
                                         <option value="">Chọn Người Đăng</option>
-                                            <option value="1">${userLogin.name}</option>
+                                        <option value="1">${userLogin.name}</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
@@ -56,8 +62,8 @@
                                     <input type="text" name="name" required class="form-control" id="recipient-name" placeholder="Nhập tên sản phẩm">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Mô Tả</label>
-                                    <input type="text" name="description" required class="form-control" id="recipient-name" placeholder="Nhập mô tả">
+                                    <label for="message-text" class="col-form-label">Mô Tả</label>
+                                    <textarea class="form-control" name="description" id="message-text" required >${THE_PR.description.toString().trim()}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Số Lượng</label>
@@ -73,13 +79,18 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Kích Cỡ</label>
-                                    <input type="text" name="size" required class="form-control" id="recipient-name" placeholder="Nhập kích cỡ">
+                                    <select class="form-select" name="size" aria-label="Default select example" required>
+                                        <option value="">Chọn Kích Cỡ</option>
+                                        <option value="L">Lớn</option>
+                                        <option value="M">Vừa</option>
+                                        <option value="S">Nhỏ</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Hình Ảnh</label>
                                     <input type="file" required name="image" class="form-control" id="recipient-name" placeholder="Nhập tên hình ảnh">
                                 </div>
-                                 <button type="submit" class="btn btn-success">Save</button>
+                                <button type="submit" class="btn btn-success">Save</button>
                                 <a id="back" href="ProductsServlet"><i class="fa fa-arrow-circle-o-left" style="font-size:36px"></i></a>
                             </form>
                         </div>

@@ -14,6 +14,12 @@
 
 
 <!DOCTYPE html>
+
+<c:if test="${userLogin == null}">
+    <%
+    response.sendRedirect("LoginAdmin.jsp");
+    %>
+</c:if>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -34,13 +40,13 @@
                     <%@include file="dayandclockAdmin.jsp" %>
                     <div style="margin: 55px 0px;">
                         <a href="PosterAdminServlet"><button type="button" class="btn btn-secondary button-add-a dmin">Thêm Tin Tức</button></a>
-                        <div class="container table-all" style="overflow: auto; height: 500px;">
+                        <div class="container table-all" style="overflow: auto; height: 550px;">
                             <div class="table-body">
                                 <h4>Danh Sách Tin Tức</h4>
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
+                                            <th scope="col" style="color: #00ff79">#</th>
                                             <th scope="col">Tiêu Đề</th>
                                             <th scope="col">Nội Dung</th>
                                             <th scope="col">Ngày Tạo</th>
@@ -67,11 +73,11 @@
 
                                             </c:url>
                                             <tr>
-                                                <th scope="row">${sothutu}</th>
+                                                <th scope="row" style="color: #00ff79">${sothutu}</th>
                                                 <th >${news.title}</th>
                                                 <th >${news.des}</th>
                                                 <th >${news.dateSubmit}</th>
-                                                <th><img src="./images/${news.image}" alt="image" style="width: 90px"/></th>
+                                                <th><img src="./images/news/${news.image}" alt="image" style="width: 90px"/></th>
                                                 <td>
                                                     <a href="${deleteLink}" onclick="if (!(confirm('Bạn có chắc chắn là xóa Tin Tức với id ${admin.id} này không?')))
                                                                 return false"><button style="background-color: red; color: white; border: none">Xóa <i class="fa fa-remove"></i></button></a>

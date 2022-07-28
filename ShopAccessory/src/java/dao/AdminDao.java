@@ -22,7 +22,6 @@ import java.util.logging.Logger;
  */
 public class AdminDao {
 
-
     public String login(Admin user) {
         DBUtil db = DBUtil.getInstance();
         String sql = "select * from Admin where username=? and password=?";
@@ -37,15 +36,10 @@ public class AdminDao {
             ResultSet rs = statement.executeQuery();
             
             if (rs.next()) {
-<<<<<<< HEAD
-                System.out.println("Success test đăng nhập thành công");
-                return true;
-=======
-               
-                result= result+ rs.getInt(1)+ "--"+rs.getString(2)+"--"+rs.getString(3);
-                System.out.println("" + result);
+                System.out.println(rs.getInt(1));
+                result = result+rs.getInt(1)+"--"+rs.getString(2)+"--"+rs.getString(3);
+                System.out.println("test----------"+result);
                 return result;
->>>>>>> Admin
             }
 
         } catch (Exception ex) {

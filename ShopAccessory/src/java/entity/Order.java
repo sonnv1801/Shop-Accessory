@@ -7,9 +7,14 @@ package entity;
 
 /**
  *
- * @author PC
+ * <<<<<<< HEAD
+ * @a
+ *
+ * uthor PC =======
+ * @author Tin_Ngo >>>>>>> d128c88d808bc64a2eaa8ed0ffaecb1ecc57faac
  */
 public class Order {
+
     private int idorder;
     private int idproduct;
     private int iduser;
@@ -17,7 +22,19 @@ public class Order {
     private String datecreate;
     private int condition;
 
+    private String nameSP;
+    private int soluongmua;
+    private int price;
+
     public Order() {
+    }
+
+    public Order(int idproduct, int iduser, int total, String datecreate, int condition) {
+        this.idproduct = idproduct;
+        this.iduser = iduser;
+        this.total = total;
+        this.datecreate = datecreate;
+        this.condition = condition;
     }
 
     public Order(int idorder, int idproduct, int iduser, int total, String datecreate, int condition) {
@@ -27,6 +44,12 @@ public class Order {
         this.total = total;
         this.datecreate = datecreate;
         this.condition = condition;
+    }
+
+    public Order(int price, int soluongmua) {
+        this.price = price;
+        this.soluongmua = soluongmua;
+
     }
 
     public int getIdorder() {
@@ -81,7 +104,29 @@ public class Order {
     public String toString() {
         return "Order{" + "idorder=" + idorder + ", idproduct=" + idproduct + ", iduser=" + iduser + ", total=" + total + ", datecreate=" + datecreate + ", condition=" + condition + '}';
     }
-    
-    
-    
+
+    public String getNameSP() {
+        return nameSP;
+    }
+
+    public int getSoluongmua() {
+        return soluongmua;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setNameSP(String nameSP) {
+        this.nameSP = nameSP;
+    }
+
+    public void setSoluongmua(int soluongmua) {
+        this.soluongmua = soluongmua;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
 }

@@ -11,12 +11,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
-  static {
-    _jspx_dependants = new java.util.ArrayList<String>(2);
-    _jspx_dependants.add("/includes/navbar.jsp");
-    _jspx_dependants.add("/includes/footer.jsp");
-  }
-
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
@@ -57,39 +51,55 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        ");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <link href=\"css/css.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
-      out.write("        <title>JSP Page</title>\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        <h1 class=\"ok\">Đây là Navbar</h1>\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
-      out.write("\n");
-      out.write("        <h1>Body</h1>\n");
-      out.write("        ");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>JSP Page</title>\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        <h1>Đây là Footer</h1>\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
-      out.write("\n");
-      out.write("        <a href=\"AdminControllerServlet\">Go To</a>\n");
+      out.write("       <h3>Number Format:</h3>\n");
+      out.write("      <c:set var = \"balance\" value = \"120000.2309\" />\n");
+      out.write("         \n");
+      out.write("      <p>Formatted Number (1): <fmt:formatNumber value = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${balance}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" \n");
+      out.write("         type = \"currency\"/></p>\n");
+      out.write("         \n");
+      out.write("      <p>Formatted Number (2): <fmt:formatNumber type = \"number\" \n");
+      out.write("         maxIntegerDigits = \"3\" value = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${balance}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" /></p>\n");
+      out.write("         \n");
+      out.write("      <p>Formatted Number (3): <fmt:formatNumber type = \"number\" \n");
+      out.write("         maxFractionDigits = \"3\" value = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${balance}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" /></p>\n");
+      out.write("         \n");
+      out.write("      <p>Formatted Number (4): <fmt:formatNumber type = \"number\" \n");
+      out.write("         groupingUsed = \"false\" value = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${balance}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" /></p>\n");
+      out.write("         \n");
+      out.write("      <p>Formatted Number (5): <fmt:formatNumber type = \"percent\" \n");
+      out.write("         maxIntegerDigits=\"3\" value = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${balance}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" /></p>\n");
+      out.write("         \n");
+      out.write("      <p>Formatted Number (6): <fmt:formatNumber type = \"percent\" \n");
+      out.write("         minFractionDigits = \"10\" value = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${balance}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" /></p>\n");
+      out.write("         \n");
+      out.write("      <p>Formatted Number (7): <fmt:formatNumber type = \"percent\" \n");
+      out.write("         maxIntegerDigits = \"3\" value = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${balance}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" /></p>\n");
+      out.write("         \n");
+      out.write("      <p>Formatted Number (8): <fmt:formatNumber type = \"number\" \n");
+      out.write("         pattern = \"###.###E0\" value = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${balance}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" /></p>\n");
+      out.write("         \n");
+      out.write("      <p>Currency in USA :\n");
+      out.write("         <fmt:setLocale value = \"en_US\"/>\n");
+      out.write("         <fmt:formatNumber value = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${balance}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" type = \"currency\"/>\n");
+      out.write("      </p>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

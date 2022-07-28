@@ -7,6 +7,7 @@ package controller;
 
 import dao.OrderDao;
 import entity.Order;
+import entity.OrderDetails;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -69,6 +70,10 @@ public class OrderServlet extends HttpServlet {
             switch (theCommand) {
                 case "LIST":
                     listOrders(request, response);
+                    break;
+                case "VIEW":
+                    System.out.println("ok roi");
+                    viewOrder(request, response);
                     break;
                 case "UPDATE":
                     updateOrder(request, response);
@@ -140,4 +145,13 @@ public class OrderServlet extends HttpServlet {
         new OrderDao().deleteOrder(TheOrderId);
         listOrders(request, response);
     }
+
+    private void viewOrder(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String TheOrderId = request.getParameter("orderId");
+        OrderDetails order = new OrderDao().viewOrder(TheOrderId);
+        request.setAttribute("THE_ORDER", order);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ViewOrder.jsp");
+        dispatcher.forward(request, response);
+    }
+
 }
